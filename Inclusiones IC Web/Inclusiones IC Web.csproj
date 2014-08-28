@@ -73,6 +73,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Comite.Master" />
+    <Content Include="Estudiantes.Master" />
     <None Include="Scripts\jquery-1.9.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -88,9 +89,11 @@
     <Compile Include="Comite.Master.designer.cs">
       <DependentUpon>Comite.Master</DependentUpon>
     </Compile>
-    <Compile Include="Estudiantes.Master.cs" />
+    <Compile Include="Estudiantes.Master.cs">
+      <DependentUpon>Estudiantes.Master</DependentUpon>
+    </Compile>
     <Compile Include="Estudiantes.Master.designer.cs">
-      <DependentUpon>Estudiantes.Master.cs</DependentUpon>
+      <DependentUpon>Estudiantes.Master</DependentUpon>
     </Compile>
     <Compile Include="ModuloComite\PeriodoyFechas.aspx.cs">
       <DependentUpon>PeriodoyFechas.aspx</DependentUpon>
