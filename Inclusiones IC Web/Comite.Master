@@ -20,7 +20,7 @@
               </div>
               <div class="navbar-collapse collapse" id="navbar-main">
                   <div class="nav navbar-nav navbar-right">                  
-                   <asp:Button ID="btnIniciaSesion" runat="server" CssClass="btn btn-primary navbar-btn" Text="Iniciar Sesión" />                
+                   <asp:Button ID="btnIniciaSesion" runat="server" CssClass="btn btn-primary navbar-btn" Text="Cerrar Sesión" />                
               </div>  
               </div>
                           
