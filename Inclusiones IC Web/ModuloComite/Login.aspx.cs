@@ -17,6 +17,8 @@ namespace Inclusiones_IC_Web.ModuloComite
         {
             string _username = username.Value;
             string _password = password.Value;
+
+            Response.Redirect("~/ModuloComite/menuComite.aspx");
         }
     }
 }
