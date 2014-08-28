@@ -16,7 +16,7 @@ namespace InclusionesIC_Proyecto
 
         protected void btnIniciaSesion_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/ModuloComite/Login.aspx");
         }
     }
 }

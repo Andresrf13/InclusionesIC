@@ -64,6 +64,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Imagenes\Lupa.jpg" />
     <Content Include="Imagenes\registro.png" />
+    <Content Include="ModuloComite\Login.aspx" />
     <Content Include="ModuloComite\PeriodoyFechas.aspx" />
     <Content Include="ModuloEstudiante\Inicio.aspx" />
     <Content Include="packages.config" />
@@ -85,15 +86,24 @@
   <ItemGroup>
     <Compile Include="Comite.Master.cs">
       <DependentUpon>Comite.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Comite.Master.designer.cs">
       <DependentUpon>Comite.Master</DependentUpon>
     </Compile>
     <Compile Include="Estudiantes.Master.cs">
       <DependentUpon>Estudiantes.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Estudiantes.Master.designer.cs">
       <DependentUpon>Estudiantes.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ModuloComite\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuloComite\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="ModuloComite\PeriodoyFechas.aspx.cs">
       <DependentUpon>PeriodoyFechas.aspx</DependentUpon>
