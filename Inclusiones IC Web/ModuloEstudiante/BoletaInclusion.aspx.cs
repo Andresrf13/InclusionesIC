@@ -13,5 +13,18 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
         {
 
         }
+
+        protected void rbnoRN_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbnoRN.Checked)
+            {
+                divRN.Visible = false;
+            }
+            else if (rbsiRN.Checked)
+            {
+                divRN.Visible = true;
+            }
+        }
+
     }
 }
