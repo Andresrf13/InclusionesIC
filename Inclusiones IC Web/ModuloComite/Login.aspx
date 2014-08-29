@@ -12,9 +12,8 @@
                     <input id="password" runat="server" type="password" class="form-control" placeholder="Password" required="" />
                     <asp:Button ID="btnIniciar" runat="server" CssClass="btn btn-lg btn-primary btn-block" Text="Iniciar Sesión" OnClick="btnIniciar_Click" />
                 </div>                
-                 <div class="col-md-4"></div>
-               
+                 <div class="col-md-4"></div>               
             </div>             
         </div>
-    </div>
+    </div>    
 </asp:Content>
