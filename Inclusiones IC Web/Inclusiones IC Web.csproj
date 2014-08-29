@@ -71,6 +71,7 @@
     <Content Include="Imagenes\reportes.jpg" />
     <Content Include="ModuloComite\Login.aspx" />
     <Content Include="ModuloComite\menuComite.aspx" />
+    <Content Include="ModuloComite\OfertaAcademica.aspx" />
     <Content Include="ModuloComite\PeriodoyFechas.aspx" />
     <Content Include="ModuloEstudiante\Imprimir_Guardar.aspx" />
     <Content Include="ModuloEstudiante\Inicio.aspx" />
@@ -119,6 +120,13 @@
     </Compile>
     <Compile Include="ModuloComite\menuComite.aspx.designer.cs">
       <DependentUpon>menuComite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModuloComite\OfertaAcademica.aspx.cs">
+      <DependentUpon>OfertaAcademica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuloComite\OfertaAcademica.aspx.designer.cs">
+      <DependentUpon>OfertaAcademica.aspx</DependentUpon>
     </Compile>
     <Compile Include="ModuloComite\PeriodoyFechas.aspx.cs">
       <DependentUpon>PeriodoyFechas.aspx</DependentUpon>
