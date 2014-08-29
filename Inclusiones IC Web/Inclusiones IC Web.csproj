@@ -74,6 +74,7 @@
     <Content Include="ModuloComite\PeriodoyFechas.aspx" />
     <Content Include="ModuloEstudiante\Imprimir_Guardar.aspx" />
     <Content Include="ModuloEstudiante\Inicio.aspx" />
+    <Content Include="ModuloEstudiante\VisualizarBoleta.aspx" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -139,6 +140,13 @@
     </Compile>
     <Compile Include="ModuloEstudiante\Inicio.aspx.designer.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModuloEstudiante\VisualizarBoleta.aspx.cs">
+      <DependentUpon>VisualizarBoleta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuloEstudiante\VisualizarBoleta.aspx.designer.cs">
+      <DependentUpon>VisualizarBoleta.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
