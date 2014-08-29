@@ -13,5 +13,10 @@ namespace InclusionesIC_Proyecto.ModuloEstudiante
         {
 
         }
+
+        protected void Unnamed_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("~/ModuloEstudiante/BoletaInclusion.aspx");
+        }
     }
 }

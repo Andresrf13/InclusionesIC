@@ -23,5 +23,10 @@ namespace Inclusiones_IC_Web.ModuloComite
         {
             Response.Redirect("~/ModuloComite/PeriodoyFechas.aspx");
         }
+
+        protected void lbtnadminProfes_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/ModuloComite/OfertaAcademica.aspx");
+        }
     }
 }

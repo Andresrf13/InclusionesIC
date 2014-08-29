@@ -16,7 +16,7 @@
                 <div class="col-md-6" style="text-align: center">
                     <div class="btn-group-vertical">
                         <h2>Solicitar Inclusión</h2>
-                        <asp:ImageButton runat="server" ImageUrl="../Imagenes/registro.png" CssClass="img-responsive"></asp:ImageButton>
+                        <asp:ImageButton runat="server" OnClick="Unnamed_Click" ID="ibtnSolicitar" ImageUrl="../Imagenes/registro.png" CssClass="img-responsive"></asp:ImageButton>
                     </div>
 
 
@@ -24,7 +24,7 @@
                 <div class="col-md-6" style="text-align: center">
                     <div class="btn-group-vertical">
                         <h2>Consultar Inclusiones</h2>
-                        <asp:ImageButton runat="server" ImageUrl="../Imagenes/Lupa.jpg" CssClass="img-responsive"></asp:ImageButton>
+                        <asp:ImageButton runat="server" id="ibtnBuscar" ImageUrl="../Imagenes/Lupa.jpg" CssClass="img-responsive"></asp:ImageButton>
                     </div>
                 </div>
             </div>

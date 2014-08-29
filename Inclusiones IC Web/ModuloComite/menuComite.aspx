@@ -30,7 +30,7 @@
                   </div>
 
                   <div class="col-md-4" style="text-align:center;">
-                      <asp:LinkButton ID="lbtnadminProfes" CssClass="btn btn-link" runat="server" >
+                      <asp:LinkButton ID="lbtnadminProfes" CssClass="btn btn-link" OnClick="lbtnadminProfes_Click" runat="server" >
                           <div class="row">
                               <div>
                                   <img src="../Imagenes/administrarprofesores.jpg" class="img-responsive"style="display: inline; max-width:150px; max-height: 100px; text-align:center;" />
