@@ -73,6 +73,7 @@
     <Content Include="ModuloComite\menuComite.aspx" />
     <Content Include="ModuloComite\OfertaAcademica.aspx" />
     <Content Include="ModuloComite\PeriodoyFechas.aspx" />
+    <Content Include="ModuloEstudiante\BoletaInclusion.aspx" />
     <Content Include="ModuloEstudiante\Imprimir_Guardar.aspx" />
     <Content Include="ModuloEstudiante\Inicio.aspx" />
     <Content Include="ModuloEstudiante\VisualizarBoleta.aspx" />
@@ -134,6 +135,13 @@
     </Compile>
     <Compile Include="ModuloComite\PeriodoyFechas.aspx.designer.cs">
       <DependentUpon>PeriodoyFechas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModuloEstudiante\BoletaInclusion.aspx.cs">
+      <DependentUpon>BoletaInclusion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuloEstudiante\BoletaInclusion.aspx.designer.cs">
+      <DependentUpon>BoletaInclusion.aspx</DependentUpon>
     </Compile>
     <Compile Include="ModuloEstudiante\Imprimir_Guardar.aspx.cs">
       <DependentUpon>Imprimir_Guardar.aspx</DependentUpon>
