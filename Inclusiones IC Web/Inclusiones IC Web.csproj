@@ -72,6 +72,7 @@
     <Content Include="ModuloComite\Login.aspx" />
     <Content Include="ModuloComite\menuComite.aspx" />
     <Content Include="ModuloComite\PeriodoyFechas.aspx" />
+    <Content Include="ModuloEstudiante\Imprimir_Guardar.aspx" />
     <Content Include="ModuloEstudiante\Inicio.aspx" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -124,6 +125,13 @@
     </Compile>
     <Compile Include="ModuloComite\PeriodoyFechas.aspx.designer.cs">
       <DependentUpon>PeriodoyFechas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModuloEstudiante\Imprimir_Guardar.aspx.cs">
+      <DependentUpon>Imprimir_Guardar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuloEstudiante\Imprimir_Guardar.aspx.designer.cs">
+      <DependentUpon>Imprimir_Guardar.aspx</DependentUpon>
     </Compile>
     <Compile Include="ModuloEstudiante\Inicio.aspx.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
