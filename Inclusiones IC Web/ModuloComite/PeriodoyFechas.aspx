@@ -2,25 +2,21 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="page-header">
+    <div class="page-header" style="margin-left:20px">
         <h1>Configuración <small>Periodos de recepciónes</small></h1>
     </div>
     <div class="row">
             <div class="col-lg-2"></div>
-            <div class="col-md-3">
+            <div class="col-md-3" style="margin-bottom:15px;">
                 <asp:Label ID="Label1" runat="server" Text="Periodo:" class="col-sm-12 control-label"></asp:Label>                
-                <select class="form-control" id="SelectPeriod">
-                    <option>1-2014</option>          
-                    <option>2-2014</option>
-                </select>
+                <asp:DropDownList ID="DropDownPeriod" runat="server" CssClass="form-control"></asp:DropDownList>
             </div>
-            <div class="col-md-2">
-                <asp:Label ID="Label3" runat="server" Text="" class="col-sm-12 control-label"></asp:Label>
-                <asp:Button ID="BtnNew" runat="server" Text="Nuevo" CssClass="btn btn-primary btn-lg btn-block" />
+            <div class="col-md-2" style="margin-top:20px;">
+                <asp:Button ID="BtnNew" runat="server" Text="Crear nuevo periodo" CssClass="btn btn-primary btn-block" />
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3" style="margin-bottom:15px;">
                 <asp:Label ID="Label2" runat="server" Text="Periodo actual:" class="col-sm-12 control-label"></asp:Label>                
-                <asp:Label ID="Label4" runat="server" Text="1-2014" class="col-sm-4"></asp:Label>                                
+                <asp:Label ID="Label4" runat="server" Text="1-2014" class="col-sm-4" AccessKey></asp:Label>                                
             </div>                                        
         </div>
     <div class="jumbotron">
@@ -45,7 +41,7 @@
         </div>
         </div>
     <div class="jumbotron">
-        <h4>Periodo de recepción de Consulas</h4>
+        <h4>Periodo de recepción de Consultas</h4>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-3"></div>
@@ -63,7 +59,7 @@
     </div>
     <div class="row">
         <div class="col-lg-5"></div>
-        <div class="col-lg-2">
+        <div class="col-lg-2" style="margin-bottom:15px;">
             <asp:Button ID="BtnSave" runat="server" Text="Guardar" CssClass="btn btn-primary btn-block"/>
         </div>        
     </div>
