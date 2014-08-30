@@ -13,6 +13,15 @@ namespace Inclusiones_IC_Web.ModuloEstudiante {
     public partial class BoletaInclusion {
         
         /// <summary>
+        /// Control UpdatePanel1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        
+        /// <summary>
         /// Control LabelName.
         /// </summary>
         /// <remarks>
@@ -283,15 +292,6 @@ namespace Inclusiones_IC_Web.ModuloEstudiante {
         protected global::System.Web.UI.WebControls.Label Label6;
         
         /// <summary>
-        /// Control rbnoRN.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbnoRN;
-        
-        /// <summary>
         /// Control rbsiRN.
         /// </summary>
         /// <remarks>
@@ -299,6 +299,15 @@ namespace Inclusiones_IC_Web.ModuloEstudiante {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButton rbsiRN;
+        
+        /// <summary>
+        /// Control rbnoRN.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rbnoRN;
         
         /// <summary>
         /// Control divRN.
@@ -337,6 +346,15 @@ namespace Inclusiones_IC_Web.ModuloEstudiante {
         protected global::System.Web.UI.WebControls.Label Label7;
         
         /// <summary>
+        /// Control rbSiLR.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rbSiLR;
+        
+        /// <summary>
         /// Control rbNoLR.
         /// </summary>
         /// <remarks>
@@ -346,13 +364,13 @@ namespace Inclusiones_IC_Web.ModuloEstudiante {
         protected global::System.Web.UI.WebControls.RadioButton rbNoLR;
         
         /// <summary>
-        /// Control rbSiLR.
+        /// Control divLRPeriodo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbSiLR;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divLRPeriodo;
         
         /// <summary>
         /// Control Label10.
@@ -364,15 +382,6 @@ namespace Inclusiones_IC_Web.ModuloEstudiante {
         protected global::System.Web.UI.WebControls.Label Label10;
         
         /// <summary>
-        /// Control rbNoLRProceso.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbNoLRProceso;
-        
-        /// <summary>
         /// Control rbSiLRProceso.
         /// </summary>
         /// <remarks>
@@ -380,6 +389,15 @@ namespace Inclusiones_IC_Web.ModuloEstudiante {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButton rbSiLRProceso;
+        
+        /// <summary>
+        /// Control RadioButton2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton2;
         
         /// <summary>
         /// Control btnComentario.
