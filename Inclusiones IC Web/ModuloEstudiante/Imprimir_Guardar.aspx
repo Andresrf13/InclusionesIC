@@ -13,5 +13,9 @@
         ok
 
         le pones un nombre al comit y le das confirmar y sincronizar
+        ola, k ase 
+
+
+        gracias suave para una ultinna cosa
     </p>
 </asp:Content>
