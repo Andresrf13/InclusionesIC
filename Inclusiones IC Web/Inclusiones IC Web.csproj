@@ -94,6 +94,7 @@
     <Content Include="Scripts\jquery-1.9.0.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccesoDatos\Sede.cs" />
     <Compile Include="Comite.Master.cs">
       <DependentUpon>Comite.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
