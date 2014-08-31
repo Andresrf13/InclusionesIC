@@ -19,6 +19,18 @@ namespace Inclusiones_IC_Web.ModuloComite
             }
             cargarSedes();
             cargarProfesores();
+            cargarCursos();
+        }
+
+        private void cargarCursos()
+        {
+            drpCursos.Items.Clear();
+            Cursos _cursos = new Cursos();
+            DataTable _dtCursos = _cursos.SeleccionarTodos();
+            drpCursos.DataSource = _dtCursos;
+            drpCursos.DataValueField = "idCurso";
+            drpCursos.DataTextField = "Nombre";
+            drpCursos.DataBind();
         }
 
         private void cargarProfesores()
@@ -73,28 +85,41 @@ namespace Inclusiones_IC_Web.ModuloComite
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
             if(btnAgregar.Text == "Guardar")
-            {
-                insertarregistro();
+            {                
+                    insertarregistro();                
+                
             }
         }
 
-        private void insertarregistro()
-        {
-            OfertaAcademicaDatos _nuevo = new OfertaAcademicaDatos();
-            _nuevo.numgrupo = int.Parse(txtGrupo.Value.ToString());
-            _nuevo.idCurso = int.Parse(drpCursos.SelectedValue.ToString());
-            _nuevo.idProfesor = int.Parse(drpProfesores.SelectedValue.ToString());
-            _nuevo.horario = txthoraaula.Text.Trim();
-            _nuevo.Capacidad = int.Parse(txtCapMax.Value.Trim().ToString());
-            _nuevo.disponible = int.Parse(txtCapDis.Value.Trim().ToString());
+       
 
-            bool result = _nuevo.Insertar();
-            if (result)
+        private bool insertarregistro()
+        {
+            bool validar = false;
+            try
             {
-                btnNuevo.Text = "Nuevo";
-                divAgregar.Visible = false;
-                limpiarCampos();
+                OfertaAcademicaDatos _nuevo = new OfertaAcademicaDatos();
+                _nuevo.numgrupo = int.Parse(txtGrupo.Value.ToString());
+                _nuevo.idCurso = int.Parse(drpCursos.SelectedValue.ToString());
+                _nuevo.idProfesor = int.Parse(drpProfesores.SelectedValue.ToString());
+                _nuevo.horario = txthoraaula.Text.Trim();
+                _nuevo.Capacidad = int.Parse(txtCapMax.Value.Trim().ToString());
+                _nuevo.disponible = int.Parse(txtCapDis.Value.Trim().ToString());
+
+                bool result = _nuevo.Insertar();
+                validar = true;
+                if (result)
+                {
+                    btnNuevo.Text = "Nuevo";
+                    divAgregar.Visible = false;
+                    limpiarCampos();
+                }
             }
+            catch (Exception e)
+            {
+                validar = false;
+            }
+            return validar;
         }
     }
 }

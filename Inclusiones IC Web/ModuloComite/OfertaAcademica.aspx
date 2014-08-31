@@ -46,6 +46,7 @@
                     <div class="col-md-5"></div>
                 </div>
                 <div class="jumbotron" id="divAgregar" runat="server" Visible="false" > 
+                    
                     <div class="row">                        
                         <div class="col-md-12">
                             <div class="row" style="margin: 10px;">
@@ -64,19 +65,19 @@
                                     <p style="font-size:1em; ">Grupo:</p>
                                 </div>
                                 <div class="col-md-2">
-                                    <input class="form-control" id="txtGrupo"  runat="server" type="number" value="" />
+                                    <input class="form-control" id="txtGrupo"   runat="server" type="number" value="" />
                                 </div>
                                 <div class="col-md-2" style="text-align: right;">
                                     <p style="font-size:1em;">Capacidad Máxima:</p>
                                 </div>
                                 <div class="col-md-3">
-                                   <input class="form-control" id="txtCapMax"  runat="server" type="number" value="" />
+                                   <input class="form-control" id="txtCapMax"   runat="server" type="number" value="" />
                                 </div>
                                 <div class="col-md-1" style="text-align: right;">
                                     <p style="font-size:1em;">disponible:</p>                                    
                                 </div>
                                 <div class="col-md-3">
-                                    <input class="form-control" id="txtCapDis" runat="server" type="number" value="" />
+                                    <input class="form-control" id="txtCapDis"  runat="server" type="number" value="" />
                                 </div>
                             </div>
 

@@ -32,10 +32,10 @@ namespace Inclusiones_IC_Web.AccesoDatos
             {
                 Conectar();
                 conexion.Open();
-                SqlCommand cmd = new SqlCommand("InsertarOferta(@numGrupo, @curso, @profe, @horario, @capacidad, @disponible )", conexion);
+                SqlCommand cmd = new SqlCommand("InsertarOferta", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@numGrupo", this.numgrupo);
-                cmd.Parameters.AddWithValue("@curso", this.idCurso);
+                cmd.Parameters.AddWithValue("@codigo", this.idCurso);
                 cmd.Parameters.AddWithValue("@profe", this.idProfesor);
                 cmd.Parameters.AddWithValue("@horario", this.horario);
                 cmd.Parameters.AddWithValue("@capacidad", this.Capacidad);

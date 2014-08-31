@@ -94,7 +94,9 @@
     <Content Include="Scripts\jquery-1.9.0.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccesoDatos\Cursos.cs" />
     <Compile Include="AccesoDatos\OfertaAcademicaDatos.cs" />
+    <Compile Include="AccesoDatos\PeriodoDatos.cs" />
     <Compile Include="AccesoDatos\Profesores.cs" />
     <Compile Include="AccesoDatos\Sede.cs" />
     <Compile Include="Comite.Master.cs">
@@ -139,6 +141,7 @@
     <Compile Include="ModuloComite\PeriodoyFechas.aspx.designer.cs">
       <DependentUpon>PeriodoyFechas.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ModuloComite\_DataTable.cs" />
     <Compile Include="ModuloEstudiante\BoletaInclusion.aspx.cs">
       <DependentUpon>BoletaInclusion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

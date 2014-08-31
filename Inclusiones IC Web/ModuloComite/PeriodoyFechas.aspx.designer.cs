@@ -13,6 +13,33 @@ namespace Inclusiones_IC_Web.ModuloComite {
     public partial class PeriodoyFechas {
         
         /// <summary>
+        /// Control Label2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
+        
+        /// <summary>
+        /// Control lblPeridoActual.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPeridoActual;
+        
+        /// <summary>
+        /// Control UpdatePanel1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        
+        /// <summary>
         /// Control Label1.
         /// </summary>
         /// <remarks>
@@ -22,13 +49,22 @@ namespace Inclusiones_IC_Web.ModuloComite {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// Control DropDownPeriod.
+        /// Control drpPeriodo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownPeriod;
+        protected global::System.Web.UI.WebControls.DropDownList drpPeriodo;
+        
+        /// <summary>
+        /// Control chkActivo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkActivo;
         
         /// <summary>
         /// Control BtnNew.
@@ -40,22 +76,31 @@ namespace Inclusiones_IC_Web.ModuloComite {
         protected global::System.Web.UI.WebControls.Button BtnNew;
         
         /// <summary>
-        /// Control Label2.
+        /// Control divcrearNuevo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divcrearNuevo;
         
         /// <summary>
-        /// Control Label4.
+        /// Control Label3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.WebControls.Label Label3;
+        
+        /// <summary>
+        /// Control txtnuevoPeriodo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtnuevoPeriodo;
         
         /// <summary>
         /// Control Label5.
@@ -67,13 +112,13 @@ namespace Inclusiones_IC_Web.ModuloComite {
         protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
-        /// Control CalendarFrom.
+        /// Control calRecepcionDesde.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar CalendarFrom;
+        protected global::System.Web.UI.WebControls.Calendar calRecepcionDesde;
         
         /// <summary>
         /// Control Label6.
@@ -85,13 +130,13 @@ namespace Inclusiones_IC_Web.ModuloComite {
         protected global::System.Web.UI.WebControls.Label Label6;
         
         /// <summary>
-        /// Control CalendarTo.
+        /// Control calRecepcionHasta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar CalendarTo;
+        protected global::System.Web.UI.WebControls.Calendar calRecepcionHasta;
         
         /// <summary>
         /// Control Label7.
@@ -103,13 +148,13 @@ namespace Inclusiones_IC_Web.ModuloComite {
         protected global::System.Web.UI.WebControls.Label Label7;
         
         /// <summary>
-        /// Control Calendar1.
+        /// Control calConsultaDesde.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar1;
+        protected global::System.Web.UI.WebControls.Calendar calConsultaDesde;
         
         /// <summary>
         /// Control Label8.
@@ -121,13 +166,13 @@ namespace Inclusiones_IC_Web.ModuloComite {
         protected global::System.Web.UI.WebControls.Label Label8;
         
         /// <summary>
-        /// Control Calendar2.
+        /// Control calConsultaHasta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar2;
+        protected global::System.Web.UI.WebControls.Calendar calConsultaHasta;
         
         /// <summary>
         /// Control BtnSave.
