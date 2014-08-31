@@ -253,7 +253,7 @@
                             <div class="row">
                                 <div class="form-group">
                                     <div class="col-md-5">
-                                        <asp:Label ID="Label7" runat="server" Text="¿Cumple con los para esta inclusión?"></asp:Label>
+                                        <asp:Label ID="Label7" runat="server" Text="¿Cumple con los requisitos para esta inclusión?"></asp:Label>
                                     </div>
 
                                     <div class="col-md-4" style="margin-bottom: 15px;">
@@ -283,7 +283,8 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6" style="text-align: center">
-                                    <asp:Button ID="btnComentario" runat="server" CssClass="btn btn-success btn-sm" Text="Agregar Comentario" />
+                                    <asp:Label ID="Label8" runat="server" Text="Comentario"></asp:Label>
+                                     <asp:TextBox ID="TxtComentario" runat="server" CssClass="col-lg-10 form-control"></asp:TextBox>
                                 </div>
                                 <div class="col-md-6" style="text-align: center">
                                     <asp:Button ID="btnVisualizar" runat="server" CssClass="btn btn-success btn-sm" Text="Visualizar Boleta" />
