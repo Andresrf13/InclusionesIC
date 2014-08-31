@@ -400,13 +400,22 @@ namespace Inclusiones_IC_Web.ModuloEstudiante {
         protected global::System.Web.UI.WebControls.RadioButton RadioButton2;
         
         /// <summary>
-        /// Control btnComentario.
+        /// Control Label8.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnComentario;
+        protected global::System.Web.UI.WebControls.Label Label8;
+        
+        /// <summary>
+        /// Control TxtComentario.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtComentario;
         
         /// <summary>
         /// Control btnVisualizar.
