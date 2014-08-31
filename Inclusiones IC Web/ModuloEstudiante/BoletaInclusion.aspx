@@ -284,7 +284,7 @@
                             <div class="row">
                                 <div class="col-md-6" style="text-align: center">
                                     <asp:Label ID="Label8" runat="server" Text="Comentario"></asp:Label>
-                                     <asp:TextBox ID="TxtComentario" runat="server" CssClass="col-lg-10 form-control"></asp:TextBox>
+                                     <asp:TextBox ID="TxtComentario" runat="server" CssClass="col-lg-10 form-control" TextMode="MultiLine"></asp:TextBox>
                                 </div>
                                 <div class="col-md-6" style="text-align: center">
                                     <asp:Button ID="btnVisualizar" runat="server" CssClass="btn btn-success btn-sm" Text="Visualizar Boleta" />
