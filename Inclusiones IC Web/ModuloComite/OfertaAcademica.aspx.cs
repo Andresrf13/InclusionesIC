@@ -10,7 +10,7 @@ using System.Data;
 namespace Inclusiones_IC_Web.ModuloComite
 {
     public partial class OfertaAcademica : System.Web.UI.Page
-    {
+    {        
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack)
@@ -80,8 +80,21 @@ namespace Inclusiones_IC_Web.ModuloComite
 
         private void insertarregistro()
         {
-            OfertaAcademica _nuevo = new OfertaAcademica();
+            OfertaAcademicaDatos _nuevo = new OfertaAcademicaDatos();
             _nuevo.numgrupo = int.Parse(txtGrupo.Value.ToString());
+            _nuevo.idCurso = int.Parse(drpCursos.SelectedValue.ToString());
+            _nuevo.idProfesor = int.Parse(drpProfesores.SelectedValue.ToString());
+            _nuevo.horario = txthoraaula.Text.Trim();
+            _nuevo.Capacidad = int.Parse(txtCapMax.Value.Trim().ToString());
+            _nuevo.disponible = int.Parse(txtCapDis.Value.Trim().ToString());
+
+            bool result = _nuevo.Insertar();
+            if (result)
+            {
+                btnNuevo.Text = "Nuevo";
+                divAgregar.Visible = false;
+                limpiarCampos();
+            }
         }
     }
 }

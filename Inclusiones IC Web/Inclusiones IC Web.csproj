@@ -94,7 +94,7 @@
     <Content Include="Scripts\jquery-1.9.0.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccesoDatos\OfertaAcademica.cs" />
+    <Compile Include="AccesoDatos\OfertaAcademicaDatos.cs" />
     <Compile Include="AccesoDatos\Profesores.cs" />
     <Compile Include="AccesoDatos\Sede.cs" />
     <Compile Include="Comite.Master.cs">
