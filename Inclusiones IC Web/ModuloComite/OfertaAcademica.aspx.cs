@@ -37,8 +37,9 @@ namespace Inclusiones_IC_Web.ModuloComite
             DataTable _dtCursos = _cursos.SeleccionarTodos();
             drpCursos.DataSource = _dtCursos;
             drpCursos.DataValueField = "idCurso";
-            drpCursos.DataTextField = "Nombre";
+            drpCursos.DataTextField = "Codigo";
             drpCursos.DataBind();
+            cargarnombre();
         }
 
         private void cargarProfesores()
@@ -75,6 +76,7 @@ namespace Inclusiones_IC_Web.ModuloComite
             {
                 divAgregar.Visible = false;
                 btnNuevo.Text = "Nuevo";
+                btnAgregar.Text = "Guardar";
             }
             
         }
@@ -88,6 +90,7 @@ namespace Inclusiones_IC_Web.ModuloComite
             drpCursos.SelectedIndex = -1;
             drpProfesores.SelectedIndex = -1;
             drpSede.SelectedIndex = -1;
+            btnNuevo.Text = "Nuevo";
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
@@ -97,10 +100,45 @@ namespace Inclusiones_IC_Web.ModuloComite
                     insertarregistro();
                     cargarOfertaAcademica();
             }
+            else
+            {
+                actualizarRegistro();
+                cargarOfertaAcademica();
+            }
         }
 
-       
+        private Boolean actualizarRegistro()
+        {
+            bool validar = false;
+            try
+            {
+                OfertaAcademicaDatos _nuevo = new OfertaAcademicaDatos();
+                _nuevo.numgrupo = int.Parse(txtGrupo.Value.ToString());
+                _nuevo.idCurso = int.Parse(drpCursos.SelectedValue.ToString());
+                _nuevo.idProfesor = int.Parse(drpProfesores.SelectedValue.ToString());
+                _nuevo.horario = txthoraaula.Text.Trim();
+                _nuevo.Capacidad = int.Parse(txtCapMax.Value.Trim().ToString());
+                _nuevo.disponible = int.Parse(txtCapDis.Value.Trim().ToString());
+                _nuevo.sede = int.Parse(drpSede.SelectedValue);
+                _nuevo.id = (int) Session["idEditar"];
+                bool result = _nuevo.Actualizar();
+                validar = true;
+                if (result)
+                {
+                    btnNuevo.Text = "Nuevo";
+                    divAgregar.Visible = false;
+                    limpiarCampos();
+                    btnAgregar.Text = "Guardar";
 
+                }
+            }
+            catch (Exception e)
+            {
+                validar = false;
+            }
+            return validar;
+        }
+       
         private bool insertarregistro()
         {
             bool validar = false;
@@ -131,5 +169,65 @@ namespace Inclusiones_IC_Web.ModuloComite
             }
             return validar;
         }
+
+        protected void gvOfertaAcademica_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Eliminar")
+            {
+                int index = Convert.ToInt32(e.CommandArgument);
+                GridViewRow row = gvOfertaAcademica.Rows[index];
+                int id = int.Parse(row.Cells[0].Text);
+
+                OfertaAcademicaDatos _elim = new OfertaAcademicaDatos();
+                _elim.id = id;
+                if (_elim.Eliminar())
+                {
+                    cargarOfertaAcademica();
+                    divAgregar.Visible = false;
+                }
+            }
+            else if (e.CommandName == "Editar")
+            {
+                int index = Convert.ToInt32(e.CommandArgument);
+                GridViewRow row = gvOfertaAcademica.Rows[index];
+                int id = int.Parse(row.Cells[0].Text);
+                llenarCannpos(id);                                
+            }
+        }
+
+        private void llenarCannpos(int id)
+        {
+            Session["idEditar"] = id;
+            OfertaAcademicaDatos _aux = new OfertaAcademicaDatos();
+            _aux.id = id;
+            _aux.SeleccionarUno();
+            drpSede.SelectedValue = _aux.sede.ToString();
+            drpProfesores.SelectedValue = _aux.idProfesor.ToString();
+            drpCursos.SelectedValue = _aux.idCurso.ToString();
+            txtGrupo.Value = _aux.numgrupo.ToString();
+            txtCapDis.Value = _aux.Capacidad.ToString();
+            txtCapMax.Value =  _aux.disponible.ToString();
+            txthoraaula.Text = _aux.horario;
+
+            cargarnombre();
+            divAgregar.Visible = true;
+            btnNuevo.Text = "Cerrar";
+            btnAgregar.Text = "Actualizar";
+        }
+
+        protected void drpCursos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cargarnombre();
+            
+        }
+
+        private void cargarnombre()
+        {
+            Cursos _aux = new Cursos();
+            _aux.id = int.Parse(drpCursos.SelectedValue);
+            _aux.getNombre();
+            txtNombreCurso.Text = _aux.nombre;
+        }
+
     }
 }

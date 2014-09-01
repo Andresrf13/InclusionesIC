@@ -6,21 +6,21 @@
     <div class="page-header" style="margin-left: 20px">
         <h1>Configuración <small>Periodos de recepciónes</small></h1>
     </div>
-    <div class="row">
-        <div class="col-md-10">
-        </div>
-        <div class="col-md-2" style="text-align: right;">
-            <asp:Label ID="Label2" runat="server" Text="Periodo actual:" class="alert-link"></asp:Label>
-            <asp:Label ID="lblPeridoActual" runat="server" Text="1-2014" class="alert-info"></asp:Label>
-        </div>
-    </div>
 
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
+            <div class="row">
+                <div class="col-md-8">
+                </div>
+                <div class="col-md-4" style="text-align: right;">
+                    <asp:Label ID="Label2" runat="server" Text="Periodo actual:" CssClass="alert-link"></asp:Label>
+                    <asp:Label ID="lblPeridoActual" runat="server" Text="1-2014" CssClass="alert alert-dismissable alert-link"></asp:Label>
+                </div>
+            </div>
             <div class="row" style="margin: 10px;">
                 <div class="col-lg-1"></div>
                 <div class="col-md-1" style="margin-bottom: 15px;">
-                    <asp:Label ID="Label1" runat="server" Text="Periodo:" class="col-sm-12 control-label"></asp:Label>
+                    <asp:Label ID="Label1" runat="server" Text="Periodo:" CssClass="col-sm-12 control-label"></asp:Label>
                 </div>
                 <div class="col-md-2">
                     <asp:DropDownList ID="drpPeriodo" runat="server" CssClass="form-control" OnSelectedIndexChanged="drpPeriodo_SelectedIndexChanged"></asp:DropDownList>
@@ -50,11 +50,11 @@
                     <div class="row">
                         <div class="col-lg-3"></div>
                         <div class="col-md-4">
-                            <asp:Label ID="Label5" runat="server" Text="Desde" class="col-sm-12 control-label"></asp:Label>
+                            <asp:Label ID="Label5" runat="server" Text="Desde" CssClass="col-sm-12 control-label"></asp:Label>
                             <asp:Calendar ID="calRecepcionDesde" runat="server"></asp:Calendar>
                         </div>
                         <div class="col-md-4">
-                            <asp:Label ID="Label6" runat="server" Text="Hasta" class="col-sm-12 control-label"></asp:Label>
+                            <asp:Label ID="Label6" runat="server" Text="Hasta" CssClass="col-sm-12 control-label"></asp:Label>
                             <asp:Calendar ID="calRecepcionHasta" runat="server"></asp:Calendar>
                         </div>
                         <div class="col-lg-1"></div>
@@ -67,11 +67,11 @@
                     <div class="row">
                         <div class="col-lg-3"></div>
                         <div class="col-md-4">
-                            <asp:Label ID="Label7" runat="server" Text="Desde" class="col-sm-12 control-label"></asp:Label>
+                            <asp:Label ID="Label7" runat="server" Text="Desde" CssClass="col-sm-12 control-label"></asp:Label>
                             <asp:Calendar ID="calConsultaDesde" runat="server"></asp:Calendar>
                         </div>
                         <div class="col-md-4">
-                            <asp:Label ID="Label8" runat="server" Text="Hasta" class="col-sm-12 control-label"></asp:Label>
+                            <asp:Label ID="Label8" runat="server" Text="Hasta" CssClass="col-sm-12 control-label"></asp:Label>
                             <asp:Calendar ID="calConsultaHasta" runat="server"></asp:Calendar>
                         </div>
                         <div class="col-lg-1"></div>

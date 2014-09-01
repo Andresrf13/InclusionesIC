@@ -84,14 +84,14 @@ namespace Inclusiones_IC_Web.AccesoDatos
             {
                 Conectar();
                 conexion.Open();
-                SqlCommand cmd = new SqlCommand("SeleccionarUno", conexion);
-                cmd.CommandType = CommandType.Text;
-                cmd.Parameters.AddWithValue("@codigo", this.Id);
+                SqlCommand cmd = new SqlCommand("SP_Fechas", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Periodo", this.Id);
 
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {                    
-                    this.activo = Convert.ToBoolean(reader["Activo"]);
+                    this.activo = Convert.ToBoolean(reader["Actual"]);
                     this.fechaIniInclusion = Convert.ToDateTime(reader["FechaInicioInclusion"]);
                     this.fechaFinInclusion = Convert.ToDateTime(reader["FechaFinInclusion"]);
                     this.FechaIniConsulta = Convert.ToDateTime(reader["FechaInicioConsulta"]);
@@ -137,6 +137,36 @@ namespace Inclusiones_IC_Web.AccesoDatos
                 conexion.Close();
             }
             return valor;
+        }
+
+        internal string PeriodoActual()
+        {
+            string peri = "NO hay período Actual";
+            try
+            {
+                Conectar();
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_PeriodoActual", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;               
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    this.periodo = Convert.ToString(reader["Periodo"]);
+                    peri = this.periodo;
+                }
+
+
+            }
+            catch (Exception e)
+            {
+                ;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+            return peri;
         }
     }
 }

@@ -12,9 +12,20 @@ namespace Inclusiones_IC_Web.ModuloComite
     public partial class PeriodoyFechas : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {           
-            cargarPeriodos();
+        {
+            if (!IsPostBack)
+            {
+                cargarPeriodos();
+                showPeriodoActual();
+            }            
         }
+
+        private void showPeriodoActual()
+        {
+            PeriodoDatos _aux = new PeriodoDatos();
+            lblPeridoActual.Text = _aux.PeriodoActual();
+        }
+       
 
         private void cargarPeriodos()
         {
@@ -26,8 +37,8 @@ namespace Inclusiones_IC_Web.ModuloComite
             drpPeriodo.DataSource = _dtPeriodos;
             drpPeriodo.DataValueField = "idSemestre";
             drpPeriodo.DataTextField = "Periodo";
-            drpPeriodo.DataBind();
-            drpPeriodo.SelectedIndex = -1;
+            drpPeriodo.DataBind();            
+            cargarInfoControles();
         }
 
         /// <summary>
@@ -38,6 +49,7 @@ namespace Inclusiones_IC_Web.ModuloComite
         protected void drpPeriodo_SelectedIndexChanged(object sender, EventArgs e)
         {
             cargarInfoControles();
+            showPeriodoActual();
         }
 
         private void cargarInfoControles()
@@ -48,7 +60,7 @@ namespace Inclusiones_IC_Web.ModuloComite
 
             chkActivo.Checked = _selec.activo;
             calConsultaDesde.SelectedDate = _selec.FechaIniConsulta;
-            calConsultaHasta.SelectedDate = _selec.fechaFinInclusion;
+            calConsultaHasta.SelectedDate = _selec.FechaFinConsulta;
             calRecepcionDesde.SelectedDate = _selec.fechaIniInclusion;
             calRecepcionHasta.SelectedDate = _selec.fechaFinInclusion;
         }

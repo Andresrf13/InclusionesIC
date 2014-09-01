@@ -19,19 +19,19 @@
                 <div class="row">
                     <div class="col-md-1"></div>
                     <div class="col-md-10" style="text-align:center">
-                        <asp:GridView ID="gvOfertaAcademica" runat="server" AutoGenerateColumns="false" CssClass="table table-striped table-hover" HeaderStyle-CssClass="success" AlternatingRowStyle-CssClass="active" >
+                        <asp:GridView ID="gvOfertaAcademica" OnRowCommand="gvOfertaAcademica_RowCommand" runat="server" AutoGenerateColumns="false" CssClass="table table-striped table-hover" HeaderStyle-CssClass="success" AlternatingRowStyle-CssClass="active" >
                             <Columns>
-                                <asp:BoundField HeaderText="Codigo" DataField="" HtmlEncode="false" />
+                                <asp:BoundField HeaderText="Codigo" DataField="Codigo" HtmlEncode="false" />
                                 <asp:BoundField HeaderText="Sede" DataField="Sede" HtmlEncode="false" />
                                 <asp:BoundField HeaderText="Nombre" DataField="Nombre" HtmlEncode="false" />
                                 <asp:BoundField HeaderText="Capacidad" DataField="Disponible" />
-                                <asp:BoundField HeaderText="Capacidad Máxima" DataField="Capacidad" HtmlEncode="false" />
+                                <asp:BoundField HeaderText="Capacidad Máxima" DataField="Maximo" HtmlEncode="false" />
                                 <asp:BoundField DataField="" HtmlEncode="false" />
                                 <asp:BoundField HeaderText="# Grupo" DataField="Grupo" HtmlEncode="false" />
                                 <asp:BoundField DataField="Horario" HeaderText="Aula y Horario" HtmlEncode="false" />                                
-                                <asp:BoundField HeaderText="Profesor" DataField="Porfesor" HtmlEncode="false" />
-                                <asp:ButtonField Text="Editar" />
-                                <asp:ButtonField Text="Eliminar" />
+                                <asp:BoundField HeaderText="Profesor" DataField="Profesor" HtmlEncode="false" />
+                                <asp:ButtonField Text="Editar" CommandName="Editar" />
+                                <asp:ButtonField Text="Eliminar" CommandName="Eliminar" />
                             </Columns>
                         </asp:GridView>
                     </div>
@@ -53,7 +53,7 @@
                                     <p style="font-size:1em;">Código curso:</p>
                                 </div>
                                 <div class="col-md-3">
-                                    <asp:DropDownList ID="drpCursos" runat="server" CssClass="form-control" ></asp:DropDownList>
+                                    <asp:DropDownList ID="drpCursos" runat="server" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="drpCursos_SelectedIndexChanged" ></asp:DropDownList>
                                 </div>
                                 <div class="col-md-8">
                                     <asp:TextBox ID="txtNombreCurso" Enabled="false" CssClass="form-control" runat="server"></asp:TextBox>
