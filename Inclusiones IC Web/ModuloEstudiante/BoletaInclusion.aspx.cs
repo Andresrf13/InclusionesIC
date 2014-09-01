@@ -48,5 +48,17 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
             }
         }
 
+        protected void btnVisualizar_Click(object sender, EventArgs e)
+        {
+            divBoleta.Visible = false;
+            divVisualizador.Visible = true;
+        }
+
+        protected void BtnRegresar_Click(object sender, EventArgs e)
+        {
+            divBoleta.Visible = true;
+            divVisualizador.Visible = false;
+        }
+
     }
 }

@@ -28,7 +28,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> 
+            <div id="divBoleta" runat="server" visible="true">         
             <div class="row">
             <div class="col-md-6">
                 <div class="jumbotron">
@@ -288,7 +289,7 @@
                                      <asp:TextBox ID="TxtComentario" runat="server" CssClass="col-lg-10 form-control" TextMode="MultiLine"></asp:TextBox>
                                 </div>
                                 <div class="col-md-6" style="text-align: center">
-                                    <asp:Button ID="btnVisualizar" runat="server" CssClass="btn btn-success btn-sm" Text="Visualizar Boleta" />
+                                    <asp:Button ID="btnVisualizar" runat="server" CssClass="btn btn-success btn-sm" Text="Visualizar Boleta" OnClick="btnVisualizar_Click" />
                                 </div>
                             </div>
 
@@ -297,9 +298,9 @@
                 </div>
             </div>  
             </div>
-            
+            </div>
             <%--<-- VISUALIZADOR -->--%>
-
+            <div id="divVisualizador" runat="server" visible="false">
             <div class="row">
                 <div class="col-md-6">
                 <div class="jumbotron">
@@ -504,7 +505,7 @@
                                     <asp:Button ID="Button2" runat="server" CssClass="btn btn-success btn-sm col-md-6" Text="Enviar"/>
                                 </div>
                                 <div class="col-md-6" style="text-align: center">
-                                    <asp:Button ID="Button1" runat="server" CssClass="btn btn-danger btn-sm col-md-6" Text="Regresar" />
+                                    <asp:Button ID="BtnRegresar" runat="server" CssClass="btn btn-danger btn-sm col-md-6" Text="Regresar" OnClick="BtnRegresar_Click" />
                                 </div>
                             </div>
 
@@ -513,6 +514,7 @@
                 </div>
             </div>  
             </div>
+           </div>
         </ContentTemplate>
     </asp:UpdatePanel>
 
