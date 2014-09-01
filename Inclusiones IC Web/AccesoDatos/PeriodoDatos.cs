@@ -10,6 +10,8 @@ namespace Inclusiones_IC_Web.AccesoDatos
     public class PeriodoDatos
     {
         SqlConnection conexion;
+        public int Id;
+        public bool activo;
         public DateTime FechaIniConsulta;
         public DateTime FechaFinConsulta;
         public DateTime fechaIniInclusion;
@@ -62,6 +64,67 @@ namespace Inclusiones_IC_Web.AccesoDatos
                 cmd.Parameters.AddWithValue("@FechaIniConsulta", String.Format("{0:yyyy-MM-dd}", this.FechaIniConsulta));
                 cmd.Parameters.AddWithValue("@FechaFinConsulta", String.Format("{0:yyyy-MM-dd}", this.FechaFinConsulta));
                 cmd.Parameters.AddWithValue("@periodo", String.Format("{0:yyyy-MM-dd}", this.periodo));                
+                cmd.ExecuteNonQuery();
+                valor = true;
+            }
+            catch (Exception e)
+            {
+                valor = false;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+            return valor;
+        }
+
+        internal void SeleccionarUno()
+        {
+            try
+            {
+                Conectar();
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SeleccionarUno", conexion);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@codigo", this.Id);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {                    
+                    this.activo = Convert.ToBoolean(reader["Activo"]);
+                    this.fechaIniInclusion = Convert.ToDateTime(reader["FechaInicioInclusion"]);
+                    this.fechaFinInclusion = Convert.ToDateTime(reader["FechaFinInclusion"]);
+                    this.FechaIniConsulta = Convert.ToDateTime(reader["FechaInicioConsulta"]);
+                    this.FechaFinConsulta = Convert.ToDateTime(reader["FechaFinConsulta"]);
+                    
+                }
+
+
+            }
+            catch (Exception e)
+            {
+                ;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        }
+
+        internal bool activarPeriodo()
+        {
+            bool valor = false;
+            try
+            {
+                Conectar();
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_ActualizarActual", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                int estado = (this.activo) ? 1 : 0;
+
+                cmd.Parameters.AddWithValue("@Periodo", this.Id);
+                cmd.Parameters.AddWithValue("@estado", estado);
                 cmd.ExecuteNonQuery();
                 valor = true;
             }

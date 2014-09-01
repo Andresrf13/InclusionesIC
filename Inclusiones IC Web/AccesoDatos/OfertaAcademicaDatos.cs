@@ -15,6 +15,7 @@ namespace Inclusiones_IC_Web.AccesoDatos
         public string horario;
         public int Capacidad;
         public int disponible;
+        public int sede;
 
 
         SqlConnection conexion;
@@ -40,6 +41,7 @@ namespace Inclusiones_IC_Web.AccesoDatos
                 cmd.Parameters.AddWithValue("@horario", this.horario);
                 cmd.Parameters.AddWithValue("@capacidad", this.Capacidad);
                 cmd.Parameters.AddWithValue("@disponible", this.disponible);
+                cmd.Parameters.AddWithValue("@sede", this.sede);
                 cmd.ExecuteNonQuery();
                 valor = true;
             }
@@ -52,6 +54,32 @@ namespace Inclusiones_IC_Web.AccesoDatos
                 conexion.Close();
             }
             return valor;
+        }
+
+        internal DataTable SeleccionarTodos()
+        {
+            DataTable dtprofesores = null;
+            try
+            {
+                Conectar();
+                conexion.Open();
+                
+                SqlCommand cmd = new SqlCommand("SP_listaGrupos", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataSet _datos = new DataSet();
+                adapter.Fill(_datos, "Profesores");
+                dtprofesores = _datos.Tables["Profesores"];
+            }
+            catch (Exception e)
+            {
+                ;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+            return dtprofesores;
         }
     }
 }

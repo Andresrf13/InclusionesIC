@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-4">
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4" style="text-align: center">
                 <h1>Oferta Académica</h1>
             </div>
             <div class="col-md-4">
@@ -18,19 +18,18 @@
             <ContentTemplate>
                 <div class="row">
                     <div class="col-md-1"></div>
-                    <div class="col-md-10">
-                        <asp:GridView ID="gvOfertaAcademica" runat="server">
+                    <div class="col-md-10" style="text-align:center">
+                        <asp:GridView ID="gvOfertaAcademica" runat="server" AutoGenerateColumns="false" CssClass="table table-striped table-hover" HeaderStyle-CssClass="success" AlternatingRowStyle-CssClass="active" >
                             <Columns>
                                 <asp:BoundField HeaderText="Codigo" DataField="" HtmlEncode="false" />
-                                <asp:BoundField HeaderText="Sede" DataField="" HtmlEncode="false" />
-                                <asp:BoundField HeaderText="Nombre" DataField="" HtmlEncode="false" />
-                                <asp:BoundField HeaderText="Capacidad" DataField="" />
-                                <asp:BoundField HeaderText="Capacidad Máxima" DataField="" HtmlEncode="false" />
+                                <asp:BoundField HeaderText="Sede" DataField="Sede" HtmlEncode="false" />
+                                <asp:BoundField HeaderText="Nombre" DataField="Nombre" HtmlEncode="false" />
+                                <asp:BoundField HeaderText="Capacidad" DataField="Disponible" />
+                                <asp:BoundField HeaderText="Capacidad Máxima" DataField="Capacidad" HtmlEncode="false" />
                                 <asp:BoundField DataField="" HtmlEncode="false" />
-                                <asp:BoundField HeaderText="Grupo" DataField="" HtmlEncode="false" />
-                                <asp:BoundField DataField="" HtmlEncode="false" />
-                                <asp:BoundField HeaderText="Aula" DataField="" HtmlEncode="false" />
-                                <asp:BoundField HeaderText="Profesor" DataField="" HtmlEncode="false" />
+                                <asp:BoundField HeaderText="# Grupo" DataField="Grupo" HtmlEncode="false" />
+                                <asp:BoundField DataField="Horario" HeaderText="Aula y Horario" HtmlEncode="false" />                                
+                                <asp:BoundField HeaderText="Profesor" DataField="Porfesor" HtmlEncode="false" />
                                 <asp:ButtonField Text="Editar" />
                                 <asp:ButtonField Text="Eliminar" />
                             </Columns>
@@ -40,7 +39,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-5"></div>
-                    <div class="col-md-2" style="margin:10px">
+                    <div class="col-md-2" style="margin:10px; text-align:center;">
                         <asp:Button ID="btnNuevo" CssClass="btn btn-default btn-sm" runat="server" Text="Nuevo" OnClick="btnNuevo_Click" />
                     </div>
                     <div class="col-md-5"></div>

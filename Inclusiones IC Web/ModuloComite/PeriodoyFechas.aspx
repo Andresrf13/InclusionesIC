@@ -26,7 +26,7 @@
                     <asp:DropDownList ID="drpPeriodo" runat="server" CssClass="form-control" OnSelectedIndexChanged="drpPeriodo_SelectedIndexChanged"></asp:DropDownList>
                 </div>
                 <div class="col-md-2">
-                    <asp:CheckBox ID="chkActivo" runat="server" CssClass="radio" Text="Período Actual" />
+                    <asp:CheckBox ID="chkActivo" runat="server" CssClass="radio" Text="Período Actual" OnCheckedChanged="chkActivo_CheckedChanged" AutoPostBack="true" />
                 </div>
                 <div class="col-md-2">
                     <asp:Button ID="BtnNew" runat="server" Text="Crear nuevo período" CssClass="btn btn-primary btn-block" OnClick="BtnNew_Click" />

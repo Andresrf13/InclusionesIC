@@ -13,7 +13,6 @@ namespace Inclusiones_IC_Web.ModuloComite
     {
         protected void Page_Load(object sender, EventArgs e)
         {           
-
             cargarPeriodos();
         }
 
@@ -28,6 +27,7 @@ namespace Inclusiones_IC_Web.ModuloComite
             drpPeriodo.DataValueField = "idSemestre";
             drpPeriodo.DataTextField = "Periodo";
             drpPeriodo.DataBind();
+            drpPeriodo.SelectedIndex = -1;
         }
 
         /// <summary>
@@ -37,7 +37,20 @@ namespace Inclusiones_IC_Web.ModuloComite
         /// <param name="e"></param>
         protected void drpPeriodo_SelectedIndexChanged(object sender, EventArgs e)
         {
+            cargarInfoControles();
+        }
 
+        private void cargarInfoControles()
+        {
+            PeriodoDatos _selec = new PeriodoDatos();
+            _selec.Id = int.Parse(drpPeriodo.SelectedValue);
+            _selec.SeleccionarUno();
+
+            chkActivo.Checked = _selec.activo;
+            calConsultaDesde.SelectedDate = _selec.FechaIniConsulta;
+            calConsultaHasta.SelectedDate = _selec.fechaFinInclusion;
+            calRecepcionDesde.SelectedDate = _selec.fechaIniInclusion;
+            calRecepcionHasta.SelectedDate = _selec.fechaFinInclusion;
         }
 
         protected void BtnNew_Click(object sender, EventArgs e)
@@ -87,6 +100,14 @@ namespace Inclusiones_IC_Web.ModuloComite
                     
                 }
             }
+        }
+
+        protected void chkActivo_CheckedChanged(object sender, EventArgs e)
+        {
+            PeriodoDatos _activo = new PeriodoDatos();
+            _activo.Id = int.Parse(drpPeriodo.SelectedValue);
+            _activo.activo = chkActivo.Checked;
+            _activo.activarPeriodo();
         }
     }
 }

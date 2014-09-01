@@ -15,11 +15,19 @@ namespace Inclusiones_IC_Web.ModuloComite
         {
             if(!IsPostBack)
             {
+                cargarSedes();
+                cargarProfesores();
+                cargarCursos();
+                cargarOfertaAcademica();
+            }            
+        }
 
-            }
-            cargarSedes();
-            cargarProfesores();
-            cargarCursos();
+        private void cargarOfertaAcademica()
+        {
+            OfertaAcademicaDatos _aux = new OfertaAcademicaDatos();
+            DataTable _dtOfertaAc = _aux.SeleccionarTodos();
+            gvOfertaAcademica.DataSource = _dtOfertaAc;
+            gvOfertaAcademica.DataBind();
         }
 
         private void cargarCursos()
@@ -86,8 +94,8 @@ namespace Inclusiones_IC_Web.ModuloComite
         {
             if(btnAgregar.Text == "Guardar")
             {                
-                    insertarregistro();                
-                
+                    insertarregistro();
+                    cargarOfertaAcademica();
             }
         }
 
@@ -105,6 +113,7 @@ namespace Inclusiones_IC_Web.ModuloComite
                 _nuevo.horario = txthoraaula.Text.Trim();
                 _nuevo.Capacidad = int.Parse(txtCapMax.Value.Trim().ToString());
                 _nuevo.disponible = int.Parse(txtCapDis.Value.Trim().ToString());
+                _nuevo.sede =  int.Parse(drpSede.SelectedValue);                
 
                 bool result = _nuevo.Insertar();
                 validar = true;
@@ -113,6 +122,7 @@ namespace Inclusiones_IC_Web.ModuloComite
                     btnNuevo.Text = "Nuevo";
                     divAgregar.Visible = false;
                     limpiarCampos();
+                    
                 }
             }
             catch (Exception e)

@@ -141,7 +141,6 @@
     <Compile Include="ModuloComite\PeriodoyFechas.aspx.designer.cs">
       <DependentUpon>PeriodoyFechas.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ModuloComite\_DataTable.cs" />
     <Compile Include="ModuloEstudiante\BoletaInclusion.aspx.cs">
       <DependentUpon>BoletaInclusion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

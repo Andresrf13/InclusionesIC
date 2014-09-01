@@ -49,7 +49,7 @@
             <div class="col-md-8">
                 <div class="row">
                   <div class="col-md-6" style="text-align:center;">
-                      <asp:LinkButton ID="lbtnOferta" CssClass="btn btn-link" runat="server" >
+                      <asp:LinkButton ID="lbtnOferta" CssClass="btn btn-link" runat="server"  onclick="lbtnOferta_Click" >
                           <div class="row">
                               <div >
                                   <img src="../Imagenes/admincursos.png" class="img-responsive" style="display: inline; max-width:150px; max-height: 100px; text-align:center;" />
