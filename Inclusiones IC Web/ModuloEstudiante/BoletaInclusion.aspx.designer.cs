@@ -391,6 +391,15 @@ namespace Inclusiones_IC_Web.ModuloEstudiante {
         protected global::System.Web.UI.WebControls.Label Label10;
         
         /// <summary>
+        /// Control rbSiLRCursos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rbSiLRCursos;
+        
+        /// <summary>
         /// Control rbSiLRProceso.
         /// </summary>
         /// <remarks>
@@ -398,15 +407,6 @@ namespace Inclusiones_IC_Web.ModuloEstudiante {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButton rbSiLRProceso;
-        
-        /// <summary>
-        /// Control RadioButton2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton2;
         
         /// <summary>
         /// Control Label8.
@@ -778,13 +778,22 @@ namespace Inclusiones_IC_Web.ModuloEstudiante {
         protected global::System.Web.UI.WebControls.Label LabelVisualizarComentario;
         
         /// <summary>
-        /// Control Button2.
+        /// Control BtnSuccess.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button BtnSuccess;
+        
+        /// <summary>
+        /// Control BtnImprimirPDF.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnImprimirPDF;
         
         /// <summary>
         /// Control BtnRegresar.

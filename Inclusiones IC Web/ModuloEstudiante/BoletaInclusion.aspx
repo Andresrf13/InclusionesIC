@@ -274,12 +274,12 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12" >                     
-                                            <asp:RadioButton ID="rbSiLRProceso" Text="Ganó todos los cursos que son requisito" runat="server" Checked="true" GroupName="LRProcRadioButon" />                                            
+                                            <asp:RadioButton ID="rbSiLRCursos" Text="Ganó todos los cursos que son requisito" runat="server" Checked="true" GroupName="LRProcRadioButon" />                                            
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">                                                                 
-                                            <asp:RadioButton ID="RadioButton2" Text="Hizo el proceso de levantamiento de requisitos en el período" runat="server"  GroupName="LRProcRadioButon" />                                        
+                                            <asp:RadioButton ID="rbSiLRProceso" Text="Hizo el proceso de levantamiento de requisitos en el período" runat="server"  GroupName="LRProcRadioButon" />                                        
                                     </div>
                                 </div>
                             </div>
@@ -482,7 +482,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="div2" visible="false" runat="server">
+                            <div id="div2" runat="server">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <asp:Label ID="Label27" runat="server" Text="Cumple con los requisitos porque:"></asp:Label>
@@ -500,13 +500,17 @@
                                      <asp:Label ID="LabelVisualizarComentario" runat="server" Text="" CssClass="col-md-10 form-control"></asp:Label>
                                 </div>
                                 </div>
-                            <div class="row" style="margin-top:20px; margin-left:100px;">                                
-                                <div class="col-md-6" style="text-align: center">
-                                    <asp:Button ID="Button2" runat="server" CssClass="btn btn-success btn-sm col-md-6" Text="Enviar"/>
+                            <div class="row" style="margin-top:20px; margin-left:80px;">                                
+                                <div class="col-md-4" style="text-align: center">
+                                    <asp:Button ID="BtnSuccess" runat="server" CssClass="btn btn-success btn-sm col-md-6" Text="Enviar"/>
                                 </div>
-                                <div class="col-md-6" style="text-align: center">
+                                <div class="col-md-4" style="text-align: center">
+                                    <asp:Button ID="BtnImprimirPDF" runat="server" CssClass="btn btn-link btn-sm col-md-6" Text="Crear PDF" OnClick="BtnImprimirPDF_Click" />
+                                </div>
+                                <div class="col-md-4" style="text-align: center">
                                     <asp:Button ID="BtnRegresar" runat="server" CssClass="btn btn-danger btn-sm col-md-6" Text="Regresar" OnClick="BtnRegresar_Click" />
                                 </div>
+                                
                             </div>
 
                         </fieldset>                        
