@@ -317,7 +317,7 @@
                                                 <asp:Label ID="Label11" runat="server" Text="Nombre completo: "></asp:Label>
                                             </div>
                                             <div class="col-md-10" style="margin-bottom: 15px;">
-                                                <asp:Label ID="LabelVisualizadorNombre" runat="server" Text="" CssClass="col-md-10 form-control"></asp:Label>
+                                                <asp:Label ID="LabelVisualizadorNombre" runat="server" Text="" CssClass=""></asp:Label>
                                             </div>
                                         </div>
                                     </div>
@@ -327,7 +327,7 @@
                                                 <asp:Label ID="Label12" runat="server" Text="Carné"></asp:Label>
                                             </div>
                                             <div class="col-lg-10" style="margin-bottom: 15px;">
-                                                <asp:Label ID="LabelVisualizadorCarne" runat="server" Text="" CssClass="col-md-10 form-control"></asp:Label>
+                                                <asp:Label ID="LabelVisualizadorCarne" runat="server" Text="" CssClass=""></asp:Label>
                                             </div>
                                         </div>
                                     </div>
@@ -337,7 +337,7 @@
                                                 <asp:Label ID="Label13" runat="server" Text="Celular"></asp:Label>
                                             </div>
                                             <div class="col-lg-10" style="margin-bottom: 15px;">
-                                                <asp:Label ID="LabelVisualizarCelular" runat="server" Text="" CssClass="col-md-10 form-control"></asp:Label>
+                                                <asp:Label ID="LabelVisualizarCelular" runat="server" Text="" CssClass=""></asp:Label>
                                             </div>
                                         </div>
                                     </div>
@@ -347,7 +347,7 @@
                                                 <asp:Label ID="Label14" runat="server" Text="Teléfono"></asp:Label>
                                             </div>
                                             <div class="col-lg-10" style="margin-bottom: 15px;">
-                                                <asp:Label ID="LabelVisualizarTelefono" runat="server" Text="" CssClass="col-md-10 form-control"></asp:Label>
+                                                <asp:Label ID="LabelVisualizarTelefono" runat="server" Text="" CssClass=""></asp:Label>
                                             </div>
                                         </div>
                                     </div>
@@ -357,7 +357,7 @@
                                                 <asp:Label ID="Label15" runat="server" Text="Email"></asp:Label>
                                             </div>
                                             <div class="col-lg-10" style="margin-bottom: 15px;">
-                                                <asp:Label ID="LabelVisualizarEmail" runat="server" Text="" CssClass="col-md-10 form-control"></asp:Label>
+                                                <asp:Label ID="LabelVisualizarEmail" runat="server" Text="" CssClass=""></asp:Label>
                                             </div>
                                         </div>
                                     </div>
@@ -367,7 +367,7 @@
                                                 <asp:Label ID="Label16" runat="server" Text="Sede"></asp:Label>
                                             </div>
                                             <div class="col-lg-10" style="margin-bottom: 15px">
-                                                <asp:Label ID="LabelVisualizarSede" runat="server" Text="" CssClass="col-md-10 form-control"></asp:Label>
+                                                <asp:Label ID="LabelVisualizarSede" runat="server" Text="" CssClass=""></asp:Label>
                                             </div>
                                         </div>
                                     </div>
@@ -376,12 +376,9 @@
                                             <div class="col-md-2">
                                                 <asp:Label ID="Label17" runat="server" Text="Hora de matrícula"></asp:Label>
                                             </div>
-                                            <div class="col-lg-5" style="margin-bottom: 15px;">
-                                                <asp:Label ID="LabelVisualizarHora" runat="server" Text="" CssClass="col-md-10 form-control"></asp:Label>
-                                            </div>
-                                            <div class="col-lg-5" style="margin-bottom: 15px;">
-                                                <asp:Label ID="LabelVisualizarMinutos" runat="server" Text="" CssClass="col-md-10 form-control"></asp:Label>
-                                            </div>
+                                            <div class="col-lg-1" style="margin-bottom: 15px;">
+                                                <asp:Label ID="LabelVisualizarHora" runat="server" Text="" CssClass=""></asp:Label>
+                                            </div>                                            
                                         </div>
                                     </div>
                                     <div class="row">
@@ -390,7 +387,7 @@
                                                 <asp:Label ID="Label18" runat="server" Text="Día de matrícula"></asp:Label>
                                             </div>
                                             <div class="col-md-10" style="margin-bottom: 15px;">
-                                                <asp:Label ID="LabelVisualizarDiaMatricula" runat="server" Text="" CssClass="col-md-10 form-control"></asp:Label>
+                                                <asp:Label ID="LabelVisualizarDiaMatricula" runat="server" Text="" CssClass=""></asp:Label>
                                             </div>
                                         </div>
                                     </div>
@@ -409,7 +406,7 @@
                                                 <asp:Label ID="Label19" runat="server" Text="Carrera"></asp:Label>
                                             </div>
                                             <div class="col-md-10" style="margin-bottom: 15px;">
-                                                <asp:Label ID="LabelVisualizarCarrera" runat="server" Text="" CssClass="col-md-10 form-control"></asp:Label>
+                                                <asp:Label ID="LabelVisualizarCarrera" runat="server" Text="" CssClass=""></asp:Label>
                                             </div>
                                         </div>
                                     </div>
@@ -419,7 +416,7 @@
                                                 <asp:Label ID="Label20" runat="server" Text="Plan de Estudios"></asp:Label>
                                             </div>
                                             <div class="col-lg-10" style="margin-bottom: 15px;">
-                                                <asp:Label ID="LabelVisualizarPlan" runat="server" Text="" CssClass="col-md-10 form-control"></asp:Label>
+                                                <asp:Label ID="LabelVisualizarPlan" runat="server" Text="" CssClass=""></asp:Label>
                                             </div>
                                         </div>
                                     </div>
@@ -429,7 +426,7 @@
                                                 <asp:Label ID="Label21" runat="server" Text="Curso"></asp:Label>
                                             </div>
                                             <div class="col-lg-10" style="margin-bottom: 15px;">
-                                                <asp:Label ID="LabelVisualizarCurso" runat="server" Text="" CssClass="col-md-10 form-control"></asp:Label>
+                                                <asp:Label ID="LabelVisualizarCurso" runat="server" Text="" CssClass=""></asp:Label>
                                             </div>
                                         </div>
                                     </div>
@@ -439,7 +436,7 @@
                                                 <asp:Label ID="Label22" runat="server" Text="Grupos"></asp:Label>
                                             </div>
                                             <div class="col-md-5" style="margin-bottom: 15px;">
-                                                <asp:Label ID="LabelVisualizarGrupo" runat="server" Text="" CssClass="col-md-10 form-control"></asp:Label>
+                                                <asp:Label ID="LabelVisualizarGrupo" runat="server" Text="" CssClass=""></asp:Label>
                                             </div>
                                             <div class="col-md-2">
                                             </div>
@@ -462,14 +459,14 @@
                                                 <asp:Label ID="Label24" runat="server" Text="¿Tiene RN?"></asp:Label>
                                             </div>
                                             <div class="col-md-4">
-                                                <asp:Label ID="LabelVisualizarRN" runat="server" Text="" CssClass="col-md-10 form-control"></asp:Label>
+                                                <asp:Label ID="LabelVisualizarRN" runat="server" Text="" CssClass=""></asp:Label>
                                             </div>
                                             <div id="div1" runat="server" visible="true">
                                                 <div class="col-md-3">
                                                     <asp:Label ID="Label25" runat="server" Text="Numero RN:"></asp:Label>
                                                 </div>
                                                 <div class="col-md-3" style="margin-bottom: 15px">
-                                                    <asp:Label ID="LabelVisualizarNumeroRN" runat="server" Text="" CssClass="col-md-10 form-control"></asp:Label>
+                                                    <asp:Label ID="LabelVisualizarNumeroRN" runat="server" Text="" CssClass=""></asp:Label>
                                                 </div>
                                             </div>
 
@@ -482,7 +479,7 @@
                                             </div>
 
                                             <div class="col-md-4" style="margin-bottom: 15px;">
-                                                <asp:Label ID="LabelVisualizarRequisitos" runat="server" Text="" CssClass="col-md-10 form-control"></asp:Label>
+                                                <asp:Label ID="LabelVisualizarRequisitos" runat="server" Text="" CssClass=""></asp:Label>
                                             </div>
                                         </div>
                                     </div>
@@ -494,19 +491,19 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <asp:Label ID="LabelVisualizarCumpleRequisitos" runat="server" Text="" CssClass="col-md-10 form-control"></asp:Label>
+                                                <asp:Label ID="LabelVisualizarCumpleRequisitos" runat="server" Text="" CssClass=""></asp:Label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12" style="text-align: center">
                                             <asp:Label ID="Label28" runat="server" Text="Comentario"></asp:Label>
-                                            <asp:Label ID="LabelVisualizarComentario" runat="server" Text="" CssClass="col-md-10 form-control"></asp:Label>
+                                            <asp:Label ID="LabelVisualizarComentario" runat="server" Text="" CssClass=""></asp:Label>
                                         </div>
                                     </div>
                                     <div class="row" style="margin-top: 20px; margin-left: 80px;">
                                         <div class="col-md-4" style="text-align: center">
-                                            <asp:Button ID="BtnSuccess" runat="server" CssClass="btn btn-success btn-sm col-md-6" Text="Enviar" />
+                                            <asp:Button ID="BtnSuccess" runat="server" OnClick="BtnSuccess_Click" CssClass="btn btn-success btn-sm col-md-6" Text="Enviar" />
                                         </div>
                                         <div class="col-md-4" style="text-align: center">
                                             <asp:Button ID="BtnImprimirPDF" runat="server" CssClass="btn btn-link btn-sm col-md-6" Text="Crear PDF" OnClick="BtnImprimirPDF_Click" />

@@ -571,15 +571,6 @@ namespace Inclusiones_IC_Web.ModuloEstudiante {
         protected global::System.Web.UI.WebControls.Label LabelVisualizarHora;
         
         /// <summary>
-        /// Control LabelVisualizarMinutos.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelVisualizarMinutos;
-        
-        /// <summary>
         /// Control Label18.
         /// </summary>
         /// <remarks>

@@ -137,22 +137,21 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
             LabelVisualizarTelefono.Text = TxtPhone.Text;
             LabelVisualizarCelular.Text = TxtCellphone.Text;
             LabelVisualizarDiaMatricula.Text = DropDownRegistrationDay.SelectedValue;
-            LabelVisualizarHora.Text = DropDownRegistrationTimeHour.SelectedValue;
-            LabelVisualizarMinutos.Text = DropDownRegistrationTimeMinute.SelectedValue;
+            LabelVisualizarHora.Text = DropDownRegistrationTimeHour.SelectedValue +":"+DropDownRegistrationTimeMinute.SelectedValue;
 
-            if (rbsiRN.Checked)
-            {
-                LabelVisualizarRN.Text = "Si";
-                LabelVisualizarNumeroRN.Text = drpNoRN.SelectedValue;
-            }
-
+            LabelVisualizarRN.Text = (rbsiRN.Checked) ? "Sí" : "No";
+            LabelVisualizarNumeroRN.Text = (rbsiRN.Checked)? drpNoRN.SelectedValue : "0";         
             LabelVisualizarPlan.Text = drpPlan.SelectedItem.Text;
             LabelVisualizarSede.Text = drpSedes.SelectedItem.Text;
             LabelVisualizarCarrera.Text = drpCarrera.SelectedItem.Text;
             LabelVisualizarComentario.Text = TxtComentario.Text;
+            LabelVisualizarCurso.Text = drpCursos.SelectedItem.Text;
+            LabelVisualizarGrupo.Text = drpGrupo.SelectedItem.Text;
+
+            LabelVisualizarRequisitos.Text = (rbSiLR.Checked) ? "Sí" : "No";
             if (rbSiLR.Checked)
             {
-                LabelVisualizarRequisitos.Text = "Si";
+                
                 if (rbSiLRProceso.Checked)
                 {
                     LabelVisualizarCumpleRequisitos.Text = "Si, realizó el proceso de levantamiento de requisitos";
@@ -195,7 +194,7 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
                                             "- Teléfono: " + LabelVisualizarTelefono.Text + "\r\n"
                                           + "- Sede: " + LabelVisualizarSede.Text + "\r\n"
                                           + "- Día de matrícula: " + LabelVisualizarDiaMatricula.Text + "\r\n"
-                                          + "- Hora de matrícula: " + LabelVisualizarHora.Text + ":" + LabelVisualizarMinutos.Text + "\r\n", paraFont);
+                                          + "- Hora de matrícula: " + LabelVisualizarHora.Text + "\r\n", paraFont);
                 var subtituloCurso = new Paragraph("--------------------------------------------------------- \r\nDatos del Curso \r\n\r\n", titleFont);
                 var parrafoCurso = new Paragraph("- Sede: " + LabelVisualizarSede.Text + "\r\n"
                                                + "- Carrera: " + LabelVisualizarCarrera.Text + "\r\n"
@@ -243,7 +242,6 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
                 gvGrupos.DataBind();
             }
         }
-
 
         //clase para la lista de grupos
         class ItemGrupo
@@ -310,7 +308,40 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
             gvGrupos.DataSource = _listagrupos;
             gvGrupos.DataBind();
         }
-     
+
+
+        #region InsertarRegistro
+
+
+        protected void BtnSuccess_Click(object sender, EventArgs e)
+        {
+            InclusionDatos _nuevo = new InclusionDatos();
+            _nuevo.nombre = TxtName.Text.Trim();
+            _nuevo.celular = TxtCellphone.Text.Trim();
+            _nuevo.carnet = TxtCarne.Text.Trim();
+            _nuevo.telefono = int.Parse(TxtCellphone.Text.Trim());
+            _nuevo.correo = TxtEmail.Text.Trim();
+            _nuevo.hora = DropDownRegistrationTimeHour.SelectedValue;
+            _nuevo.minuto = DropDownRegistrationTimeMinute.SelectedValue;
+            _nuevo.dia =  int.Parse(DropDownRegistrationDay.SelectedValue);
+            int rnnunn = int.Parse(drpNoRN.SelectedValue);
+            _nuevo.rn = (rbsiRN.Checked) ? rnnunn : 0;
+            _nuevo.lr = (rbSiLR.Checked) ? true : false;
+
+            int idInsertado = _nuevo.Insertar();
+            
+            int activo = 1;
+            for(int x = 0; x < _listagrupos.Count; x++){
+                _nuevo.InsertarGrupo(idInsertado, _listagrupos[x].numgrupo, x, _listagrupos[x].choque, activo);
+                activo = 0;                
+            }
+
+            Response.Redirect("../ModuloEstudiante/Inicio.aspx");
+
+        }
+
+        #endregion
+
     }
 
 }
