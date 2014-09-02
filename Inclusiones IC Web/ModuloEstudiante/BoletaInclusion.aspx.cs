@@ -104,10 +104,15 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
                 var writer = PdfWriter.GetInstance(newPDF, output);
 
                 newPDF.Open();
-                var titleFont = FontFactory.GetFont("Aial", 18, Font.BOLD);
+                var titleFont = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 16, Font.BOLD, CMYKColor.DARK_GRAY);
+                var subTitleFont = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 14, Font.BOLD, CMYKColor.GRAY);
+                var paraFont = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 12, Font.NORMAL);
 
-                var titulo = new Paragraph("Escuela de Ingeniería en Computación", titleFont);
-                var subtitulo = new Paragraph("Boleta de Inclusión \r\n \r\n --------------------------------------------------------- \r\nDatos Personales \r\n\r\n", titleFont);
+                var imagenTEC = iTextSharp.text.Image.GetInstance(Server.MapPath("/Imagenes/tec.jpg"));
+                imagenTEC.Alignment = iTextSharp.text.Image.ALIGN_CENTER;
+                var titulo = new Paragraph("                                 Escuela de Ingeniería en Computación", titleFont);                
+                var subtitulo = new Paragraph("                                                          Boleta de Inclusión \r\n \r\n", subTitleFont);
+                var subtituloDatos = new Paragraph("--------------------------------------------------------- \r\nDatos Personales \r\n\r\n", titleFont);
                 var parrafo = new Paragraph("- Nombre: " + LabelVisualizadorNombre.Text + "\r\n" +
                                             "- Carné: " + LabelVisualizadorCarne.Text + "\r\n" +
                                             "- E-mail: " + LabelVisualizarEmail.Text + "\r\n" +
@@ -115,7 +120,7 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
                                             "- Teléfono: " + LabelVisualizarTelefono.Text + "\r\n"
                                           + "- Sede: " + LabelVisualizarSede.Text + "\r\n"
                                           + "- Día de matrícula: " + LabelVisualizarDiaMatricula.Text + "\r\n"
-                                          + "- Hora de matrícula: " + LabelVisualizarHora.Text + ":" + LabelVisualizarMinutos.Text + "\r\n");
+                                          + "- Hora de matrícula: " + LabelVisualizarHora.Text + ":" + LabelVisualizarMinutos.Text + "\r\n", paraFont);
                 var subtituloCurso = new Paragraph("--------------------------------------------------------- \r\nDatos del Curso \r\n\r\n", titleFont);
                 var parrafoCurso = new Paragraph("- Sede: " + LabelVisualizarSede.Text + "\r\n"
                                                + "- Carrera: " + LabelVisualizarCarrera.Text + "\r\n"
@@ -124,10 +129,11 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
                                                + "- Grupos: " + LabelVisualizarGrupo.Text + "\r\n"
                                                + "- RN: " + LabelVisualizarRN.Text + "\r\n"
                                                + "- Cumple con requisitos: " + LabelVisualizarCumpleRequisitos.Text + "\r\n"
-                                               + "- Comentario: " + LabelVisualizarComentario.Text);
-
-                newPDF.Add(titulo);
+                                               + "- Comentario: " + LabelVisualizarComentario.Text, paraFont);
+                newPDF.Add(imagenTEC);
+                newPDF.Add(titulo);                
                 newPDF.Add(subtitulo);
+                newPDF.Add(subtituloDatos);
                 newPDF.Add(parrafo);
                 newPDF.Add(subtituloCurso);
                 newPDF.Add(parrafoCurso);
