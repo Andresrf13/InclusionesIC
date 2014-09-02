@@ -39,10 +39,10 @@
                             <div class="row">
                                 <div class="form-group">
                                     <div class="col-md-2">
-                                        <asp:Label ID="LabelName" runat="server" Text="Nombre completo"></asp:Label>
+                                        <asp:Label ID="LabelName"  runat="server" Text="Nombre completo"></asp:Label>
                                     </div>
                                     <div class="col-md-10" style="margin-bottom: 15px;">
-                                        <asp:TextBox ID="TxtName" runat="server" CssClass="col-lg-10 form-control"></asp:TextBox>
+                                        <asp:TextBox ID="TxtName" required="required" runat="server" CssClass="col-lg-10 form-control"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
@@ -52,7 +52,7 @@
                                         <asp:Label ID="LabelCarne" runat="server" Text="Carné"></asp:Label>
                                     </div>
                                     <div class="col-lg-10" style="margin-bottom: 15px;">
-                                        <asp:TextBox ID="TxtCarne" runat="server" CssClass="col-lg-10 form-control"></asp:TextBox>
+                                        <asp:TextBox ID="TxtCarne" runat="server" required="required" CssClass="col-lg-10 form-control"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
@@ -62,7 +62,7 @@
                                         <asp:Label ID="LabelCellphone" runat="server" Text="Celular"></asp:Label>
                                     </div>
                                     <div class="col-lg-10" style="margin-bottom: 15px;">
-                                        <asp:TextBox ID="TxtCellphone" runat="server" CssClass="col-lg-10 form-control"></asp:TextBox>
+                                        <asp:TextBox ID="TxtCellphone"  runat="server" CssClass="col-lg-10 form-control"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
@@ -82,7 +82,7 @@
                                         <asp:Label ID="LabelEmail" runat="server" Text="Email"></asp:Label>
                                     </div>
                                     <div class="col-lg-10" style="margin-bottom: 15px;">
-                                        <asp:TextBox ID="TxtEmail" runat="server" CssClass="col-lg-10 form-control"></asp:TextBox>
+                                        <asp:TextBox ID="TxtEmail" required="required" TextMode="Email" runat="server" CssClass="col-lg-10 form-control"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
@@ -92,11 +92,8 @@
                                         <asp:Label ID="LabelSede" runat="server" Text="Sede"></asp:Label>
                                     </div>
                                     <div class="col-lg-10" style="margin-bottom: 15px">
-                                        <asp:DropDownList   ID="DropDownSede" runat="server" CssClass="form-control">
-                                            <asp:ListItem Text="Cartago" />
-                                            <asp:ListItem Text="Centro Académico" />
-                                            <asp:ListItem Text="Limón" />
-                                            <asp:ListItem Text="Alajuela"></asp:ListItem>
+                                        <asp:DropDownList   ID="drpSedes" runat="server" CssClass="form-control">
+                                           
                                         </asp:DropDownList>
                                     </div>
                                 </div>
@@ -162,7 +159,7 @@
                                         <asp:Label ID="Label1" runat="server" Text="Carrera"></asp:Label>
                                     </div>
                                     <div class="col-md-10" style="margin-bottom: 15px;">
-                                        <asp:DropDownList ID="drpCarrera" runat="server" CssClass="form-control"></asp:DropDownList>
+                                        <asp:DropDownList ID="drpCarrera" OnSelectedIndexChanged="drpCarrera_SelectedIndexChanged" AutoPostBack="true" runat="server" CssClass="form-control"></asp:DropDownList>
                                     </div>
                                 </div>
                             </div>
@@ -172,7 +169,7 @@
                                         <asp:Label ID="Label2" runat="server" Text="Plan de Estudios"></asp:Label>
                                     </div>
                                     <div class="col-lg-10" style="margin-bottom: 15px;">
-                                        <asp:DropDownList ID="drpPlan" CssClass="form-control" runat="server" ></asp:DropDownList>
+                                        <asp:DropDownList ID="drpPlan" CssClass="form-control" runat="server" OnSelectedIndexChanged="drpPlan_SelectedIndexChanged" ></asp:DropDownList>
                                     </div>
                                 </div>
                             </div>
@@ -195,7 +192,7 @@
                                         <asp:DropDownList ID="drpGrupo" runat="server" CssClass="form-control"></asp:DropDownList>
                                     </div>
                                     <div class="col-md-2">
-                                        <asp:Button ID="btnAddGrupo" CssClass="btn btn-default btn-sm" runat="server" OnClick="btnAddGrupo_Click" Text="Agregar" />
+                                        <asp:Button ID="btnAddGrupo"  CssClass="btn btn-default btn-sm" runat="server" OnClick="btnAddGrupo_Click" Text="Agregar" />
                                     </div>
                                     <div class="col-md-3" style="text-align: right;">
                                         <asp:CheckBox ID="chkNUevo" CssClass="checkbox" Text="Grupo Nuevo" runat="server" />
@@ -208,11 +205,11 @@
                                         <asp:Label ID="Label5" runat="server" Text="Por Orden de prioridad"></asp:Label>
                                     </div>
                                     <div class="col-md-8" style="margin-bottom: 15px;">
-                                        <asp:GridView ID="gvGrupos" runat="server" AutoGenerateColumns="False">
+                                        <asp:GridView ID="gvGrupos" runat="server" AutoGenerateColumns="False" OnRowCommand="gvGrupos_RowCommand">
                                             <Columns>
-                                                <asp:BoundField HeaderText="Grupo" />
-                                                <asp:CheckBoxField HeaderText="Choque de Horario" />
-                                                <asp:ButtonField Text="Eliminar" />
+                                                <asp:BoundField HeaderText="Grupo" DataField="getid" />
+                                                <asp:CheckBoxField HeaderText="Choque de Horario"  DataField="getchoque" />
+                                                <asp:ButtonField Text="Eliminar" CommandName="Eliminar" />
                                             </Columns>
                                         </asp:GridView>
                                     </div>
@@ -233,7 +230,7 @@
                                     </div>
                                     <div id="divRN" runat="server" visible="false">
                                         <div class="col-md-3">
-                                            <asp:Label ID="Label9" runat="server" Text="Numero RN:"></asp:Label>
+                                            <asp:Label ID="Label9" runat="server" Text="Número RN:"></asp:Label>
                                         </div>
                                         <div class="col-md-3" style="margin-bottom: 15px">
                                             <asp:DropDownList ID="drpNoRN" runat="server" CssClass="form-control">
@@ -266,7 +263,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="divLRPeriodo" visible="false" runat="server">
+                            <div id="divLRPeriodo" visible="false" style="margin: 10px;" runat="server">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <asp:Label ID="Label10" runat="server" Text="Cumple con los requisitos porque:"></asp:Label>

@@ -68,5 +68,34 @@ namespace Inclusiones_IC_Web.AccesoDatos
                 conexion.Close();
             }
         }
+
+        public DataTable SeleccionarCursoxPlan(int idCarrera, int idplan)
+        {
+            DataTable dtcarrera = null;
+            try
+            {
+                Conectar();
+                conexion.Open();
+
+                SqlCommand cmd = new SqlCommand("SP_CursoIDNombre", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idcarrera", idCarrera);
+                cmd.Parameters.AddWithValue("@idPlan", idplan);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataSet _datos = new DataSet();
+                adapter.Fill(_datos, "Profesores");
+                dtcarrera = _datos.Tables["Profesores"];
+            }
+            catch (Exception e)
+            {
+                ;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+            return dtcarrera;
+        }
+
     }
 }

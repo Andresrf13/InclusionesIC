@@ -7,14 +7,74 @@ using System.Web.UI.WebControls;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.IO;
+using Inclusiones_IC_Web.AccesoDatos;
+using System.Data;
 
 namespace Inclusiones_IC_Web.ModuloEstudiante
 {
     public partial class BoletaInclusion : System.Web.UI.Page
     {
+        List<ItemGrupo> _listagrupos = new List<ItemGrupo>() { };
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                cargarSedes();
+                cargarCarrera();
 
+            }
+            else
+            {
+                _listagrupos = (List<ItemGrupo>)Session["listagrupo"];
+            }
+        }
+
+        private void cargarCarrera()
+        {
+            drpCarrera.Items.Clear();
+            CarreraDatos _aux = new CarreraDatos();
+            DataTable _dtcarrera = _aux.SeleccionarTodos();
+            drpCarrera.DataSource = _dtcarrera;
+            drpCarrera.DataValueField = "idCarrera";
+            drpCarrera.DataTextField = "Nombre";
+            drpCarrera.DataBind();
+            cargarPlan();
+        }
+
+        private void cargarPlan()
+        {
+            drpPlan.Items.Clear();
+            Plan _aux = new Plan();
+            _aux.id = int.Parse(drpCarrera.SelectedValue.ToString());
+            DataTable _dtplan = _aux.SeleccionarPlanxCarrera();
+            drpPlan.DataSource = _dtplan;
+            drpPlan.DataValueField = "idPlan";
+            drpPlan.DataTextField = "Nombre";
+            drpPlan.DataBind();
+            cargarCursos();
+        }
+
+        private void cargarCursos()
+        {
+            drpCursos.Items.Clear();
+            Cursos _aux = new Cursos();            
+            DataTable _dtCursos = _aux.SeleccionarCursoxPlan(int.Parse(drpCarrera.SelectedValue.ToString()), int.Parse(drpPlan.SelectedValue.ToString()));
+            drpCursos.DataSource = _dtCursos;
+            drpCursos.DataValueField = "idCurso";
+            drpCursos.DataTextField = "Nombre";
+            drpCursos.DataBind();
+        }
+
+
+        private void cargarSedes()
+        {
+            drpSedes.Items.Clear();
+            Sede _aux = new Sede();
+            DataTable _dtSedes = _aux.SeleccionarTodos();
+            drpSedes.DataSource = _dtSedes;
+            drpSedes.DataValueField = "idSede";
+            drpSedes.DataTextField = "Nombre";
+            drpSedes.DataBind();
         }
 
         /// <summary>
@@ -34,8 +94,21 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
             }
         }
 
+        //AGREGA UN GRUPO A LA LISTA
         protected void btnAddGrupo_Click(object sender, EventArgs e)
         {
+            _listagrupos = (List<ItemGrupo>)Session["listagrupo"];
+            int numgrupo = int.Parse(drpGrupo.SelectedValue.ToString());
+
+            bool result = _listagrupos.Exists(x => x.getid == numgrupo);
+            if (!result)
+            {
+                ItemGrupo nuevo = new ItemGrupo(numgrupo, false);
+                _listagrupos.Add(nuevo);
+                Session["listagrupo"] = _listagrupos;
+                gvGrupos.DataSource = _listagrupos;
+                gvGrupos.DataBind();
+            }            
 
         }
 
@@ -71,18 +144,18 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
                 LabelVisualizarNumeroRN.Text = drpNoRN.SelectedValue;
             }
 
-            LabelVisualizarPlan.Text = drpPlan.SelectedValue;
-            LabelVisualizarSede.Text = DropDownSede.SelectedValue;
-            LabelVisualizarCarrera.Text = drpCarrera.SelectedValue;
+            LabelVisualizarPlan.Text = drpPlan.SelectedItem.Text;
+            LabelVisualizarSede.Text = drpSedes.SelectedItem.Text;
+            LabelVisualizarCarrera.Text = drpCarrera.SelectedItem.Text;
             LabelVisualizarComentario.Text = TxtComentario.Text;
             if (rbSiLR.Checked)
             {
                 LabelVisualizarRequisitos.Text = "Si";
-                if(rbSiLRProceso.Checked)
+                if (rbSiLRProceso.Checked)
                 {
                     LabelVisualizarCumpleRequisitos.Text = "Si, realizó el proceso de levantamiento de requisitos";
                 }
-                if(rbSiLRCursos.Checked)
+                if (rbSiLRCursos.Checked)
                 {
                     LabelVisualizarCumpleRequisitos.Text = "Si, ha ganado todos los cursos";
                 }
@@ -110,7 +183,7 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
 
                 var imagenTEC = iTextSharp.text.Image.GetInstance(Server.MapPath("/Imagenes/tec.jpg"));
                 imagenTEC.Alignment = iTextSharp.text.Image.ALIGN_CENTER;
-                var titulo = new Paragraph("                                 Escuela de Ingeniería en Computación", titleFont);                
+                var titulo = new Paragraph("                                 Escuela de Ingeniería en Computación", titleFont);
                 var subtitulo = new Paragraph("                                                          Boleta de Inclusión \r\n \r\n", subTitleFont);
                 var subtituloDatos = new Paragraph("--------------------------------------------------------- \r\nDatos Personales \r\n\r\n", titleFont);
                 var parrafo = new Paragraph("- Nombre: " + LabelVisualizadorNombre.Text + "\r\n" +
@@ -131,7 +204,7 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
                                                + "- Cumple con requisitos: " + LabelVisualizarCumpleRequisitos.Text + "\r\n"
                                                + "- Comentario: " + LabelVisualizarComentario.Text, paraFont);
                 newPDF.Add(imagenTEC);
-                newPDF.Add(titulo);                
+                newPDF.Add(titulo);
                 newPDF.Add(subtitulo);
                 newPDF.Add(subtituloDatos);
                 newPDF.Add(parrafo);
@@ -141,10 +214,64 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
 
+
+
+        protected void drpCarrera_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cargarPlan();
+        }
+
+        protected void gvGrupos_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if(e.CommandName == "Eliminar")
+            {
+                _listagrupos = (List<ItemGrupo>)Session["listagrupo"];
+                int index = Convert.ToInt32(e.CommandArgument);
+                _listagrupos.RemoveAt(index);
+                Session["listagrupo"] = _listagrupos;
+                gvGrupos.DataSource = _listagrupos;
+                gvGrupos.DataBind();
+            }
+        }
+
+
+        //clase para la lista de grupos
+        class ItemGrupo
+        {
+            private int id;
+            private bool choque;
+            private int numgrupo;
+            private bool p;
+
+            public ItemGrupo(int numgrupo, bool p)
+            {
+                // TODO: Complete member initialization
+                this.numgrupo = numgrupo;
+                this.p = p;
+            }
+
+            public int getid
+            {
+                get { return id; }
+                set { id = value; }
+            }
+            public bool getchoque
+            {
+                get { return choque; }
+                set { choque = value; }
+            }
+        }
+
+        protected void drpPlan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cargarCursos();
+        }
+
     }
+
 }
