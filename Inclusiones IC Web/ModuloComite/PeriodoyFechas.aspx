@@ -23,7 +23,7 @@
                     <asp:Label ID="Label1" runat="server" Text="Periodo:" CssClass="col-sm-12 control-label"></asp:Label>
                 </div>
                 <div class="col-md-2">
-                    <asp:DropDownList ID="drpPeriodo" runat="server" CssClass="form-control" OnSelectedIndexChanged="drpPeriodo_SelectedIndexChanged"></asp:DropDownList>
+                    <asp:DropDownList ID="drpPeriodo" runat="server" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="drpPeriodo_SelectedIndexChanged"></asp:DropDownList>
                 </div>
                 <div class="col-md-2">
                     <asp:CheckBox ID="chkActivo" runat="server" CssClass="radio" Text="Período Actual" OnCheckedChanged="chkActivo_CheckedChanged" AutoPostBack="true" />

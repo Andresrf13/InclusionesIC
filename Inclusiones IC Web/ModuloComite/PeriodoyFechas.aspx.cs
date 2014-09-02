@@ -17,7 +17,7 @@ namespace Inclusiones_IC_Web.ModuloComite
             {
                 cargarPeriodos();
                 showPeriodoActual();
-            }            
+            }
         }
 
         private void showPeriodoActual()
@@ -25,7 +25,7 @@ namespace Inclusiones_IC_Web.ModuloComite
             PeriodoDatos _aux = new PeriodoDatos();
             lblPeridoActual.Text = _aux.PeriodoActual();
         }
-       
+
 
         private void cargarPeriodos()
         {
@@ -37,7 +37,7 @@ namespace Inclusiones_IC_Web.ModuloComite
             drpPeriodo.DataSource = _dtPeriodos;
             drpPeriodo.DataValueField = "idSemestre";
             drpPeriodo.DataTextField = "Periodo";
-            drpPeriodo.DataBind();            
+            drpPeriodo.DataBind();
             cargarInfoControles();
         }
 
@@ -67,7 +67,7 @@ namespace Inclusiones_IC_Web.ModuloComite
 
         protected void BtnNew_Click(object sender, EventArgs e)
         {
-            if(BtnNew.Text == "Crear nuevo período")
+            if (BtnNew.Text == "Crear nuevo período")
             {
                 divcrearNuevo.Visible = true;
                 txtnuevoPeriodo.Value = "";
@@ -91,15 +91,14 @@ namespace Inclusiones_IC_Web.ModuloComite
 
         protected void BtnSave_Click(object sender, EventArgs e)
         {
-            if(BtnNew.Text =="Cerrar" )
-            {
-                PeriodoDatos _nuevo = new PeriodoDatos();
-                _nuevo.periodo = txtnuevoPeriodo.Value.Trim();
-                _nuevo.fechaIniInclusion = calRecepcionDesde.SelectedDate;
-                _nuevo.fechaFinInclusion = calRecepcionHasta.SelectedDate;
-                _nuevo.FechaIniConsulta = calConsultaDesde.SelectedDate;
-                _nuevo.FechaFinConsulta = calConsultaDesde.SelectedDate;
-
+            PeriodoDatos _nuevo = new PeriodoDatos();
+            _nuevo.periodo = txtnuevoPeriodo.Value.Trim();
+            _nuevo.fechaIniInclusion = calRecepcionDesde.SelectedDate;
+            _nuevo.fechaFinInclusion = calRecepcionHasta.SelectedDate;
+            _nuevo.FechaIniConsulta = calConsultaDesde.SelectedDate;
+            _nuevo.FechaFinConsulta = calConsultaHasta.SelectedDate;
+            if (BtnNew.Text == "Cerrar")
+            {               
                 if (_nuevo.Insertar())
                 {
                     drpPeriodo.SelectedIndex = -1;
@@ -109,7 +108,32 @@ namespace Inclusiones_IC_Web.ModuloComite
                     calConsultaHasta.SelectedDate = DateTime.Now;
                     calRecepcionDesde.SelectedDate = DateTime.Now;
                     calRecepcionHasta.SelectedDate = DateTime.Now;
-                    
+                    divcrearNuevo.Visible = false;
+                    txtnuevoPeriodo.Value = "";
+                    BtnNew.Text = "Crear nuevo período";
+                    drpPeriodo.Enabled = true;
+                    chkActivo.Enabled = true;
+
+                }
+
+            }
+            else
+            {
+                _nuevo.Id = int.Parse(drpPeriodo.SelectedValue);
+                if (_nuevo.Actualizar())
+                {
+                    drpPeriodo.SelectedIndex = -1;
+                    divcrearNuevo.Visible = false;
+                    cargarPeriodos();
+                    calConsultaDesde.SelectedDate = DateTime.Now;
+                    calConsultaHasta.SelectedDate = DateTime.Now;
+                    calRecepcionDesde.SelectedDate = DateTime.Now;
+                    calRecepcionHasta.SelectedDate = DateTime.Now;
+                    divcrearNuevo.Visible = false;
+                    txtnuevoPeriodo.Value = "";
+                    BtnNew.Text = "Crear nuevo período";
+                    drpPeriodo.Enabled = true;
+                    chkActivo.Enabled = true;
                 }
             }
         }
@@ -120,6 +144,7 @@ namespace Inclusiones_IC_Web.ModuloComite
             _activo.Id = int.Parse(drpPeriodo.SelectedValue);
             _activo.activo = chkActivo.Checked;
             _activo.activarPeriodo();
+            showPeriodoActual();
         }
     }
 }

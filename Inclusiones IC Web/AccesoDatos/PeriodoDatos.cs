@@ -168,5 +168,34 @@ namespace Inclusiones_IC_Web.AccesoDatos
             }
             return peri;
         }
+
+        internal bool Actualizar()
+        {
+            bool valor = false;
+            try
+            {
+                Conectar();
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_ActualizarPeriodo", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@fechaFinInclusion", String.Format("{0:yyyy-MM-dd}", this.fechaFinInclusion));
+                cmd.Parameters.AddWithValue("@fechaIniInclusion", String.Format("{0:yyyy-MM-dd}", this.fechaIniInclusion));
+                cmd.Parameters.AddWithValue("@FechaIniConsulta", String.Format("{0:yyyy-MM-dd}", this.FechaIniConsulta));
+                cmd.Parameters.AddWithValue("@FechaFinConsulta", String.Format("{0:yyyy-MM-dd}", this.FechaFinConsulta));
+                cmd.Parameters.AddWithValue("@periodo", this.Id);
+                cmd.ExecuteNonQuery();
+                valor = true;
+            }
+            catch (Exception e)
+            {
+                valor = false;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+            return valor;
+        }
     }
 }
