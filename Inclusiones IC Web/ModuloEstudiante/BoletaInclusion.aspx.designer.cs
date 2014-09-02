@@ -265,13 +265,13 @@ namespace Inclusiones_IC_Web.ModuloEstudiante {
         protected global::System.Web.UI.WebControls.Button btnAddGrupo;
         
         /// <summary>
-        /// Control chkNUevo.
+        /// Control btnGrupoNuevo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkNUevo;
+        protected global::System.Web.UI.WebControls.Button btnGrupoNuevo;
         
         /// <summary>
         /// Control Label5.

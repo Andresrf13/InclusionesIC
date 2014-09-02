@@ -19,7 +19,7 @@
         <nav class="navbar navbar-default navbar-static-top" role="navigation">
           <div class="container">
               <div class="navbar-header">
-                  <a class="navbar-brand" href="#">Inclusiones IC </a>
+                  <a class="navbar-brand" href="../ModuloComite/menuComite.aspx"><span class="glyphicon glyphicon-home"  style="margin-right:5px;"></span>Inclusiones IC </a>
               </div>
               <div class="navbar-collapse collapse" id="navbar-main">
                   <div class="nav navbar-nav navbar-right">                  

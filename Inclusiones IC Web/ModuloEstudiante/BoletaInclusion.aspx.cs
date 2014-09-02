@@ -14,13 +14,15 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
 {
     public partial class BoletaInclusion : System.Web.UI.Page
     {
-        List<ItemGrupo> _listagrupos = new List<ItemGrupo>() { };
+        List<ItemGrupo> _listagrupos;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 cargarSedes();
                 cargarCarrera();
+                _listagrupos = new List<ItemGrupo>();
+                Session["listagrupo"] = _listagrupos;
 
             }
             else
@@ -100,7 +102,7 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
             _listagrupos = (List<ItemGrupo>)Session["listagrupo"];
             int numgrupo = int.Parse(drpGrupo.SelectedValue.ToString());
 
-            bool result = _listagrupos.Exists(x => x.getid == numgrupo);
+            bool result = _listagrupos.Exists(x => x.numgrupo == numgrupo);
             if (!result)
             {
                 ItemGrupo nuevo = new ItemGrupo(numgrupo, false);
@@ -219,11 +221,14 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
             }
         }
 
-
-
         protected void drpCarrera_SelectedIndexChanged(object sender, EventArgs e)
         {
             cargarPlan();
+        }
+
+        protected void drpPlan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cargarCursos();
         }
 
         protected void gvGrupos_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -242,36 +247,70 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
 
         //clase para la lista de grupos
         class ItemGrupo
-        {
-            private int id;
-            private bool choque;
-            private int numgrupo;
-            private bool p;
+        {            
+            private bool _choque;
+            private int _numgrupo;            
 
             public ItemGrupo(int numgrupo, bool p)
             {
                 // TODO: Complete member initialization
                 this.numgrupo = numgrupo;
-                this.p = p;
+                this.choque = p;
             }
 
-            public int getid
+            public int numgrupo
             {
-                get { return id; }
-                set { id = value; }
+                get { return _numgrupo; }
+                set { _numgrupo = value; }
             }
-            public bool getchoque
+            public bool choque
             {
-                get { return choque; }
-                set { choque = value; }
+                get { return _choque; }
+                set { _choque = value; }
             }
         }
 
-        protected void drpPlan_SelectedIndexChanged(object sender, EventArgs e)
+        protected void chkChoque_CheckedChanged(object sender, EventArgs e)
         {
-            cargarCursos();
-        }
+            int indice = 0;
+            _listagrupos = (List<ItemGrupo>)Session["listagrupo"];
+            foreach (GridViewRow row in gvGrupos.Rows)
+            {
+                //CheckBox chk = row.Cells[1].Controls[0] as CheckBox;
+                CheckBox chk = (CheckBox)row.Cells[0].FindControl("chkChoque");
+                if (chk != null && chk.Checked)
+                {
+                    _listagrupos[indice].choque = true;
+                }
+                else if (chk != null && !chk.Checked)
+                {
+                    _listagrupos[indice].choque = false;
+                }
+                indice+= 1;
+            }
 
+            Session["listagrupo"] = _listagrupos;
+            gvGrupos.DataSource = _listagrupos;
+            gvGrupos.DataBind();
+        }
+     
+
+        protected void btnGrupoNuevo_Click(object sender, EventArgs e)
+        {
+            _listagrupos = (List<ItemGrupo>)Session["listagrupo"];
+            ItemGrupo _aux = new ItemGrupo(0, false);
+            bool result = _listagrupos.Exists(x => x.numgrupo == 0);
+
+            if (!result)
+            {
+                _listagrupos.Add(_aux);
+            }
+
+            Session["listagrupo"] = _listagrupos;
+            gvGrupos.DataSource = _listagrupos;
+            gvGrupos.DataBind();
+        }
+     
     }
 
 }
