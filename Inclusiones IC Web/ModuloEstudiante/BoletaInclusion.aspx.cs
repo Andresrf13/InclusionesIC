@@ -146,7 +146,21 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
             LabelVisualizarCarrera.Text = drpCarrera.SelectedItem.Text;
             LabelVisualizarComentario.Text = TxtComentario.Text;
             LabelVisualizarCurso.Text = drpCursos.SelectedItem.Text;
-            LabelVisualizarGrupo.Text = drpGrupo.SelectedItem.Text;
+            
+            for (int x = 0; x < _listagrupos.Count; x++)
+            {
+                string choca = ((bool)_listagrupos[x].choque)? "Choca" : "No choca";
+                if (x == 0)
+                {
+                    LabelVisualizarGrupo.Text += " #Grupo: " + _listagrupos[x].numgrupo.ToString() + " " + choca;
+                }
+                else
+                {
+                    LabelVisualizarGrupo.Text += ", #Grupo: " + _listagrupos[x].numgrupo.ToString() + " " + choca;
+                }
+                
+            }
+            
 
             LabelVisualizarRequisitos.Text = (rbSiLR.Checked) ? "Sí" : "No";
             if (rbSiLR.Checked)
