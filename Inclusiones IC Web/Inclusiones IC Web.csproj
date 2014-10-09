@@ -78,10 +78,12 @@
     <Content Include="Imagenes\Lupa.jpg" />
     <Content Include="Imagenes\registro.png" />
     <Content Include="Imagenes\reportes.jpg" />
+    <Content Include="ModuloComite\CorreosElectronicos.aspx" />
     <Content Include="ModuloComite\Login.aspx" />
     <Content Include="ModuloComite\menuComite.aspx" />
     <Content Include="ModuloComite\OfertaAcademica.aspx" />
     <Content Include="ModuloComite\PeriodoyFechas.aspx" />
+    <Content Include="ModuloComite\ProfesoresDatos.aspx" />
     <Content Include="ModuloEstudiante\BoletaInclusion.aspx" />
     <Content Include="ModuloEstudiante\Imprimir_Guardar.aspx" />
     <Content Include="ModuloEstudiante\Inicio.aspx" />
@@ -125,6 +127,13 @@
     <Compile Include="Estudiantes.Master.designer.cs">
       <DependentUpon>Estudiantes.Master</DependentUpon>
     </Compile>
+    <Compile Include="ModuloComite\CorreosElectronicos.aspx.cs">
+      <DependentUpon>CorreosElectronicos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuloComite\CorreosElectronicos.aspx.designer.cs">
+      <DependentUpon>CorreosElectronicos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ModuloComite\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -152,6 +161,13 @@
     </Compile>
     <Compile Include="ModuloComite\PeriodoyFechas.aspx.designer.cs">
       <DependentUpon>PeriodoyFechas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModuloComite\ProfesoresDatos.aspx.cs">
+      <DependentUpon>ProfesoresDatos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuloComite\ProfesoresDatos.aspx.designer.cs">
+      <DependentUpon>ProfesoresDatos.aspx</DependentUpon>
     </Compile>
     <Compile Include="ModuloEstudiante\BoletaInclusion.aspx.cs">
       <DependentUpon>BoletaInclusion.aspx</DependentUpon>
