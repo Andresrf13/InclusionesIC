@@ -13,5 +13,12 @@ namespace InclusionesIC_Proyecto
         {
 
         }
+
+        protected void btnIniciaSesion_Click(object sender, EventArgs e)
+        {
+            Session["Usuario"] = null;
+            Response.Redirect("~/ModuloEstudiante/Inicio.aspx");
+            
+        }
     }
 }

@@ -11,8 +11,13 @@ namespace Inclusiones_IC_Web.ModuloComite
 {
     public partial class PeriodoyFechas : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Usuario"] == null)
+            {
+                Response.Redirect("~/ModuloComite/Login.aspx");
+            }
             if (!IsPostBack)
             {
                 cargarPeriodos();

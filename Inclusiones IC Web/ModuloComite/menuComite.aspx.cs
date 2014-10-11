@@ -11,7 +11,10 @@ namespace Inclusiones_IC_Web.ModuloComite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["Usuario"]== null)
+            {
+                Response.Redirect("~/ModuloComite/Login.aspx");
+            }
         }
 
         /// <summary>

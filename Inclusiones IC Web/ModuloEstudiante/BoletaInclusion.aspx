@@ -178,7 +178,7 @@
                                                 <asp:Label ID="Label3" runat="server" Text="Curso"></asp:Label>
                                             </div>
                                             <div class="col-lg-10" style="margin-bottom: 15px;">
-                                                <asp:DropDownList ID="drpCursos" runat="server" CssClass="form-control"></asp:DropDownList>
+                                                <asp:DropDownList ID="drpCursos" runat="server" OnSelectedIndexChanged="drpCursos_SelectedIndexChanged" CssClass="form-control"></asp:DropDownList>
                                             </div>
                                         </div>
                                     </div>
@@ -188,10 +188,7 @@
                                                 <asp:Label ID="Label4" runat="server" Text="Grupo"></asp:Label>
                                             </div>
                                             <div class="col-sm-5" style="margin-bottom: 15px;">
-                                                <asp:DropDownList ID="drpGrupo" runat="server" CssClass="form-control">
-                                                    <asp:ListItem Value="1">1</asp:ListItem>
-                                                    <asp:ListItem Value="2">2</asp:ListItem>
-                                                    <asp:ListItem Value="3">3</asp:ListItem>
+                                                <asp:DropDownList ID="drpGrupo" runat="server" CssClass="form-control">                                                    
                                                 </asp:DropDownList>
                                             </div>
                                             <div class="col-sm-2">
@@ -293,7 +290,7 @@
                                             <asp:TextBox ID="TxtComentario" runat="server" CssClass="col-lg-10 form-control" TextMode="MultiLine"></asp:TextBox>
                                         </div>
                                         <div class="col-sm-6" style="text-align: center">
-                                            <asp:Button ID="btnVisualizar" runat="server" CssClass="btn btn-success btn-sm" Text="Visualizar Boleta" OnClick="btnVisualizar_Click" />
+                                            <asp:Button ID="btnVisualizar" runat="server" CssClass="btn btn-success btn-sm" Text="Visualizar Boleta" Enabled="false" OnClick="btnVisualizar_Click" />
                                         </div>
                                     </div>
 
@@ -505,8 +502,7 @@
                                         <div class="col-sm-4" style="text-align: center">
                                             <asp:Button ID="BtnSuccess" runat="server" OnClick="BtnSuccess_Click" CssClass="btn btn-success btn-sm col-sm-6" Text="Enviar" />
                                         </div>
-                                        <div class="col-sm-4" style="text-align: center">
-                                            <asp:Button ID="BtnImprimirPDF" runat="server" CssClass="btn btn-link btn-sm col-sm-6" Text="Crear PDF" OnClick="BtnImprimirPDF_Click" />
+                                        <div class="col-sm-4" style="text-align: center">                                            
                                         </div>
                                         <div class="col-sm-4" style="text-align: center">
                                             <asp:Button ID="BtnRegresar" runat="server" CssClass="btn btn-danger btn-sm col-sm-6" Text="Regresar" OnClick="BtnRegresar_Click" />
@@ -523,4 +519,78 @@
         </ContentTemplate>
     </asp:UpdatePanel>
 
+
+    <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                        <ContentTemplate>
+                            <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">
+                            <asp:Label ID="txtTitulo" runat="server" Text=""></asp:Label></h4>
+                    </div>
+                    <div class="modal-body">
+                        <asp:Label ID="txtCuerpo" runat="server" Text=""></asp:Label>
+                        <asp:Button ID="BtnImprimirPDF" runat="server" CssClass="btn btn-link btn-sm col-sm-6" Text="Crear PDF" OnClick="BtnImprimirPDF_Click" />
+                    </div>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            function openModal() {
+                $('#myModal').modal('show');
+            }
+
+            function closeModal() {
+                $('#myModal').modal('hide');
+            }
+        </script>  
+
+
+   <%-- <div class="modal fade" id="myModalError" tabindex="-1" role="dialog" aria-labelledby="myModalLabelError" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                        <ContentTemplate>
+                            <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabelError">
+                            <asp:Label ID="txtTituloError" runat="server" Text=""></asp:Label></h4>
+                    </div>
+                    <div class="modal-body">
+                        <asp:Label ID="txtCuerpoError" runat="server" Text=""></asp:Label>                        
+                    </div>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            function openModalError() {
+                $('#myModalError').modal('show');
+            }
+
+            function closeModalError() {
+                $('#myModalError').modal('hide');
+            }
+        </script> --%>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->        
+    <script src="../Scripts/bootstrap.min.js"></script>
 </asp:Content>

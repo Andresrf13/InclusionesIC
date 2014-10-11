@@ -119,10 +119,12 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
             if (rbNoLR.Checked)
             {
                 divLRPeriodo.Visible = false;
+                btnVisualizar.Enabled = false;
             }
             else if (rbSiLR.Checked)
             {
                 divLRPeriodo.Visible = true;
+                btnVisualizar.Enabled = true;
             }
         }
 
@@ -329,32 +331,60 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
 
         protected void BtnSuccess_Click(object sender, EventArgs e)
         {
-            InclusionDatos _nuevo = new InclusionDatos();
-            _nuevo.nombre = TxtName.Text.Trim();
-            _nuevo.celular = TxtCellphone.Text.Trim();
-            _nuevo.carnet = TxtCarne.Text.Trim();
-            _nuevo.telefono = int.Parse(TxtCellphone.Text.Trim());
-            _nuevo.correo = TxtEmail.Text.Trim();
-            _nuevo.hora = DropDownRegistrationTimeHour.SelectedValue;
-            _nuevo.minuto = DropDownRegistrationTimeMinute.SelectedValue;
-            _nuevo.dia =  int.Parse(DropDownRegistrationDay.SelectedValue);
-            int rnnunn = int.Parse(drpNoRN.SelectedValue);
-            _nuevo.rn = (rbsiRN.Checked) ? rnnunn : 0;
-            _nuevo.lr = (rbSiLR.Checked) ? true : false;
+            try
+            {
+                InclusionDatos _nuevo = new InclusionDatos();
+                _nuevo.nombre = TxtName.Text.Trim();
+                _nuevo.celular = TxtCellphone.Text.Trim();
+                _nuevo.carnet = TxtCarne.Text.Trim();
+                _nuevo.telefono = int.Parse(TxtCellphone.Text.Trim());
+                _nuevo.correo = TxtEmail.Text.Trim();
+                _nuevo.hora = DropDownRegistrationTimeHour.SelectedValue;
+                _nuevo.minuto = DropDownRegistrationTimeMinute.SelectedValue;
+                _nuevo.dia = int.Parse(DropDownRegistrationDay.SelectedValue);
+                int rnnunn = (rbnoRN.Checked) ? 0 : int.Parse(drpNoRN.SelectedValue);
+                _nuevo.rn = (rbsiRN.Checked) ? rnnunn : 0;
+                _nuevo.lr = (rbSiLR.Checked) ? true : false;
 
-            int idInsertado = _nuevo.Insertar();
-            
-            int activo = 1;
-            for(int x = 0; x < _listagrupos.Count; x++){
-                _nuevo.InsertarGrupo(idInsertado, _listagrupos[x].numgrupo, x, _listagrupos[x].choque, activo);
-                activo = 0;                
+                int idInsertado = _nuevo.Insertar();
+
+                if (idInsertado != -1)
+                {
+                    int activo = 1;
+                    for (int x = 0; x < _listagrupos.Count; x++)
+                    {
+                        _nuevo.InsertarGrupo(idInsertado, _listagrupos[x].numgrupo, x, _listagrupos[x].choque, activo);
+                        activo = 0;
+                    }
+                    txtTitulo.Text = "Finalizado";
+                    txtCuerpo.Text = "se ha enviado la solicitud correctamente";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+
+
+                    //Response.Redirect("../ModuloEstudiante/Inicio.aspx");
+                }
             }
-
-            Response.Redirect("../ModuloEstudiante/Inicio.aspx");
-
+            catch (Exception)
+            {
+                //txtTituloError.Text = "Error";
+                //txtCuerpoError.Text = "No se han ingresado los datos correctamente";
+                //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalError();", true);
+            }
+           
         }
 
         #endregion
+
+        protected void drpCursos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (drpCursos.Items.Count > 0)
+            {
+                GruposDatos _aux = new GruposDatos();
+                _aux.id = Convert.ToInt32(drpCursos.SelectedValue);
+                DataTable _dtGrupos =  _aux.SeleccionarTodos();
+
+            }
+        }
 
     }
 
