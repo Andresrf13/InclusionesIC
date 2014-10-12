@@ -80,6 +80,7 @@
     <Content Include="Imagenes\reportes.jpg" />
     <Content Include="ModuloComite\CorreosElectronicos.aspx" />
     <Content Include="ModuloComite\EstadoInclusiones.aspx" />
+    <Content Include="ModuloComite\generarreportes.aspx" />
     <Content Include="ModuloComite\Login.aspx" />
     <Content Include="ModuloComite\menuComite.aspx" />
     <Content Include="ModuloComite\OfertaAcademica.aspx" />
@@ -143,6 +144,13 @@
     </Compile>
     <Compile Include="ModuloComite\EstadoInclusiones.aspx.designer.cs">
       <DependentUpon>EstadoInclusiones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModuloComite\generarreportes.aspx.cs">
+      <DependentUpon>generarreportes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuloComite\generarreportes.aspx.designer.cs">
+      <DependentUpon>generarreportes.aspx</DependentUpon>
     </Compile>
     <Compile Include="ModuloComite\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

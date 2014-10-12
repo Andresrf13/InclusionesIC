@@ -16,6 +16,7 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
     public partial class BoletaInclusion : System.Web.UI.Page
     {
         List<ItemGrupo> _listagrupos;
+        int idgruponuevo = 28; //esto esta ligado en la base de datos -.-
         protected void Page_Load(object sender, EventArgs e)
         {
             PeriodoDatos _aux = new PeriodoDatos();
@@ -320,7 +321,7 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
         protected void btnGrupoNuevo_Click(object sender, EventArgs e)
         {
             _listagrupos = (List<ItemGrupo>)Session["listagrupo"];
-            ItemGrupo _aux = new ItemGrupo(30, 0, false);
+            ItemGrupo _aux = new ItemGrupo(idgruponuevo, 0, false);
             bool result = _listagrupos.Exists(x => x.numgrupo == 0);
 
             if (!result)

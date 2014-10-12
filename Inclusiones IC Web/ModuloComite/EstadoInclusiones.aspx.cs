@@ -61,5 +61,10 @@ namespace Inclusiones_IC_Web.ModuloComite
             drpSedes.DataTextField = "Nombre";
             drpSedes.DataBind();
         }
+
+        protected void drpCursos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cargarGrupos();
+        }
     }
 }

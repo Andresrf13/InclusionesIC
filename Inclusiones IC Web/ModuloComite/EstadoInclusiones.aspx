@@ -35,7 +35,7 @@
                             <p>Curso:</p>
                         </div>
                         <div class="col-sm-3">
-                            <asp:DropDownList ID="drpCursos" Width="100%" runat="server"></asp:DropDownList>
+                            <asp:DropDownList ID="drpCursos" OnSelectedIndexChanged="drpCursos_SelectedIndexChanged" AutoPostBack="true" Width="100%" runat="server"></asp:DropDownList>
                         </div>
 
                         <div class="col-sm-1">
