@@ -28,9 +28,10 @@ namespace Inclusiones_IC_Web.ModuloComite
             }
             else
             {
-                txtTitulo.Text = "Error";
-                txtCuerpo.Text = "Datos incorrectos, no aparece registrado";
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                lblError.Text = " Datos incorrectos al iniciar sesión ";
+                //txtTitulo.Text = "Error";
+                //txtCuerpo.Text = "Datos incorrectos, no aparece registrado";
+                //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
             }
             
         }

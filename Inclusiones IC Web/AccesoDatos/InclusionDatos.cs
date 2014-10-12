@@ -21,6 +21,7 @@ namespace Inclusiones_IC_Web.AccesoDatos
         public int dia;
         public int rn;
         public bool lr;
+        public string connentario;
 
 
 
@@ -50,6 +51,7 @@ namespace Inclusiones_IC_Web.AccesoDatos
                 cmd.Parameters.AddWithValue("@Dia", this.dia);
                 cmd.Parameters.AddWithValue("@idRN", this.rn);
                 cmd.Parameters.AddWithValue("@LR", this.lr);
+                cmd.Parameters.AddWithValue("@comentario", this.connentario);
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {

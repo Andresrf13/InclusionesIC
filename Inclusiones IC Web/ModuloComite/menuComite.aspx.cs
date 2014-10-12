@@ -36,5 +36,10 @@ namespace Inclusiones_IC_Web.ModuloComite
         {
             Response.Redirect("~/ModuloComite/OfertaAcademica.aspx");
         }
+
+        protected void lbtnAprobarInclusiones_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/ModuloComite/EstadoInclusiones.aspx");
+        }
     }
 }

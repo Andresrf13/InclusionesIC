@@ -9,10 +9,10 @@
             <div class="col-md-10">
                 <div class="row">
                   <div class="col-md-4" style="text-align:center;">                    
-                    <asp:LinkButton ID="lbtnAprobarInclusiones" CssClass="btn btn-link" runat="server" >
+                    <asp:LinkButton ID="lbtnAprobarInclusiones" CssClass="btn btn-link" onclick="lbtnAprobarInclusiones_Click" runat="server" >
                           <div class="row">
                               <div >
-                                  <img src="../Imagenes/aprobarinclusion.jpg" class="img-responsive" style="display: inline; max-width:150px; max-height: 100px; text-align:center;" />
+                                  <img src="../Imagenes/aprobarinclusion.jpg"  class="img-responsive" style="display: inline; max-width:150px; max-height: 100px; text-align:center;" />
                                   <p class="text-primary" style="display: inline;">Aprobar Inclusiones</p>
                               </div>                              
                           </div>                                                    

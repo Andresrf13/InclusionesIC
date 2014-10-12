@@ -59,15 +59,22 @@ namespace Inclusiones_IC_Web.ModuloComite
 
         private void cargarInfoControles()
         {
-            PeriodoDatos _selec = new PeriodoDatos();
-            _selec.Id = int.Parse(drpPeriodo.SelectedValue);
-            _selec.SeleccionarUno();
+            try
+            {
+                PeriodoDatos _selec = new PeriodoDatos();
+                _selec.Id = int.Parse(drpPeriodo.SelectedValue);
+                _selec.SeleccionarUno();
 
-            chkActivo.Checked = _selec.activo;
-            calConsultaDesde.SelectedDate = _selec.FechaIniConsulta;
-            calConsultaHasta.SelectedDate = _selec.FechaFinConsulta;
-            calRecepcionDesde.SelectedDate = _selec.fechaIniInclusion;
-            calRecepcionHasta.SelectedDate = _selec.fechaFinInclusion;
+                chkActivo.Checked = _selec.activo;
+                calConsultaDesde.SelectedDate = _selec.FechaIniConsulta;
+                calConsultaHasta.SelectedDate = _selec.FechaFinConsulta;
+                calRecepcionDesde.SelectedDate = _selec.fechaIniInclusion;
+                calRecepcionHasta.SelectedDate = _selec.fechaFinInclusion;
+            }
+            catch (Exception e)
+            {
+
+            }
         }
 
         protected void BtnNew_Click(object sender, EventArgs e)

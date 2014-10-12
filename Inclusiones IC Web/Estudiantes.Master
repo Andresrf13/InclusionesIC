@@ -13,6 +13,9 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+
     <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <nav class="navbar navbar-default navbar-static-top" role="navigation">
@@ -34,9 +37,7 @@
         
         </asp:ContentPlaceHolder>
     </div>
-
-        <script src="../Scripts/bootstrap.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+       
     </form>
 </body>
 </html>

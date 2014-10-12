@@ -79,6 +79,7 @@
     <Content Include="Imagenes\registro.png" />
     <Content Include="Imagenes\reportes.jpg" />
     <Content Include="ModuloComite\CorreosElectronicos.aspx" />
+    <Content Include="ModuloComite\EstadoInclusiones.aspx" />
     <Content Include="ModuloComite\Login.aspx" />
     <Content Include="ModuloComite\menuComite.aspx" />
     <Content Include="ModuloComite\OfertaAcademica.aspx" />
@@ -135,6 +136,13 @@
     </Compile>
     <Compile Include="ModuloComite\CorreosElectronicos.aspx.designer.cs">
       <DependentUpon>CorreosElectronicos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModuloComite\EstadoInclusiones.aspx.cs">
+      <DependentUpon>EstadoInclusiones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuloComite\EstadoInclusiones.aspx.designer.cs">
+      <DependentUpon>EstadoInclusiones.aspx</DependentUpon>
     </Compile>
     <Compile Include="ModuloComite\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

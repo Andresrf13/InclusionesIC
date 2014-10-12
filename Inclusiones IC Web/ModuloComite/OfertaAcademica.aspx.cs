@@ -17,6 +17,16 @@ namespace Inclusiones_IC_Web.ModuloComite
             {
                 Response.Redirect("~/ModuloComite/Login.aspx");
             }
+            PeriodoDatos _aux = new PeriodoDatos();
+            string _peri = _aux.PeriodoActual();
+            if (_peri.Equals("NO hay período Actual"))
+            {
+                string script = "<script type = 'text/javascript'>alert('Defina un periodo actual primero') ;window.location.href ='../ModuloComite/PeriodoyFechas.aspx';</script>";
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", script.ToString());
+                
+                //Response.Redirect("");
+            }
+
             if(!IsPostBack)
             {
                 cargarSedes();
@@ -87,6 +97,7 @@ namespace Inclusiones_IC_Web.ModuloComite
 
         private void limpiarCampos()
         {
+            txtNombreCurso.Text = "";
             txtGrupo.Value = "";
             txtCapMax.Value = "";
             txtCapDis.Value = "";

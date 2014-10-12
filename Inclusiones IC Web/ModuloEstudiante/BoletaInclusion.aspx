@@ -4,16 +4,16 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-        <ContentTemplate>
+        <ContentTemplate>           
             <div class="row">
                 <div class="col-sm-1"></div>
                 <div class="col-sm-10">
                     <div class="page-header">
-                        <h1>Boleta de Inclusión - <small>Datos personales</small></h1>
+                        <h1>Boleta de Inclusión - <small>Periodo: <asp:Label ID="lblPeriodoshow" runat="server" Text="Label"></asp:Label></small></h1>
                     </div>
                 </div>
-
             </div>
+            
             <div class="row">
                 <div class="col-sm-1"></div>
                 <div class="col-sm-10">
@@ -43,6 +43,7 @@
                                             </div>
                                             <div class="col-sm-10" style="margin-bottom: 15px;">
                                                 <asp:TextBox ID="TxtName" required="required" runat="server" CssClass="col-lg-10 form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ValidationGroup="validar" ID="RequiredFieldValidator1" runat="server" CssClass="alert-danger" Display="Dynamic" ControlToValidate="TxtName" ErrorMessage="Debe Ingresar un Nombre"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
                                     </div>
@@ -63,6 +64,7 @@
                                             </div>
                                             <div class="col-lg-10" style="margin-bottom: 15px;">
                                                 <asp:TextBox ID="TxtCellphone" runat="server" CssClass="col-lg-10 form-control"></asp:TextBox>
+                                                <asp:RegularExpressionValidator CssClass="alert-danger" ID="RegularExpressionValidator1" runat="server" Display="Dynamic" ValidationGroup="validar" ControlToValidate="TxtCellphone" ValidationExpression="\d{8}" ErrorMessage="Ingrese solo numeros sin espacios ni otros"></asp:RegularExpressionValidator>
                                             </div>
                                         </div>
                                     </div>
@@ -73,6 +75,7 @@
                                             </div>
                                             <div class="col-lg-10" style="margin-bottom: 15px;">
                                                 <asp:TextBox ID="TxtPhone" runat="server" CssClass="col-lg-10 form-control"></asp:TextBox>
+                                                <asp:RegularExpressionValidator CssClass="alert-danger" ID="RegularExpressionValidator2" runat="server" Display="Dynamic" ValidationGroup="validar" ControlToValidate="TxtPhone" ValidationExpression="\d{8}" ErrorMessage="Ingrese solo numeros sin espacios ni otros"></asp:RegularExpressionValidator>
                                             </div>
                                         </div>
                                     </div>
@@ -83,6 +86,7 @@
                                             </div>
                                             <div class="col-lg-10" style="margin-bottom: 15px;">
                                                 <asp:TextBox ID="TxtEmail" required="required" TextMode="Email" runat="server" CssClass="col-lg-10 form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ValidationGroup="validar" ID="RequiredFieldValidator2" runat="server" CssClass="alert-danger" Display="Dynamic" ControlToValidate="TxtEmail" ErrorMessage="Debe Ingresar un Nombre"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
                                     </div>
@@ -171,14 +175,14 @@
                         <div class="jumbotron">
                             <div class="form-horizontal">
                                 <fieldset>
-                                    <legend>Curso en el que desea solicitar Inclusión</legend>                                    
+                                    <legend>Curso en el que desea solicitar Inclusión</legend>
                                     <div class="row">
                                         <div class="form-group">
                                             <div class="col-sm-2">
                                                 <asp:Label ID="Label3" runat="server" Text="Curso"></asp:Label>
                                             </div>
                                             <div class="col-lg-10" style="margin-bottom: 15px;">
-                                                <asp:DropDownList ID="drpCursos" runat="server" OnSelectedIndexChanged="drpCursos_SelectedIndexChanged" CssClass="form-control"></asp:DropDownList>
+                                                <asp:DropDownList ID="drpCursos" AutoPostBack="true" runat="server" OnSelectedIndexChanged="drpCursos_SelectedIndexChanged" CssClass="form-control"></asp:DropDownList>
                                             </div>
                                         </div>
                                     </div>
@@ -188,14 +192,14 @@
                                                 <asp:Label ID="Label4" runat="server" Text="Grupo"></asp:Label>
                                             </div>
                                             <div class="col-sm-5" style="margin-bottom: 15px;">
-                                                <asp:DropDownList ID="drpGrupo" runat="server" CssClass="form-control">                                                    
+                                                <asp:DropDownList ID="drpGrupo" runat="server" CssClass="form-control">
                                                 </asp:DropDownList>
                                             </div>
                                             <div class="col-sm-2">
                                                 <asp:Button ID="btnAddGrupo" CssClass="btn btn-default btn-sm" runat="server" OnClick="btnAddGrupo_Click" Text="Agregar" />
                                             </div>
                                             <div class="col-sm-3" style="text-align: right;">
-                                                <asp:Button ID="btnGrupoNuevo" OnClick="btnGrupoNuevo_Click" runat="server" CssClass="btn btn-info btn-xs" Text="Grupo Nuevo" />                                                
+                                                <asp:Button ID="btnGrupoNuevo" OnClick="btnGrupoNuevo_Click" runat="server" CssClass="btn btn-info btn-xs" Text="Grupo Nuevo" />
                                             </div>
                                         </div>
                                     </div>
@@ -207,7 +211,7 @@
                                             <div class="col-sm-8" style="margin-bottom: 15px;">
                                                 <asp:GridView ID="gvGrupos" CssClass="table table-striped table-hover" runat="server" AutoGenerateColumns="False" OnRowCommand="gvGrupos_RowCommand">
                                                     <Columns>
-                                                        <asp:BoundField HeaderText="Grupo" DataField="numgrupo" />
+                                                        <asp:BoundField HeaderText="Grupo" DataField="show" />
                                                         <asp:TemplateField HeaderText="Choque">
                                                             <ItemTemplate>
                                                                 <asp:CheckBox ID="chkChoque" AutoPostBack="true" OnCheckedChanged="chkChoque_CheckedChanged" Checked='<%# Eval("choque") %>' runat="server" />
@@ -375,7 +379,7 @@
                                             </div>
                                             <div class="col-lg-1" style="margin-bottom: 15px;">
                                                 <asp:Label ID="LabelVisualizarHora" runat="server" Text="" CssClass=""></asp:Label>
-                                            </div>                                            
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -432,12 +436,8 @@
                                             <div class="col-sm-2">
                                                 <asp:Label ID="Label22" runat="server" Text="Grupos"></asp:Label>
                                             </div>
-                                            <div class="col-sm-5" style="margin-bottom: 15px;">
+                                            <div class="col-sm-10" style="margin-bottom: 15px;">
                                                 <asp:Label ID="LabelVisualizarGrupo" runat="server" Text="" CssClass=""></asp:Label>
-                                            </div>
-                                            <div class="col-sm-2">
-                                            </div>
-                                            <div class="col-sm-3" style="text-align: right;">
                                             </div>
                                         </div>
                                     </div>
@@ -471,7 +471,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="form-group">
-                                            <div class="col-sm-5">
+                                            <div class="col-sm-7">
                                                 <asp:Label ID="Label26" runat="server" Text="¿Cumple con los requisitos para esta inclusión?"></asp:Label>
                                             </div>
 
@@ -482,19 +482,22 @@
                                     </div>
                                     <div id="div2" runat="server">
                                         <div class="row">
-                                            <div class="col-sm-12">
+                                            <div class="col-sm-6">
                                                 <asp:Label ID="Label27" runat="server" Text="Cumple con los requisitos porque:"></asp:Label>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-12">
+                                            <div class="col-sm-6">
                                                 <asp:Label ID="LabelVisualizarCumpleRequisitos" runat="server" Text="" CssClass=""></asp:Label>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                        </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-sm-12" style="text-align: center">
+                                    <div class="row" style="margin-top: 10px;">
+                                        <div class="col-sm-4">
                                             <asp:Label ID="Label28" runat="server" Text="Comentario"></asp:Label>
+
+                                        </div>
+                                        <div class="col-sm-8">
                                             <asp:Label ID="LabelVisualizarComentario" runat="server" Text="" CssClass=""></asp:Label>
                                         </div>
                                     </div>
@@ -502,14 +505,21 @@
                                         <div class="col-sm-4" style="text-align: center">
                                             <asp:Button ID="BtnSuccess" runat="server" OnClick="BtnSuccess_Click" CssClass="btn btn-success btn-sm col-sm-6" Text="Enviar" />
                                         </div>
-                                        <div class="col-sm-4" style="text-align: center">                                            
+                                        <div class="col-sm-4" style="text-align: center">
                                         </div>
                                         <div class="col-sm-4" style="text-align: center">
                                             <asp:Button ID="BtnRegresar" runat="server" CssClass="btn btn-danger btn-sm col-sm-6" Text="Regresar" OnClick="BtnRegresar_Click" />
                                         </div>
-
                                     </div>
 
+                                    <div id="divpdf" runat="server" visible="false">
+                                        <div class="row">
+                                            <div class="col-sm-12" style="text-align: center">
+                                                <asp:Button ID="BtnImprimirPDF" runat="server" CssClass="btn btn-info" Text="Finalizar" OnClick="BtnImprimirPDF_Click" />
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 </fieldset>
                             </div>
                         </div>
@@ -520,77 +530,8 @@
     </asp:UpdatePanel>
 
 
-    <!-- Modal -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-                        <ContentTemplate>
-                            <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="myModalLabel">
-                            <asp:Label ID="txtTitulo" runat="server" Text=""></asp:Label></h4>
-                    </div>
-                    <div class="modal-body">
-                        <asp:Label ID="txtCuerpo" runat="server" Text=""></asp:Label>
-                        <asp:Button ID="BtnImprimirPDF" runat="server" CssClass="btn btn-link btn-sm col-sm-6" Text="Crear PDF" OnClick="BtnImprimirPDF_Click" />
-                    </div>
-                        </ContentTemplate>
-                    </asp:UpdatePanel>
-                    
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <script type="text/javascript">
-            function openModal() {
-                $('#myModal').modal('show');
-            }
-
-            function closeModal() {
-                $('#myModal').modal('hide');
-            }
-        </script>  
-
-
-   <%-- <div class="modal fade" id="myModalError" tabindex="-1" role="dialog" aria-labelledby="myModalLabelError" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <asp:UpdatePanel ID="UpdatePanel3" runat="server">
-                        <ContentTemplate>
-                            <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="myModalLabelError">
-                            <asp:Label ID="txtTituloError" runat="server" Text=""></asp:Label></h4>
-                    </div>
-                    <div class="modal-body">
-                        <asp:Label ID="txtCuerpoError" runat="server" Text=""></asp:Label>                        
-                    </div>
-                        </ContentTemplate>
-                    </asp:UpdatePanel>
-                    
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <script type="text/javascript">
-            function openModalError() {
-                $('#myModalError').modal('show');
-            }
-
-            function closeModalError() {
-                $('#myModalError').modal('hide');
-            }
-        </script> --%>
-
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->        
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../Scripts/bootstrap.min.js"></script>
 </asp:Content>
