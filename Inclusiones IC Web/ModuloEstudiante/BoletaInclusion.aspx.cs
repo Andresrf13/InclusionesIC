@@ -233,6 +233,9 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
 
         protected void BtnImprimirPDF_Click(object sender, EventArgs e)
         {
+
+            ImprimirPDF();
+            sendEmail();
             Response.Redirect("../ModuloEstudiante/Inicio.aspx");
         }
 
@@ -340,9 +343,20 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
 
         protected void BtnSuccess_Click(object sender, EventArgs e)
         {
+            BtnSuccess.Enabled = false;
+            BtnSuccess.Text = "Espere...";
+            insertarBoleta();
+            
+           
+        }
+
+        private void insertarBoleta()
+        {
             try
             {
-                BtnSuccess.Text = "Espere...";
+                ScriptManager.RegisterStartupScript(this.UpdatePanel1, GetType(), "MostrarFinalizar", "openModal();", true);
+
+
                 InclusionDatos _nuevo = new InclusionDatos();
                 _nuevo.nombre = TxtName.Text.Trim();
                 _nuevo.celular = TxtCellphone.Text.Trim();
@@ -354,8 +368,9 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
                 _nuevo.dia = int.Parse(DropDownRegistrationDay.SelectedValue);
                 int rnnunn = (rbnoRN.Checked) ? 0 : int.Parse(drpNoRN.SelectedValue);
                 _nuevo.rn = (rbsiRN.Checked) ? rnnunn : 0;
-                _nuevo.lr = (rbSiLR.Checked) ? true : false;
+                _nuevo.lr = (rbSiLRProceso.Checked) ? true : false;
                 _nuevo.connentario = TxtComentario.Text.Trim();
+                _nuevo.sede = int.Parse(drpSedes.SelectedValue.ToString());
                 int idInsertado = _nuevo.Insertar();
 
                 if (idInsertado != -1)
@@ -363,31 +378,23 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
                     int activo = 1;
                     for (int x = 0; x < _listagrupos.Count; x++)
                     {
-                        _nuevo.InsertarGrupo(idInsertado, _listagrupos[x].numgrupo, x+1, _listagrupos[x].choque, activo);
+                        _nuevo.InsertarGrupo(idInsertado, _listagrupos[x].numgrupo, x + 1, _listagrupos[x].choque, activo);
                         activo = 0;
                     }
-                    
+
                     divpdf.Visible = true;
                     BtnRegresar.Visible = false;
                     BtnSuccess.Visible = false;
-
-                    
-                    ImprimirPDF();
-                    sendEmail();
-
-                    //string script = "<script type = 'text/javascript'>alert('Solicitud Generada con exito');</script>";
-                    //ClientScript.RegisterClientScriptBlock(this.GetType(), "Hecho", script.ToString());
-                    //Response.Redirect("../ModuloEstudiante/Inicio.aspx");
 
                 }
             }
             catch (Exception)
             {
                 BtnSuccess.Text = "Enviar";
+                BtnSuccess.Enabled = true;
                 string script = "<script type = 'text/javascript'>alert('Error al generar la solicitud, revise sus datos');</script>";
                 ClientScript.RegisterClientScriptBlock(this.GetType(), "Error_generar", script.ToString());
             }
-           
         }
 
         #endregion

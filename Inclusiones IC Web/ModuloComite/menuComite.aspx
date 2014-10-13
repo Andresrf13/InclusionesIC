@@ -53,7 +53,7 @@
                           <div class="row">
                               <div >
                                   <img src="../Imagenes/admincursos.png" class="img-responsive" style="display: inline; max-width:150px; max-height: 100px; text-align:center;" />
-                                  <p class="text-success" style="display: inline;">Oferta Académica</p>
+                                  <p class="text-primary" style="display: inline;">Oferta Académica</p>
                               </div>                              
                           </div>                                                    
                       </asp:LinkButton>

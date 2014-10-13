@@ -4,7 +4,42 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-        <ContentTemplate>           
+        <ContentTemplate>    
+            
+            <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+            <!-- Include all compiled plugins (below), or include individual files as needed -->
+            <script src="../Scripts/bootstrap.min.js"></script>
+            
+            <!-- Modal -->
+            <div class="modal fade" id="FinalizarProceso" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Solicitud Enviada</h4>
+                  </div>
+                  <div class="modal-body">
+                      <h4>Al dar clic en enviar, recibirá un PDF de la boleta de inclusión al correo que puso como contacto.</h4>
+                      <p>El proceso puede tardar unos segundo, por favor espere mientras generamos el PDF</p>                    
+                  </div>
+                  <div class="modal-footer">
+                      <asp:Button ID="BtnImprimirPDF" runat="server" CssClass="btn btn-info" Text="Enviar" OnClick="BtnImprimirPDF_Click" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <script type="text/javascript">
+                function openModal() {
+                    $('#FinalizarProceso').modal('show');
+                }
+                function closeModal() {
+                    $('#FinalizarProceso').modal('close');
+                }
+            </script>
+
+                   
             <div class="row">
                 <div class="col-sm-1"></div>
                 <div class="col-sm-10">
@@ -514,8 +549,7 @@
 
                                     <div id="divpdf" runat="server" visible="false">
                                         <div class="row">
-                                            <div class="col-sm-12" style="text-align: center">
-                                                <asp:Button ID="BtnImprimirPDF" runat="server" CssClass="btn btn-info" Text="Finalizar" OnClick="BtnImprimirPDF_Click" />
+                                            <div class="col-sm-12" style="text-align: center">                                                
                                             </div>
                                         </div>
 
@@ -530,8 +564,5 @@
     </asp:UpdatePanel>
 
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../Scripts/bootstrap.min.js"></script>
+    
 </asp:Content>

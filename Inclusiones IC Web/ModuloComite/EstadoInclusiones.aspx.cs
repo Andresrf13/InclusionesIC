@@ -21,10 +21,12 @@ namespace Inclusiones_IC_Web.ModuloComite
             {
                 cargarSedes();
                 cargarCursos();
+                //cargargvInclusiones();
             }
-            cargargvInclusiones();
+            
         }
 
+        #region FILTROS ----------------------------------------------------------------------------------------
         private void cargargvInclusiones()
         {
             EstadoInclusionesDatos _aux = new EstadoInclusionesDatos();
@@ -44,11 +46,11 @@ namespace Inclusiones_IC_Web.ModuloComite
             drpCursos.DataSource = _dtCursos;
             drpCursos.DataValueField = "idCurso";
             drpCursos.DataTextField = "Nombre";
-            drpCursos.DataBind();
-            cargarGrupos();
+            drpCursos.DataBind();            
             ListItem _nuevo = new ListItem("-- seleccione un item--", "0");
             drpCursos.Items.Insert(0, _nuevo);
             drpCursos.SelectedIndex = 0;
+            cargarGrupos();
         }
 
         private void cargarGrupos()
@@ -65,7 +67,10 @@ namespace Inclusiones_IC_Web.ModuloComite
                 drpGrupo.DataBind();
                 ListItem _nuevo = new ListItem("-- seleccione un item--", "0");
                 drpGrupo.Items.Insert(0, _nuevo);
+                //ListItem _grupo = new ListItem("Grupo Nuevo", "28");
+                //drpGrupo.Items.Insert(0, _grupo);
             }
+            cargargvInclusiones();
         }
 
         private void cargarSedes()
@@ -79,21 +84,121 @@ namespace Inclusiones_IC_Web.ModuloComite
             drpSedes.DataBind();
             ListItem _nuevo = new ListItem("-- seleccione un item--", "0");
             drpSedes.Items.Insert(0, _nuevo);
+            cargarCursos();
         }
 
         protected void drpCursos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cargarGrupos();
+            cargarGrupos();           
+        }
+        
+        protected void drpSedes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cargarCursos();            
         }
 
+        protected void drpGrupo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cargargvInclusiones();
+        }
+
+        #endregion ----------------------------------------------------------------------------------------
+
+        #region EVENTOS GRIDVIEW -----------------------------------------------------------------------
         //fila por fila del gridview
         protected void gvInclusiones_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            if(e.Row.RowType == DataControlRowType.DataRow)
+            if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                //GruposDatos _aux = new GruposDatos();
+                EstadoInclusionesDatos _aux = new EstadoInclusionesDatos();
+                _aux.idBoleta = int.Parse(e.Row.Cells[0].Text);
+                DataTable _dtGrupos = _aux.getGrupos();
+                DropDownList _drp = (DropDownList)e.Row.FindControl("drpCursoBoleta");
+                _drp.DataSource = _dtGrupos;
+                _drp.DataValueField = "idGrupo";
+                _drp.DataTextField = "Numero";
+                _drp.DataBind();
+                for (int x = 0; x < _dtGrupos.Rows.Count; x++)
+                {
+                    if ((bool)_dtGrupos.Rows[x]["Activo"])
+                    {
+                        _drp.SelectedIndex = x;
+                        break;
+                    }
+                }
+                DropDownList _drpEstado = (DropDownList)e.Row.FindControl("drpEstado");
+                _drpEstado.SelectedValue = DataBinder.Eval(e.Row.DataItem, "Estado").ToString();
+
             }
         }
+
+        protected void drpCursoBoleta_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DropDownList drp = (DropDownList)sender;
+            GridViewRow gv = (GridViewRow)drp.NamingContainer;
+            int index = gv.RowIndex;
+            DropDownList _drpCursoBoleta = (DropDownList)gvInclusiones.Rows[index].FindControl("drpCursoBoleta");
+            int idboleta = int.Parse(gvInclusiones.Rows[index].Cells[0].Text);
+
+            EstadoInclusionesDatos _aux = new EstadoInclusionesDatos();
+            _aux.idBoleta = idboleta;
+            _aux.grupo = int.Parse(_drpCursoBoleta.SelectedValue);
+
+            _aux.ActualizarActivo();
+        }        
+
+        protected void drpEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DropDownList drp = (DropDownList)sender;
+            GridViewRow gv = (GridViewRow)drp.NamingContainer;
+            int index = gv.RowIndex;
+            DropDownList _drpEstado = (DropDownList)gvInclusiones.Rows[index].FindControl("drpEstado");
+            int idboleta = int.Parse(gvInclusiones.Rows[index].Cells[0].Text);
+
+            EstadoInclusionesDatos _aux = new EstadoInclusionesDatos();
+            _aux.idBoleta = idboleta;
+            _aux.estado = int.Parse(_drpEstado.SelectedValue);
+
+            _aux.ActualizarEstado();
+        }
+
+        protected void gvInclusiones_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Visualizar")
+            {
+                int index = Convert.ToInt32(e.CommandArgument);
+                GridViewRow row = gvInclusiones.Rows[index];
+                int idBoleta = int.Parse(row.Cells[0].Text);
+                CargarDatosVisualizar(idBoleta);
+
+                ScriptManager.RegisterStartupScript(this.UpdatePanel1, GetType(), "verComentario", "openModal();", true);
+            }
+        }
+
+        private void CargarDatosVisualizar(int idBoleta)
+        {
+            //aqui falta cargar las varas, ahora hay que setear
+
+            lblNombre.Text = "Nombre: ";
+            lblCarnet.Text = "Carné: ";
+            lblCorreo.Text = "Correo: ";
+            lbltelefono.Text = "Telefono: ";
+            lblCelular.Text = "Celular: ";
+            lbldia.Text = "Día: ";
+            lblhora.Text = "Hora: ";
+            lblcarrera.Text = "Carrera: ";
+            lblplan.Text = "Plan: ";
+            lblrn.Text = "RN: ";
+            lbllr.Text = "LR: ";
+            lblcomentario.Text = "Comentario: ";
+
+        }
+
+        #endregion
+
+        
+
+        
 
 
     }
