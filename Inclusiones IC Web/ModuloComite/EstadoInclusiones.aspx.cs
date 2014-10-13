@@ -22,18 +22,33 @@ namespace Inclusiones_IC_Web.ModuloComite
                 cargarSedes();
                 cargarCursos();
             }
+            cargargvInclusiones();
+        }
+
+        private void cargargvInclusiones()
+        {
+            EstadoInclusionesDatos _aux = new EstadoInclusionesDatos();
+            _aux.sede = int.Parse(drpSedes.SelectedValue);
+            _aux.curso = int.Parse(drpCursos.SelectedValue);
+            _aux.grupo = int.Parse(drpGrupo.SelectedValue);
+            DataTable _dtInclusiones = _aux.SeleccionarTodos();
+            gvInclusiones.DataSource = _dtInclusiones;
+            gvInclusiones.DataBind();
         }
 
         private void cargarCursos()
         {
             drpCursos.Items.Clear();
             Cursos _aux = new Cursos();
-            DataTable _dtCursos = _aux.SeleccionarTodos();
+            DataTable _dtCursos = _aux.SeleccionarTodos();            
             drpCursos.DataSource = _dtCursos;
             drpCursos.DataValueField = "idCurso";
             drpCursos.DataTextField = "Nombre";
             drpCursos.DataBind();
             cargarGrupos();
+            ListItem _nuevo = new ListItem("-- seleccione un item--", "0");
+            drpCursos.Items.Insert(0, _nuevo);
+            drpCursos.SelectedIndex = 0;
         }
 
         private void cargarGrupos()
@@ -48,6 +63,8 @@ namespace Inclusiones_IC_Web.ModuloComite
                 drpGrupo.DataValueField = "idGrupo";
                 drpGrupo.DataTextField = "Numero";
                 drpGrupo.DataBind();
+                ListItem _nuevo = new ListItem("-- seleccione un item--", "0");
+                drpGrupo.Items.Insert(0, _nuevo);
             }
         }
 
@@ -60,11 +77,24 @@ namespace Inclusiones_IC_Web.ModuloComite
             drpSedes.DataValueField = "idSede";
             drpSedes.DataTextField = "Nombre";
             drpSedes.DataBind();
+            ListItem _nuevo = new ListItem("-- seleccione un item--", "0");
+            drpSedes.Items.Insert(0, _nuevo);
         }
 
         protected void drpCursos_SelectedIndexChanged(object sender, EventArgs e)
         {
             cargarGrupos();
         }
+
+        //fila por fila del gridview
+        protected void gvInclusiones_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if(e.Row.RowType == DataControlRowType.DataRow)
+            {
+                //GruposDatos _aux = new GruposDatos();
+            }
+        }
+
+
     }
 }

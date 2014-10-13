@@ -52,33 +52,35 @@
                 <div class="col-sm-1"></div>
                 <div class="col-sm-10">
                     <div class="table-responsive">
-                        <asp:GridView ID="gvInclusiones" CssClass="table table-striped table-hover" runat="server" AutoGenerateColumns="False">
+                        <asp:GridView ID="gvInclusiones" CssClass="table table-striped table-hover" runat="server" AutoGenerateColumns="False" OnRowDataBound="gvInclusiones_RowDataBound">
 
                             <Columns>
-                                <asp:BoundField HeaderText="Boleta" />
-                                <asp:BoundField HeaderText="Sede" />
-                                <asp:BoundField HeaderText="Codigo" />
-                                <asp:BoundField HeaderText="Curso" />
-                                <asp:TemplateField HeaderText="Choque">
+                                <asp:BoundField DataField="idBoleta" HeaderText="Boleta" />
+                                <asp:BoundField DataField="Sede" HeaderText="Sede" />
+                                <asp:BoundField DataField="Codigo" HeaderText="Codigo" />
+                                <asp:BoundField DataField="Curso" HeaderText="Curso" />
+                                <asp:TemplateField HeaderText="Grupo">
                                     <ItemTemplate>
-                                        <asp:DropDownList ID="drpgvGrupo" runat="server"></asp:DropDownList>
+                                        <asp:DropDownList ID="drpCursoBoleta" runat="server">                                            
+                                        </asp:DropDownList>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:BoundField HeaderText="Carné" />
-                                <asp:BoundField HeaderText="Estudiante" />
-                                <asp:BoundField HeaderText="RN" />
+                                <asp:BoundField DataField="Numero" HeaderText="Grupo" />
+                                <asp:BoundField DataField="Carnet" HeaderText="Carné" />
+                                <asp:BoundField DataField="Persona" HeaderText="Estudiante" />
+                                <asp:BoundField DataField="RN" HeaderText="RN" />
                                 <asp:TemplateField HeaderText="Choque">
                                     <ItemTemplate>
-                                        <asp:CheckBox ID="chkChoque" AutoPostBack="true" Enabled="false" Checked='<%# Eval("choque") %>' runat="server" />
+                                        <asp:CheckBox ID="chkChoque" AutoPostBack="true" Enabled="false" Checked='<%# Eval("Choque") %>' runat="server" />
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:ButtonField Text="Ver Comentario" CommandName="Visualizar" />
-                                <asp:TemplateField HeaderText="Choque">
+                                <asp:TemplateField HeaderText="Estado">
                                     <ItemTemplate>
                                         <asp:DropDownList ID="drpEstado" runat="server">
-                                            <asp:ListItem>Pendiente</asp:ListItem>
-                                            <asp:ListItem>Aceptado</asp:ListItem>
-                                            <asp:ListItem>Rechazado</asp:ListItem>
+                                            <asp:ListItem Value="1">Pendiente</asp:ListItem>
+                                            <asp:ListItem Value="2">Aceptado</asp:ListItem>
+                                            <asp:ListItem Value="3">Rechazado</asp:ListItem>
                                         </asp:DropDownList>
                                     </ItemTemplate>
                                 </asp:TemplateField>

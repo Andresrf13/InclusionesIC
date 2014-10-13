@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccesoDatos\CarreraDatos.cs" />
+    <Compile Include="AccesoDatos\EstadoInclusionesDatos.cs" />
     <Compile Include="AccesoDatos\GruposDatos.cs" />
     <Compile Include="AccesoDatos\Cursos.cs" />
     <Compile Include="AccesoDatos\InclusionDatos.cs" />

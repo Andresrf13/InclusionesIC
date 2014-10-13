@@ -342,6 +342,7 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
         {
             try
             {
+                BtnSuccess.Text = "Espere...";
                 InclusionDatos _nuevo = new InclusionDatos();
                 _nuevo.nombre = TxtName.Text.Trim();
                 _nuevo.celular = TxtCellphone.Text.Trim();
@@ -362,7 +363,7 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
                     int activo = 1;
                     for (int x = 0; x < _listagrupos.Count; x++)
                     {
-                        _nuevo.InsertarGrupo(idInsertado, _listagrupos[x].numgrupo, x, _listagrupos[x].choque, activo);
+                        _nuevo.InsertarGrupo(idInsertado, _listagrupos[x].numgrupo, x+1, _listagrupos[x].choque, activo);
                         activo = 0;
                     }
                     
@@ -382,6 +383,7 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
             }
             catch (Exception)
             {
+                BtnSuccess.Text = "Enviar";
                 string script = "<script type = 'text/javascript'>alert('Error al generar la solicitud, revise sus datos');</script>";
                 ClientScript.RegisterClientScriptBlock(this.GetType(), "Error_generar", script.ToString());
             }
