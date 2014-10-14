@@ -60,7 +60,7 @@
                     
                   </div>
                   <div class="col-md-6" style="text-align:center;">
-                      <asp:LinkButton ID="lbtnReportes" CssClass="btn btn-link" runat="server" >
+                      <asp:LinkButton ID="lbtnReportes" OnClick="lbtnReportes_Click" CssClass="btn btn-link" runat="server" >
                           <div class="row">
                               <div>
                                   <img src="../Imagenes/reportes.jpg" class="img-responsive" style="display: inline; max-width:150px; max-height: 100px; text-align:center;" />

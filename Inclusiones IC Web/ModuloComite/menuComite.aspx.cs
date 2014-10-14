@@ -41,5 +41,10 @@ namespace Inclusiones_IC_Web.ModuloComite
         {
             Response.Redirect("~/ModuloComite/EstadoInclusiones.aspx");
         }
+
+        protected void lbtnReportes_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/ModuloComite/generarreportes.aspx");
+        }
     }
 }
