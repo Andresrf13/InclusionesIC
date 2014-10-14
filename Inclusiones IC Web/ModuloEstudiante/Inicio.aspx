@@ -24,7 +24,7 @@
                 <div class="col-md-6" style="text-align: center">
                     <div class="btn-group-vertical">
                         <h2>Consultar Inclusiones</h2>
-                        <asp:ImageButton runat="server" id="ibtnBuscar" ImageUrl="../Imagenes/Lupa.jpg" CssClass="img-responsive"></asp:ImageButton>
+                        <asp:ImageButton runat="server" id="ibtnBuscar" OnClick="ibtnBuscar_Click" ImageUrl="../Imagenes/Lupa.jpg" CssClass="img-responsive"></asp:ImageButton>
                     </div>
                 </div>
             </div>

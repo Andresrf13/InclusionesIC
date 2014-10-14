@@ -12,6 +12,9 @@ namespace Inclusiones_IC_Web.AccesoDatos
         SqlConnection conexion;
         public int id;
         public string nombre;
+        public string Carnet;
+        public string Estado;
+        public string Grupo;
         private void Conectar()
         {
             string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["dbInclusionesIC"].ConnectionString;
@@ -97,5 +100,61 @@ namespace Inclusiones_IC_Web.AccesoDatos
             return dtcarrera;
         }
 
+        public DataTable getCursoxCarnet()
+        {
+            DataTable dtcursos = null;
+            try
+            {
+                Conectar();
+                conexion.Open();
+
+                SqlCommand cmd = new SqlCommand("SP_BoletaCurso", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@carnet", this.Carnet);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataSet _datos = new DataSet();
+                adapter.Fill(_datos, "Cursos");
+                dtcursos = _datos.Tables["Cursos"];
+            }
+            catch (Exception e)
+            {
+                ;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+            return dtcursos;
+        }
+
+        public DataTable ResultadoVisualizar()
+        {
+            DataTable dtcursos = null;
+            try
+            {
+                Conectar();
+                conexion.Open();
+
+                SqlCommand cmd = new SqlCommand("SP_EstadoActivo", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idBoleta", this.id);
+                
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    this.Estado = Convert.ToString(reader["Estado"]);
+                    this.Grupo = Convert.ToString(reader["Numero"]); 
+                }
+            }
+            catch (Exception e)
+            {
+                ;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+            return dtcursos;
+        }
     }
 }
