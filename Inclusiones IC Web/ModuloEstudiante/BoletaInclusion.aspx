@@ -21,7 +21,7 @@
                   </div>
                   <div class="modal-body">
                       <h4>Al dar clic en enviar, recibirá un PDF de la boleta de inclusión al correo que puso como contacto.</h4>
-                      <p>El proceso puede tardar unos segundo, por favor espere mientras generamos el PDF</p>                    
+                      <p>El proceso puede tardar unos segundos, por favor espere mientras generamos el PDF</p>                    
                   </div>
                   <div class="modal-footer">
                       <asp:Button ID="BtnImprimirPDF" runat="server" CssClass="btn btn-info" Text="Enviar" OnClick="BtnImprimirPDF_Click" />

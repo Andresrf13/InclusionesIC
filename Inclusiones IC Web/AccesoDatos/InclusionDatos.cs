@@ -10,6 +10,8 @@ namespace Inclusiones_IC_Web.AccesoDatos
     public class InclusionDatos
     {
         SqlConnection conexion;
+        public int idBoleta;
+        public int grupo;
 
         public string nombre;
         public string celular;
@@ -98,5 +100,33 @@ namespace Inclusiones_IC_Web.AccesoDatos
             }
             return valor;
         }
+
+        internal DataTable getBoleta()
+        {
+            
+            DataTable dtcarrera = null;
+            try
+            {
+                Conectar();
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_BoletaCompleta", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@boleta", this.idBoleta);
+                cmd.Parameters.AddWithValue("@grupo", this.grupo);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataSet _datos = new DataSet();
+                adapter.Fill(_datos, "Boleta");
+                dtcarrera = _datos.Tables["Boleta"];                                
+            }
+            catch (Exception e)
+            {
+                return dtcarrera;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+            return dtcarrera;
+        }        
     }
 }

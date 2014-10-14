@@ -169,37 +169,51 @@ namespace Inclusiones_IC_Web.ModuloComite
                 int index = Convert.ToInt32(e.CommandArgument);
                 GridViewRow row = gvInclusiones.Rows[index];
                 int idBoleta = int.Parse(row.Cells[0].Text);
-                CargarDatosVisualizar(idBoleta);
+                DropDownList _drpCursoBoleta = (DropDownList)gvInclusiones.Rows[index].FindControl("drpCursoBoleta");
+                int grupo = int.Parse(_drpCursoBoleta.SelectedValue);
+                CargarDatosVisualizar(idBoleta, grupo);
 
                 ScriptManager.RegisterStartupScript(this.UpdatePanel1, GetType(), "verComentario", "openModal();", true);
             }
         }
 
-        private void CargarDatosVisualizar(int idBoleta)
+        private void CargarDatosVisualizar(int idBoleta, int grupo)
         {
             //aqui falta cargar las varas, ahora hay que setear
+            InclusionDatos _aux = new InclusionDatos();
+            _aux.idBoleta = idBoleta;
+            _aux.grupo = grupo;
+            DataTable _dtBoleta = _aux.getBoleta();
 
-            lblNombre.Text = "Nombre: ";
-            lblCarnet.Text = "Carné: ";
-            lblCorreo.Text = "Correo: ";
-            lbltelefono.Text = "Telefono: ";
-            lblCelular.Text = "Celular: ";
-            lbldia.Text = "Día: ";
-            lblhora.Text = "Hora: ";
-            lblcarrera.Text = "Carrera: ";
-            lblplan.Text = "Plan: ";
-            lblrn.Text = "RN: ";
-            lbllr.Text = "LR: ";
-            lblcomentario.Text = "Comentario: ";
+            lblNombre.Text = "Nombre: " + _dtBoleta.Rows[0]["Nombre"].ToString();
+            lblCarnet.Text = "Carné: " + _dtBoleta.Rows[0]["Carnet"].ToString();
+            lblCorreo.Text = "Correo: " + _dtBoleta.Rows[0]["Correo"].ToString();
+            lbltelefono.Text = "Telefono: " + _dtBoleta.Rows[0]["Telefono"].ToString();
+            lblCelular.Text = "Celular: " + _dtBoleta.Rows[0]["Celular"].ToString();
+            lbldia.Text = "Día: " + _dtBoleta.Rows[0]["Dia"].ToString();
+            lblhora.Text = "Hora: " + _dtBoleta.Rows[0]["Hora"].ToString()+":"+ _dtBoleta.Rows[0]["Minuto"].ToString();
+            lblcarrera.Text = "Carrera: " + _dtBoleta.Rows[0]["Carrera"].ToString();
+            lblplan.Text = "Sede: " + _dtBoleta.Rows[0]["Sede"].ToString();
+            lblrn.Text = "RN: " + _dtBoleta.Rows[0]["RN"].ToString();
+            string result = ((bool)_dtBoleta.Rows[0]["LR"]) ? "Sí" : "No";
+            lbllr.Text = "LR: " +result;
+            lblcomentario.Text = "Comentario: " + _dtBoleta.Rows[0]["Comentario"].ToString();
+
+             EstadoInclusionesDatos _auxGrupo = new EstadoInclusionesDatos();
+             _auxGrupo.idBoleta = idBoleta;
+                DataTable _dtGrupos = _auxGrupo.getGrupos();
+            lblGrupos.Text = "";
+            lblGrupos.Text = "Grupos Solicitados: ";
+            for(int x = 0; x < _dtGrupos.Rows.Count; x++)
+            {
+                lblGrupos.Text += _dtGrupos.Rows[x]["Numero"].ToString() + "  ";
+            }
+
+            
 
         }
 
         #endregion
-
-        
-
-        
-
 
     }
 }

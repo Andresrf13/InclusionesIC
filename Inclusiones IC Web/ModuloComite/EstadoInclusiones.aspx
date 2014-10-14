@@ -36,7 +36,8 @@
               <asp:Label ID="lblrn" runat="server" Text=""></asp:Label><br />
               <asp:Label ID="lbllr" runat="server" Text=""></asp:Label><br />
 
-              <asp:Label ID="lblcomentario" runat="server" Text=""></asp:Label>
+              <asp:Label ID="lblcomentario" runat="server" Text=""></asp:Label><br />
+              <asp:Label ID="lblGrupos" runat="server" Text=""></asp:Label>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>            
