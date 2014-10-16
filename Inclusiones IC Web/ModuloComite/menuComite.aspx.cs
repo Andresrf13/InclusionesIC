@@ -29,7 +29,7 @@ namespace Inclusiones_IC_Web.ModuloComite
 
         protected void lbtnadminProfes_Click(object sender, EventArgs e)
         {
-            
+            Response.Redirect("~/ModuloComite/ProfesoresDatos.aspx");
         }
 
         protected void lbtnOferta_Click(object sender, EventArgs e)

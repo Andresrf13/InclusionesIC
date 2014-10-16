@@ -110,6 +110,7 @@
     <Content Include="Scripts\jquery-1.9.0.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccesoDatos\AgregarProfesor.cs" />
     <Compile Include="AccesoDatos\CarreraDatos.cs" />
     <Compile Include="AccesoDatos\EstadoInclusionesDatos.cs" />
     <Compile Include="AccesoDatos\GruposDatos.cs" />
