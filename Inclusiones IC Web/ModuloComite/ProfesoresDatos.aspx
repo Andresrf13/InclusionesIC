@@ -23,7 +23,7 @@
                                 <asp:BoundField HeaderText="Codigo" DataField="IdProfesor" HtmlEncode="false" />
                                 <asp:BoundField HeaderText="Nombre" DataField="Nombre" HtmlEncode="false" />
                                 <asp:BoundField HeaderText="Correo" DataField="Correo" HtmlEncode="false" />
-                                <asp:BoundField HeaderText="Telefono" DataField="Telefono" HtmlEncode="false" />
+                                <asp:BoundField HeaderText="Telefono" DataField="Telefono" HtmlEncode="false"  />
                                 <asp:ButtonField Text="Editar" CommandName="Editar" />
                                 <asp:ButtonField Text="Eliminar" CommandName="Eliminar" />
                             </Columns>
@@ -47,7 +47,7 @@
                                     <p style="font-size:1em; ">Nombre:</p>
                                 </div>
                                 <div class="col-md-2">
-                                    <input class="form-control" id="txtProfe"   runat="server" type="text" value="" />
+                                    <input class="form-control" id="txtProfe"   runat="server" type="text" value="" required="required"/>
                                 </div>
                                 <div class="col-md-5"> </div>
 
@@ -58,7 +58,7 @@
                                     <p style="font-size:1em; ">Correo Electronico:</p>
                                 </div>
                                 <div class="col-md-2">
-                                    <input class="form-control" id="txtCorreo"   runat="server" type="text" value="" />
+                                    <input class="form-control" id="txtCorreo"   runat="server" type="text" value="" required="required"/>
                                 </div>
                                 <div class="col-md-5"> </div>
 
@@ -69,7 +69,7 @@
                                     <p style="font-size:1em; ">Numero de Telefono:</p>
                                 </div>
                                 <div class="col-md-2">
-                                    <input class="form-control" id="txtTelefono"   runat="server" type="text" value="" />
+                                    <input class="form-control" id="txtTelefono"   runat="server" type="text" value="" required="required" />
                                 </div>
                                 <div class="col-md-5"> </div>
                             </div>

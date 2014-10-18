@@ -215,5 +215,13 @@ namespace Inclusiones_IC_Web.ModuloComite
 
         #endregion
 
+        protected void btnCerrarPeriodo_OnClick(object sender, EventArgs e)
+        {
+            EstadoInclusionesDatos aux = new EstadoInclusionesDatos();
+            if (aux.FinalizarPeriodo())
+            {
+                
+            }
+        }
     }
 }

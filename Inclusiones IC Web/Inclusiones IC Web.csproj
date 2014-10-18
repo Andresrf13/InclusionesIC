@@ -81,6 +81,7 @@
     <Content Include="Imagenes\Lupa.jpg" />
     <Content Include="Imagenes\registro.png" />
     <Content Include="Imagenes\reportes.jpg" />
+    <Content Include="ModuloComite\AsignarGrupoNuevo.aspx" />
     <Content Include="ModuloComite\CorreosElectronicos.aspx" />
     <Content Include="ModuloComite\EstadoInclusiones.aspx" />
     <Content Include="ModuloComite\generarreportes.aspx" />
@@ -113,6 +114,7 @@
     <Compile Include="AccesoDatos\AgregarProfesor.cs" />
     <Compile Include="AccesoDatos\CarreraDatos.cs" />
     <Compile Include="AccesoDatos\EstadoInclusionesDatos.cs" />
+    <Compile Include="AccesoDatos\GrupoNuevoDatos.cs" />
     <Compile Include="AccesoDatos\GruposDatos.cs" />
     <Compile Include="AccesoDatos\Cursos.cs" />
     <Compile Include="AccesoDatos\InclusionDatos.cs" />
@@ -135,6 +137,13 @@
     </Compile>
     <Compile Include="Estudiantes.Master.designer.cs">
       <DependentUpon>Estudiantes.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ModuloComite\AsignarGrupoNuevo.aspx.cs">
+      <DependentUpon>AsignarGrupoNuevo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuloComite\AsignarGrupoNuevo.aspx.designer.cs">
+      <DependentUpon>AsignarGrupoNuevo.aspx</DependentUpon>
     </Compile>
     <Compile Include="ModuloComite\CorreosElectronicos.aspx.cs">
       <DependentUpon>CorreosElectronicos.aspx</DependentUpon>

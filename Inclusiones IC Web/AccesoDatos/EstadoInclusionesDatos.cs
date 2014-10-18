@@ -125,5 +125,28 @@ namespace Inclusiones_IC_Web.AccesoDatos
             }
             return valor;
         }
+
+        internal bool FinalizarPeriodo()
+        {
+            bool valor = false;
+            try
+            {
+                Conectar();
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_ModificarFinalizado", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.ExecuteNonQuery();
+                valor = true;
+            }
+            catch (Exception e)
+            {
+                valor = false;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+            return valor;
+        }
     }
 }

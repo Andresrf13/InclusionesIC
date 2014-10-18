@@ -64,10 +64,12 @@
 
             <div class="row">
                 <div class="col-sm-2"></div>
-                <div class="col-sm-10">
+                <div class="col-sm-8">
                     <h3>Filtros:</h3>
                 </div>
-                <div class="col-sm-2"></div>
+                <div class="col-sm-2">
+                    <asp:Button ID="btnCerrarPeriodo" runat="server" CssClass="btn btn-primary" OnClick="btnCerrarPeriodo_OnClick" Text="Finalizar Periodo" /> 
+                </div>
             </div>
             <div class="row">
                 <div class="col-sm-1"></div>
