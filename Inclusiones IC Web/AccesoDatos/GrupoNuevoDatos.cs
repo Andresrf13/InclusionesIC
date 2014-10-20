@@ -12,6 +12,8 @@ namespace Inclusiones_IC_Web.AccesoDatos
         SqlConnection conexion;
         public int id;
         public string nombre;
+        public int idGrupo;
+        public int idCurso;
         private void Conectar()
         {
             string strCon = System.Configuration.ConfigurationManager.ConnectionStrings["dbInclusionesIC"].ConnectionString;
@@ -43,6 +45,32 @@ namespace Inclusiones_IC_Web.AccesoDatos
                 conexion.Close();
             }
             return dtprofesores;
+        }
+
+        public bool ActualizarGrupo()
+        {
+            bool valor = false;
+            try
+            {
+                Conectar();
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_AsignarGrupo", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@grupo", this.idGrupo);
+                cmd.Parameters.AddWithValue("@curso", this.idCurso);
+                
+                cmd.ExecuteNonQuery();
+                valor = true;
+            }
+            catch (Exception e)
+            {
+                valor = false;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+            return valor;
         }
     }
 

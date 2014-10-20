@@ -45,10 +45,10 @@
             <div class="col-md-1"></div>
         </div>   
         <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
                 <div class="row">
-                  <div class="col-md-6" style="text-align:center;">
+                  <div class="col-md-4" style="text-align:center;">
                       <asp:LinkButton ID="lbtnOferta" CssClass="btn btn-link" runat="server"  onclick="lbtnOferta_Click" >
                           <div class="row">
                               <div >
@@ -59,7 +59,7 @@
                       </asp:LinkButton>
                     
                   </div>
-                  <div class="col-md-6" style="text-align:center;">
+                  <div class="col-md-4" style="text-align:center;">
                       <asp:LinkButton ID="lbtnReportes" OnClick="lbtnReportes_Click" CssClass="btn btn-link" runat="server" >
                           <div class="row">
                               <div>
@@ -69,10 +69,21 @@
                           </div>                                                    
                       </asp:LinkButton>
                     
-                  </div>                  
+                  </div>    
+                    <div class="col-md-4" style="text-align:center;">
+                      <asp:LinkButton ID="lbtnGrupoNuevo" OnClick="lbtnGrupoNuevo_OnClick" CssClass="btn btn-link" runat="server" >
+                          <div class="row">
+                              <div>
+                                  <img src="../Imagenes/grupo_nuevo.jpg" class="img-responsive" style="display: inline; max-width:150px; max-height: 100px; text-align:center;" />
+                                  <p class="text-primary"  style="display: inline;">Grupos Nuevos</p>
+                              </div>                              
+                          </div>                                                    
+                      </asp:LinkButton>
+                    
+                  </div>               
                 </div>
             </div>
-            <div class="col-md-2"></div>
+            <div class="col-md-1"></div>
         </div>           
     </div>
 </asp:Content>

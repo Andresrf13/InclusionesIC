@@ -128,7 +128,15 @@ namespace Inclusiones_IC_Web.ModuloComite
                 }
                 DropDownList _drpEstado = (DropDownList)e.Row.FindControl("drpEstado");
                 _drpEstado.SelectedValue = DataBinder.Eval(e.Row.DataItem, "Estado").ToString();
-
+                //Celda(11) finalizado
+                DataRowView _datos = (DataRowView)e.Row.DataItem;
+                bool finalizado = bool.Parse(_datos["Finalizado"].ToString());              
+                
+                if ( finalizado)
+                {
+                    _drp.Enabled = false;
+                    _drpEstado.Enabled = false;
+                }
             }
         }
 
@@ -217,10 +225,18 @@ namespace Inclusiones_IC_Web.ModuloComite
 
         protected void btnCerrarPeriodo_OnClick(object sender, EventArgs e)
         {
-            EstadoInclusionesDatos aux = new EstadoInclusionesDatos();
+            EstadoInclusionesDatos aux = new EstadoInclusionesDatos();            
             if (aux.FinalizarPeriodo())
             {
-                
+                txtTitulo1.Text = "Exito";
+                txtcuerpo1.Text = "Periodo cerrado con exito";
+                ScriptManager.RegisterStartupScript(this.UpdatePanel1, GetType(), "exito", "open();", true);
+            }
+            else
+            {
+                txtTitulo1.Text = "Error";
+                txtcuerpo1.Text = " Fallo al intentar cerrar periodo";
+                ScriptManager.RegisterStartupScript(this.UpdatePanel1, GetType(), "exito", "open();", true);
             }
         }
     }

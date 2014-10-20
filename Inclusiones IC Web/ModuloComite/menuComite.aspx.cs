@@ -46,5 +46,10 @@ namespace Inclusiones_IC_Web.ModuloComite
         {
             Response.Redirect("~/ModuloComite/generarreportes.aspx");
         }
+
+        protected void lbtnGrupoNuevo_OnClick(object sender, EventArgs e)
+        {
+            Response.Redirect("~/ModuloComite/AsignarGrupoNuevo.aspx");
+        }
     }
 }

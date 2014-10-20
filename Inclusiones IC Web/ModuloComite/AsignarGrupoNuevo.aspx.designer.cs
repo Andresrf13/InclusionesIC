@@ -22,6 +22,24 @@ namespace Inclusiones_IC_Web.ModuloComite {
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
+        /// Control txtTitulo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label txtTitulo;
+        
+        /// <summary>
+        /// Control txtCuerpo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label txtCuerpo;
+        
+        /// <summary>
         /// Control drpCursos.
         /// </summary>
         /// <remarks>

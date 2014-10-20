@@ -64,6 +64,27 @@ namespace Inclusiones_IC_Web.ModuloComite
 
         #endregion
 
+        protected void btnAsignar_Click(object sender, EventArgs e)
+        {
+            GrupoNuevoDatos aux = new GrupoNuevoDatos();
+            aux.idGrupo = int.Parse(drpGrupos.SelectedItem.Text);
+            aux.idCurso = int.Parse(drpCursos.SelectedValue);
+            if (aux.ActualizarGrupo())
+            {
+                txtTitulo.Text = "Finalizado";
+                txtCuerpo.Text = "Inclusiones reasignadas al grupo " + drpGrupos.SelectedItem.Text;
+                ScriptManager.RegisterStartupScript(this.UpdatePanel1, GetType(), "Finalizado", "openModal();", true);
+                CargarGrid();
+            }
+            else
+            {
+                txtTitulo.Text = "Error";
+                txtCuerpo.Text = "Error al intentar reasignar inclusiones  al grupo " + drpGrupos.SelectedItem.Text;
+                ScriptManager.RegisterStartupScript(this.UpdatePanel1, GetType(), "Finalizado", "openModal();", true);
+            }
+            
+        }
+
 
     }
 }

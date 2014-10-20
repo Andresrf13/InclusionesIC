@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-   
+
 
     <div class="row">
         <div class="col-sm-1"></div>
@@ -15,50 +15,77 @@
     </div>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
-             <!-- Modal -->
-    <div class="modal fade" id="ModalBoleta" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            <h4 class="modal-title" id="myModalLabel">Boleta de Inclusión</h4>
-          </div>
-          <div class="modal-body">
-              <asp:Label ID="lblNombre" runat="server" Text=""></asp:Label><br />
-              <asp:Label ID="lblCarnet" runat="server" Text=""></asp:Label><br />
-              <asp:Label ID="lblCorreo" runat="server" Text=""></asp:Label><br />
-              <asp:Label ID="lbltelefono" runat="server" Text=""></asp:Label><br />
-              <asp:Label ID="lblCelular" runat="server" Text=""></asp:Label><br />
-              <asp:Label ID="lbldia" runat="server" Text=""></asp:Label><br />
-              <asp:Label ID="lblhora" runat="server" Text=""></asp:Label><br />
-              <asp:Label ID="lblcarrera" runat="server" Text=""></asp:Label><br />
-              <asp:Label ID="lblplan" runat="server" Text=""></asp:Label><br />
-              <asp:Label ID="lblrn" runat="server" Text=""></asp:Label><br />
-              <asp:Label ID="lbllr" runat="server" Text=""></asp:Label><br />
+            <!-- Modal -->
+            <div class="modal fade" id="nnodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <h4 class="modal-title" id="myModalLabel">
+                                <asp:Label ID="txtTitulo1" runat="server" Text="Label"></asp:Label></h4>
+                        </div>
+                        <div class="modal-body">
+                            <asp:Label ID="txtcuerpo1" runat="server" Text="Label"></asp:Label>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-              <asp:Label ID="lblcomentario" runat="server" Text=""></asp:Label><br />
-              <asp:Label ID="lblGrupos" runat="server" Text=""></asp:Label>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>            
-          </div>
-        </div>
-      </div>
-    </div>
+            <div class="modal fade" id="ModalBoleta" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Boleta de Inclusión</h4>
+                        </div>
+                        <div class="modal-body">
+                            <asp:Label ID="lblNombre" runat="server" Text=""></asp:Label><br />
+                            <asp:Label ID="lblCarnet" runat="server" Text=""></asp:Label><br />
+                            <asp:Label ID="lblCorreo" runat="server" Text=""></asp:Label><br />
+                            <asp:Label ID="lbltelefono" runat="server" Text=""></asp:Label><br />
+                            <asp:Label ID="lblCelular" runat="server" Text=""></asp:Label><br />
+                            <asp:Label ID="lbldia" runat="server" Text=""></asp:Label><br />
+                            <asp:Label ID="lblhora" runat="server" Text=""></asp:Label><br />
+                            <asp:Label ID="lblcarrera" runat="server" Text=""></asp:Label><br />
+                            <asp:Label ID="lblplan" runat="server" Text=""></asp:Label><br />
+                            <asp:Label ID="lblrn" runat="server" Text=""></asp:Label><br />
+                            <asp:Label ID="lbllr" runat="server" Text=""></asp:Label><br />
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../Scripts/bootstrap.min.js"></script>
+                            <asp:Label ID="lblcomentario" runat="server" Text=""></asp:Label><br />
+                            <asp:Label ID="lblGrupos" runat="server" Text=""></asp:Label>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <script type="text/javascript">
-        function openModal() {
-            $('#ModalBoleta').modal('show');
-        }
-        function closeModal() {
-            $('#ModalBoleta').modal('close');
-        }
-    </script>
+            <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+            <!-- Include all compiled plugins (below), or include individual files as needed -->
+            <script src="../Scripts/bootstrap.min.js"></script>
+
+            <script type="text/javascript">
+                function openModal() {
+                    $('#ModalBoleta').modal('show');
+                }
+                function closeModal() {
+                    $('#ModalBoleta').modal('close');
+                }
+            </script>
+
+            <script type="text/javascript">
+                function open() {
+                    $('#nnodal').modal('show');
+                }
+                function close() {
+                    $('#nnodal').modal('close');
+                }
+            </script>
 
 
 
@@ -68,7 +95,7 @@
                     <h3>Filtros:</h3>
                 </div>
                 <div class="col-sm-2">
-                    <asp:Button ID="btnCerrarPeriodo" runat="server" CssClass="btn btn-primary" OnClick="btnCerrarPeriodo_OnClick" Text="Finalizar Periodo" /> 
+                    <asp:Button ID="btnCerrarPeriodo" runat="server" CssClass="btn btn-primary" OnClick="btnCerrarPeriodo_OnClick" Text="Finalizar Periodo" />
                 </div>
             </div>
             <div class="row">
@@ -112,7 +139,7 @@
                                 <asp:BoundField DataField="Curso" HeaderText="Curso" />
                                 <asp:TemplateField HeaderText="Grupo">
                                     <ItemTemplate>
-                                        <asp:DropDownList ID="drpCursoBoleta" AutoPostBack="true" OnSelectedIndexChanged="drpCursoBoleta_SelectedIndexChanged" runat="server">                                            
+                                        <asp:DropDownList ID="drpCursoBoleta" AutoPostBack="true" OnSelectedIndexChanged="drpCursoBoleta_SelectedIndexChanged" runat="server">
                                         </asp:DropDownList>
                                     </ItemTemplate>
                                 </asp:TemplateField>
@@ -134,6 +161,7 @@
                                         </asp:DropDownList>
                                     </ItemTemplate>
                                 </asp:TemplateField>
+                                <asp:BoundField DataField="Finalizado" HeaderText="Finalizado" Visible="False" />
                             </Columns>
 
                         </asp:GridView>
@@ -143,5 +171,5 @@
             </div>
         </ContentTemplate>
     </asp:UpdatePanel>
-    
+
 </asp:Content>

@@ -78,6 +78,7 @@
     <Content Include="Imagenes\administrarprofesores.jpg" />
     <Content Include="Imagenes\ajustes.jpg" />
     <Content Include="Imagenes\aprobarinclusion.jpg" />
+    <Content Include="Imagenes\grupo_nuevo.jpg" />
     <Content Include="Imagenes\Lupa.jpg" />
     <Content Include="Imagenes\registro.png" />
     <Content Include="Imagenes\reportes.jpg" />
