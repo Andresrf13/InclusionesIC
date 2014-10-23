@@ -6,6 +6,12 @@
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>    
             
+            <script type="text/javascript">
+                function visible() {
+                    document.getElementById('inngCargar').style.visibility = 'visible';
+                }
+            </script>
+
             <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
             <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -21,10 +27,18 @@
                   </div>
                   <div class="modal-body">
                       <h4>Al dar clic en enviar, recibirá un PDF de la boleta de inclusión al correo que puso como contacto.</h4>
-                      <p>El proceso puede tardar unos segundos, por favor espere mientras generamos el PDF</p>                    
+                      <p>El proceso puede tardar unos segundos, por favor espere mientras generamos el PDF</p>                                          
+                      <%--<asp:Image ID="IMGcargando" ImageAlign="Middle" Visible="False" runat="server" CssClass="img-responsive" ImageUrl="../Imagenes/cargando1.gif"  />--%>
+                      <div class="row">
+                          <div class="col-sm-5"></div>
+                          <div class="col-sm-2">
+                              <img id="inngCargar" style="visibility: hidden; width: 80px; height: 80px;"  src="../Imagenes/cargando1.gif" />
+                          </div>
+                          <div class="col-sm-5"></div>
+                      </div>                      
                   </div>
                   <div class="modal-footer">
-                      <asp:Button ID="BtnImprimirPDF" runat="server" CssClass="btn btn-info" Text="Enviar" OnClick="BtnImprimirPDF_Click" />
+                      <asp:Button ID="BtnImprimirPDF" OnClientClick="visible();" runat="server" CssClass="btn btn-info" Text="Enviar" OnClick="BtnImprimirPDF_Click" />
                   </div>
                 </div>
               </div>
@@ -74,17 +88,6 @@
                                     <div class="row">
                                         <div class="form-group">
                                             <div class="col-sm-2">
-                                                <asp:Label ID="LabelName" runat="server" Text="Nombre completo"></asp:Label>
-                                            </div>
-                                            <div class="col-sm-10" style="margin-bottom: 15px;">
-                                                <asp:TextBox ID="TxtName" required="required" runat="server" CssClass="col-lg-10 form-control"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ValidationGroup="validar" ID="RequiredFieldValidator1" runat="server" CssClass="alert-danger" Display="Dynamic" ControlToValidate="TxtName" ErrorMessage="Debe Ingresar un Nombre"></asp:RequiredFieldValidator>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group">
-                                            <div class="col-sm-2">
                                                 <asp:Label ID="LabelCarne" runat="server" Text="Carné"></asp:Label>
                                             </div>
                                             <div class="col-lg-10" style="margin-bottom: 15px;">
@@ -92,6 +95,17 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-sm-2">
+                                                <asp:Label ID="LabelName" runat="server" Text="Nombre completo"></asp:Label>
+                                            </div>
+                                            <div class="col-sm-10" style="margin-bottom: 15px;">
+                                                <asp:TextBox ID="TxtName" required="required" runat="server" CssClass="col-lg-10 form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ValidationGroup="validar" ID="RequiredFieldValidator1" runat="server" CssClass="alert-danger" Display="Dynamic" ControlToValidate="TxtName" ErrorMessage="Debe Ingresar un Nombre"></asp:RequiredFieldValidator>
+                                            </div>
+                                        </div>
+                                    </div>                                    
                                     <div class="row">
                                         <div class="form-group">
                                             <div class="col-sm-2">
@@ -213,9 +227,10 @@
                                     <legend>Curso en el que desea solicitar Inclusión</legend>
                                     <div class="row">
                                         <div class="form-group">
-                                            <div class="col-sm-2">
+                                            <div class="col-sm-1">
                                                 <asp:Label ID="Label3" runat="server" Text="Curso"></asp:Label>
                                             </div>
+                                            
                                             <div class="col-lg-10" style="margin-bottom: 15px;">
                                                 <asp:DropDownList ID="drpCursos" AutoPostBack="true" runat="server" OnSelectedIndexChanged="drpCursos_SelectedIndexChanged" CssClass="form-control"></asp:DropDownList>
                                             </div>

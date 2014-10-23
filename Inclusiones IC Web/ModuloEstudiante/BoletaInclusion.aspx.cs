@@ -73,14 +73,17 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
 
         private void cargarCursos()
         {
-            drpCursos.Items.Clear();
-            Cursos _aux = new Cursos();            
-            DataTable _dtCursos = _aux.SeleccionarCursoxPlan(int.Parse(drpCarrera.SelectedValue.ToString()), int.Parse(drpPlan.SelectedValue.ToString()));
-            drpCursos.DataSource = _dtCursos;
-            drpCursos.DataValueField = "idCurso";
-            drpCursos.DataTextField = "Nombre";
-            drpCursos.DataBind();
-            cargarGrupos();
+            if (drpCarrera.Items.Count > 0)
+            {
+                drpCursos.Items.Clear();
+                Cursos _aux = new Cursos();
+                DataTable _dtCursos = _aux.SeleccionarCursoxPlan(int.Parse(drpCarrera.SelectedValue.ToString()), int.Parse(drpPlan.SelectedValue.ToString()));
+                drpCursos.DataSource = _dtCursos;
+                drpCursos.DataValueField = "idCurso";
+                drpCursos.DataTextField = "Nombre";
+                drpCursos.DataBind();
+                cargarGrupos();
+            }            
         }
 
         private void cargarGrupos()
@@ -233,7 +236,13 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
 
         protected void BtnImprimirPDF_Click(object sender, EventArgs e)
         {
+            //IMGcargando.Visible = true;
+            pdfenviar();
+            
+        }
 
+        private void pdfenviar()
+        {
             ImprimirPDF();
             sendEmail();
             Response.Redirect("../ModuloEstudiante/Inicio.aspx");
@@ -411,7 +420,7 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
                 drpGrupo.DataValueField = "idGrupo";
                 drpGrupo.DataTextField = "Numero";
                 drpGrupo.DataBind();
-            }
+            }            
             _listagrupos.Clear();
             Session["listagrupo"] = _listagrupos;
             gvGrupos.DataSource = _listagrupos;

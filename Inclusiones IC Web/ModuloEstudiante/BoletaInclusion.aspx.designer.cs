@@ -49,6 +49,24 @@ namespace Inclusiones_IC_Web.ModuloEstudiante {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divBoleta;
         
         /// <summary>
+        /// Control LabelCarne.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelCarne;
+        
+        /// <summary>
+        /// Control TxtCarne.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtCarne;
+        
+        /// <summary>
         /// Control LabelName.
         /// </summary>
         /// <remarks>
@@ -74,24 +92,6 @@ namespace Inclusiones_IC_Web.ModuloEstudiante {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
-        
-        /// <summary>
-        /// Control LabelCarne.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelCarne;
-        
-        /// <summary>
-        /// Control TxtCarne.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtCarne;
         
         /// <summary>
         /// Control LabelCellphone.
