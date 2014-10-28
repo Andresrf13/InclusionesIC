@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.SessionState;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using iTextSharp.text;
@@ -10,6 +11,7 @@ using System.IO;
 using Inclusiones_IC_Web.AccesoDatos;
 using System.Data;
 using System.Net.Mail;
+
 
 namespace Inclusiones_IC_Web.ModuloEstudiante
 {
@@ -380,6 +382,14 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
                 _nuevo.lr = (rbSiLRProceso.Checked) ? true : false;
                 _nuevo.connentario = TxtComentario.Text.Trim();
                 _nuevo.sede = int.Parse(drpSedes.SelectedValue.ToString());
+
+                int idEstudiante = default(int);
+                int.TryParse(Session["idEstudiante"].ToString(), out idEstudiante);
+                _nuevo.idEstudiante = idEstudiante;
+                int idPersona = default(int);
+                int.TryParse(Session["idEstudiante"].ToString(), out idPersona);
+                _nuevo.idPersona = idPersona;
+            
                 int idInsertado = _nuevo.Insertar();
 
                 if (idInsertado != -1)
@@ -504,11 +514,23 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
             {
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "message", "alert('" + e.Message + "');", true);
             }
-        }  
+        }
 
 
-        
+        protected void TxtCarne_OnTextChanged(object sender, EventArgs e)
+        {
+            InclusionDatos _aux = new InclusionDatos();            
+            _aux.carnet = TxtCarne.Text.Trim();
+            _aux.getInfoEstudiante();
 
+            TxtName.Text = _aux.nombre;
+            TxtCellphone.Text = _aux.celular;
+            TxtPhone.Text = _aux.telefono.ToString();
+            TxtEmail.Text = _aux.correo;
+            Session["idPersona"] = _aux.idPersona;
+            Session["idEstudiante"] = _aux.idEstudiante;
+
+        }
     }
 
 }

@@ -91,7 +91,7 @@
                                                 <asp:Label ID="LabelCarne" runat="server" Text="Carné"></asp:Label>
                                             </div>
                                             <div class="col-lg-10" style="margin-bottom: 15px;">
-                                                <asp:TextBox ID="TxtCarne" runat="server" required="required" CssClass="col-lg-10 form-control"></asp:TextBox>
+                                                <asp:TextBox ID="TxtCarne" runat="server" AutoPostBack="True" OnTextChanged="TxtCarne_OnTextChanged" required="required" CssClass="col-lg-10 form-control"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>

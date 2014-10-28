@@ -12,6 +12,8 @@ namespace Inclusiones_IC_Web.AccesoDatos
         SqlConnection conexion;
         public int idBoleta;
         public int grupo;
+        public int idPersona;
+        public int idEstudiante;
 
         public string nombre;
         public string celular;
@@ -42,7 +44,7 @@ namespace Inclusiones_IC_Web.AccesoDatos
             {
                 Conectar();
                 conexion.Open();
-                SqlCommand cmd = new SqlCommand("SP_IngresarBoleta", conexion);
+                SqlCommand cmd = new SqlCommand("SP_ActEstIngBoleta", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Nombre", this.nombre);
                 cmd.Parameters.AddWithValue("@Celular", this.celular);
@@ -56,6 +58,8 @@ namespace Inclusiones_IC_Web.AccesoDatos
                 cmd.Parameters.AddWithValue("@LR", this.lr);
                 cmd.Parameters.AddWithValue("@comentario", this.connentario);
                 cmd.Parameters.AddWithValue("@Sede", this.sede);
+                cmd.Parameters.AddWithValue("@idpersona", this.idPersona);
+                cmd.Parameters.AddWithValue("@idEstudiante", this.idEstudiante);
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
@@ -127,6 +131,41 @@ namespace Inclusiones_IC_Web.AccesoDatos
                 conexion.Close();
             }
             return dtcarrera;
-        }        
+        }
+
+        internal void getInfoEstudiante()
+        {
+
+            DataTable dtcarrera = null;
+            try
+            {
+                Conectar();
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_ExisteEstudiante", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@carnetEstudiante", this.carnet);                               
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    this.telefono = (int)(reader["Telefono"]);
+                    this.correo = Convert.ToString(reader["Correo"]);
+                    this.nombre = Convert.ToString(reader["Nombre"]);
+                    this.celular = Convert.ToString(reader["Celular"]);
+                    this.idPersona = (int)(reader["Persona"]);
+                    this.idEstudiante = (int)(reader["Estudiante"]);
+                }
+
+            }
+            catch (Exception e)
+            {
+                ;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        
+        } 
     }
 }

@@ -10,6 +10,10 @@
 
         <div style="margin-right: auto; margin-left: auto;">
             <div class="row">
+                <div class="col-sm-10"></div>
+                <div class="col-sm-2" style="text-align: right;"><asp:HyperLink ID="HyperLink1" runat="server" CssClass="btn-link" NavigateUrl="../ModuloEstudiante/Inicio.aspx" >Volver a inicio</asp:HyperLink></div>
+            </div>
+            <div class="row">
                 <div class="col-md-4"></div>
                 <div class="col-md-4" style="text-align: center;">
                     <h2 class="form-signin-heading">Por favor Inicie sesión</h2>
@@ -18,8 +22,10 @@
                     <asp:Button ID="btnIniciar" runat="server" CssClass="btn btn-lg btn-primary btn-block" Text="Iniciar Sesión" OnClick="btnIniciar_Click" />
                     <asp:Label ID="lblError" runat="server" CssClass="alert-danger" Text=""></asp:Label>
                 </div>
-                <div class="col-md-4"></div>
+                <div class="col-md-4">                    
+                </div>
             </div>
+                        
         </div>
     </div>
 
