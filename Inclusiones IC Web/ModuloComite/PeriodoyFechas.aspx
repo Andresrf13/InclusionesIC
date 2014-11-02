@@ -17,8 +17,7 @@
                     <asp:Label ID="lblPeridoActual" runat="server" Text="1-2014" CssClass="alert alert-dismissable alert-link"></asp:Label>
                 </div>
             </div>
-            <div class="row" style="margin: 10px;">
-                <div class="col-lg-1"></div>
+            <div class="row" style="margin: 10px;">                
                 <div class="col-md-1" style="margin-bottom: 15px;">
                     <asp:Label ID="Label1" runat="server" Text="Periodo:" CssClass="col-sm-12 control-label"></asp:Label>
                 </div>
@@ -31,14 +30,53 @@
                 <div class="col-md-2">
                     <asp:Button ID="BtnNew" runat="server" Text="Crear nuevo período" CssClass="btn btn-primary btn-block" OnClick="BtnNew_Click" />
                 </div>
-                <div id="divcrearNuevo" runat="server" visible="false">
-                    <div class="col-md-2">
-                        <asp:Label ID="Label3" runat="server" Text="Nombre de nuevo período:"></asp:Label>
-                    </div>
-                    <div class="col-md-2">
-                        <input class="form-control" id="txtnuevoPeriodo" runat="server" type="text" value="" />
+
+                <div class="col-sm-5">
+                    <div id="divcrearNuevo" runat="server" visible="false">
+                        <div class="row">
+                            <div class="col-md-6" style="top:50%">
+                                <asp:Label ID="Label3" runat="server" Text="Nombre de nuevo período:"></asp:Label>
+                            </div>
+                           <%-- <div class="col-md-8">
+                                <input class="form-control" id="txtnuevoPeriodo" runat="server" type="text" value="" />
+                            </div>--%>
+                            <div class="col-sm-2" style="text-align: center">
+                                <h6 >Período</h6>
+                                <asp:DropDownList ID="drpSemestre"  runat="server">
+                                    <asp:ListItem Text="Ninguno" Value="0"></asp:ListItem>                                    
+                                    <asp:ListItem Text="1" Value="1"></asp:ListItem>
+                                    <asp:ListItem Text="2" Value="2"></asp:ListItem>
+                                </asp:DropDownList>
+                            </div>
+                            <div class="col-sm-2" style="text-align: center">
+                                <h6 >Tipo</h6>
+                                <asp:DropDownList ID="drpTipo" runat="server">
+                                    <asp:ListItem Text="Semestre" Value="S"></asp:ListItem>
+                                    <asp:ListItem Text="Verano" Value="V"></asp:ListItem>                                                                                                            
+                                </asp:DropDownList>
+                            </div>
+                            <div class="col-sm-2" style="text-align: center" >
+                                <h6>Año</h6>
+                                <asp:DropDownList ID="drpAno" runat="server">
+                                    <asp:ListItem Text="2014" Value="2014"></asp:ListItem>
+                                    <asp:ListItem Text="2015" Value="2015"></asp:ListItem> 
+                                    <asp:ListItem Text="2016" Value="2016"></asp:ListItem> 
+                                    <asp:ListItem Text="2017" Value="2017"></asp:ListItem> 
+                                    <asp:ListItem Text="2018" Value="2018"></asp:ListItem> 
+                                    <asp:ListItem Text="2019" Value="2019"></asp:ListItem> 
+                                    <asp:ListItem Text="2020" Value="2020"></asp:ListItem> 
+                                    <asp:ListItem Text="2021" Value="2021"></asp:ListItem> 
+                                    <asp:ListItem Text="2022" Value="2022"></asp:ListItem>
+                                    <asp:ListItem Text="2023" Value="2023"></asp:ListItem>
+                                    <asp:ListItem Text="2024" Value="2024"></asp:ListItem>
+                                    <asp:ListItem Text="2025" Value="2025"></asp:ListItem>                                                                                                            
+                                </asp:DropDownList>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
+
 
             </div>
             <div class="jumbotron">

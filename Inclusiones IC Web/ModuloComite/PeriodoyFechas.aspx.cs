@@ -82,7 +82,10 @@ namespace Inclusiones_IC_Web.ModuloComite
             if (BtnNew.Text == "Crear nuevo período")
             {
                 divcrearNuevo.Visible = true;
-                txtnuevoPeriodo.Value = "";
+                //txtnuevoPeriodo.Value = "";
+                drpSemestre.SelectedIndex = -1;
+                drpTipo.SelectedIndex = -1;
+                drpAno.SelectedIndex = -1;
                 BtnNew.Text = "Cerrar";
                 drpPeriodo.Enabled = false;
                 chkActivo.Enabled = false;
@@ -94,7 +97,11 @@ namespace Inclusiones_IC_Web.ModuloComite
             else
             {
                 divcrearNuevo.Visible = false;
-                txtnuevoPeriodo.Value = "";
+                //txtnuevoPeriodo.Value = "";
+                drpSemestre.SelectedIndex = -1;
+                drpTipo.SelectedIndex = -1;
+                drpAno.SelectedIndex = -1;
+
                 BtnNew.Text = "Crear nuevo período";
                 drpPeriodo.Enabled = true;
                 chkActivo.Enabled = true;
@@ -104,7 +111,11 @@ namespace Inclusiones_IC_Web.ModuloComite
         protected void BtnSave_Click(object sender, EventArgs e)
         {
             PeriodoDatos _nuevo = new PeriodoDatos();
-            _nuevo.periodo = txtnuevoPeriodo.Value.Trim();
+            string periodo = default (string);
+            periodo = drpSemestre.SelectedValue.ToString();
+            periodo += drpTipo.SelectedValue.ToString();
+            periodo += drpAno.SelectedValue.ToString();
+            _nuevo.periodo = periodo;
             _nuevo.fechaIniInclusion = calRecepcionDesde.SelectedDate;
             _nuevo.fechaFinInclusion = calRecepcionHasta.SelectedDate;
             _nuevo.FechaIniConsulta = calConsultaDesde.SelectedDate;
@@ -121,7 +132,10 @@ namespace Inclusiones_IC_Web.ModuloComite
                     calRecepcionDesde.SelectedDate = DateTime.Now;
                     calRecepcionHasta.SelectedDate = DateTime.Now;
                     divcrearNuevo.Visible = false;
-                    txtnuevoPeriodo.Value = "";
+                   // txtnuevoPeriodo.Value = "";
+                    drpSemestre.SelectedIndex = -1;
+                    drpTipo.SelectedIndex = -1;
+                    drpAno.SelectedIndex = -1;
                     BtnNew.Text = "Crear nuevo período";
                     drpPeriodo.Enabled = true;
                     chkActivo.Enabled = true;
@@ -142,7 +156,10 @@ namespace Inclusiones_IC_Web.ModuloComite
                     calRecepcionDesde.SelectedDate = DateTime.Now;
                     calRecepcionHasta.SelectedDate = DateTime.Now;
                     divcrearNuevo.Visible = false;
-                    txtnuevoPeriodo.Value = "";
+                   // txtnuevoPeriodo.Value = "";
+                    drpSemestre.SelectedIndex = -1;
+                    drpTipo.SelectedIndex = -1;
+                    drpAno.SelectedIndex = -1;
                     BtnNew.Text = "Crear nuevo período";
                     drpPeriodo.Enabled = true;
                     chkActivo.Enabled = true;

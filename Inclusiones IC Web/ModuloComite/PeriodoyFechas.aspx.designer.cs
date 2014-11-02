@@ -94,13 +94,31 @@ namespace Inclusiones_IC_Web.ModuloComite {
         protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// Control txtnuevoPeriodo.
+        /// Control drpSemestre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtnuevoPeriodo;
+        protected global::System.Web.UI.WebControls.DropDownList drpSemestre;
+        
+        /// <summary>
+        /// Control drpTipo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList drpTipo;
+        
+        /// <summary>
+        /// Control drpAno.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList drpAno;
         
         /// <summary>
         /// Control Label5.

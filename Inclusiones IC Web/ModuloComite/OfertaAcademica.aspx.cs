@@ -111,9 +111,18 @@ namespace Inclusiones_IC_Web.ModuloComite
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
             if(btnAgregar.Text == "Guardar")
-            {                
-                    insertarregistro();
+            {
+                if (insertarregistro())
+                {
                     cargarOfertaAcademica();
+                }
+                else
+                {
+                    lblTitulo.Text = "Error";
+                    lblCuerpo.Text = "Ya existe un curso con este grupo en esta sede";
+                    ScriptManager.RegisterStartupScript(this.UpdatePanel1, GetType(), "MostrarFinalizar", "openModal();", true);
+                }
+                    
             }
             else
             {

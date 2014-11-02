@@ -51,6 +51,7 @@
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -81,14 +82,17 @@
     <Content Include="Imagenes\cargando.gif" />
     <Content Include="Imagenes\cargando1.gif" />
     <Content Include="Imagenes\grupo_nuevo.jpg" />
+    <Content Include="Imagenes\informe.png" />
     <Content Include="Imagenes\Lupa.jpg" />
     <Content Include="Imagenes\registro.png" />
     <Content Include="Imagenes\reportes.jpg" />
+    <Content Include="Imagenes\subir_notas.jpg" />
     <Content Include="ModuloComite\AsignarGrupoNuevo.aspx" />
     <Content Include="ModuloComite\CargarNotas.aspx" />
     <Content Include="ModuloComite\CorreosElectronicos.aspx" />
     <Content Include="ModuloComite\EstadoInclusiones.aspx" />
     <Content Include="ModuloComite\generarreportes.aspx" />
+    <Content Include="ModuloComite\Graficos.aspx" />
     <Content Include="ModuloComite\Login.aspx" />
     <Content Include="ModuloComite\menuComite.aspx" />
     <Content Include="ModuloComite\OfertaAcademica.aspx" />
@@ -116,6 +120,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccesoDatos\AgregarProfesor.cs" />
+    <Compile Include="AccesoDatos\CargarNotasDatos.cs" />
     <Compile Include="AccesoDatos\CarreraDatos.cs" />
     <Compile Include="AccesoDatos\EstadoInclusionesDatos.cs" />
     <Compile Include="AccesoDatos\GrupoNuevoDatos.cs" />
@@ -176,6 +181,13 @@
     </Compile>
     <Compile Include="ModuloComite\generarreportes.aspx.designer.cs">
       <DependentUpon>generarreportes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModuloComite\Graficos.aspx.cs">
+      <DependentUpon>Graficos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuloComite\Graficos.aspx.designer.cs">
+      <DependentUpon>Graficos.aspx</DependentUpon>
     </Compile>
     <Compile Include="ModuloComite\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

@@ -29,7 +29,7 @@ namespace Inclusiones_IC_Web.AccesoDatos
             {
                 Conectar();
                 conexion.Open();
-                string queryString = "select * from Curso";
+                string queryString = "select * from Curso WHERE idCurso != 1 ";
                 SqlDataAdapter adapter = new SqlDataAdapter(queryString, conexion);
                 DataSet _datos = new DataSet();
                 adapter.Fill(_datos, "Cursos");

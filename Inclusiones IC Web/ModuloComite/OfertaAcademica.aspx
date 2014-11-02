@@ -16,10 +16,37 @@
 
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
+
+                <div class="modal fade" id="FinalizarProceso" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title" id="myModalLabel">
+                                    <asp:Label ID="lblTitulo" runat="server" Text=""></asp:Label></h4>
+                            </div>
+                            <div class="modal-body">
+                                <asp:Label ID="lblCuerpo" runat="server" Text=""></asp:Label>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    function openModal() {
+                        $('#FinalizarProceso').modal('show');
+                    }
+                    function closeModal() {
+                        $('#FinalizarProceso').modal('close');
+                    }
+                </script>
+
                 <div class="row">
                     <div class="col-md-1"></div>
-                    <div class="col-md-10" style="text-align:center">
-                        <asp:GridView ID="gvOfertaAcademica" OnRowCommand="gvOfertaAcademica_RowCommand" runat="server" AutoGenerateColumns="false" CssClass="table table-striped table-hover" HeaderStyle-CssClass="success" AlternatingRowStyle-CssClass="active" >
+                    <div class="col-md-10" style="text-align: center">
+                        <asp:GridView ID="gvOfertaAcademica" OnRowCommand="gvOfertaAcademica_RowCommand" runat="server" AutoGenerateColumns="false" CssClass="table table-striped table-hover" HeaderStyle-CssClass="success" AlternatingRowStyle-CssClass="active">
                             <Columns>
                                 <asp:BoundField HeaderText="Codigo" DataField="Codigo" HtmlEncode="false" />
                                 <asp:BoundField HeaderText="Sede" DataField="Sede" HtmlEncode="false" />
@@ -28,7 +55,7 @@
                                 <asp:BoundField HeaderText="Capacidad Máxima" DataField="Maximo" HtmlEncode="false" />
                                 <asp:BoundField DataField="" HtmlEncode="false" />
                                 <asp:BoundField HeaderText="# Grupo" DataField="Grupo" HtmlEncode="false" />
-                                <asp:BoundField DataField="Horario" HeaderText="Aula y Horario" HtmlEncode="false" />                                
+                                <asp:BoundField DataField="Horario" HeaderText="Aula y Horario" HtmlEncode="false" />
                                 <asp:BoundField HeaderText="Profesor" DataField="Profesor" HtmlEncode="false" />
                                 <asp:ButtonField Text="Editar" CommandName="Editar" />
                                 <asp:ButtonField Text="Eliminar" CommandName="Eliminar" />
@@ -39,79 +66,77 @@
                 </div>
                 <div class="row">
                     <div class="col-md-5"></div>
-                    <div class="col-md-2" style="margin:10px; text-align:center;">
+                    <div class="col-md-2" style="margin: 10px; text-align: center;">
                         <asp:Button ID="btnNuevo" CssClass="btn btn-default btn-sm" runat="server" Text="Nuevo" OnClick="btnNuevo_Click" />
                     </div>
                     <div class="col-md-5"></div>
                 </div>
-                <div class="jumbotron" id="divAgregar" runat="server" Visible="false" > 
-                    
-                    <div class="row">                        
+                <div class="jumbotron" id="divAgregar" runat="server" visible="false">
+
+                    <div class="row">
                         <div class="col-md-12">
                             <div class="row" style="margin: 10px;">
-                                <div class="col-md-1" style="text-align:right;">
-                                    <p style="font-size:1em;">Código curso:</p>
+                                <div class="col-md-1" style="text-align: right;">
+                                    <p style="font-size: 1em;">Código curso:</p>
                                 </div>
                                 <div class="col-md-3">
-                                    <asp:DropDownList ID="drpCursos" runat="server" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="drpCursos_SelectedIndexChanged" ></asp:DropDownList>
+                                    <asp:DropDownList ID="drpCursos" runat="server" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="drpCursos_SelectedIndexChanged"></asp:DropDownList>
                                 </div>
                                 <div class="col-md-8">
                                     <asp:TextBox ID="txtNombreCurso" Enabled="false" CssClass="form-control" runat="server"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="row" style="margin: 10px;">
-                                 <div class="col-md-1" style="text-align: right;">
-                                    <p style="font-size:1em; ">Grupo:</p>
+                                <div class="col-md-1" style="text-align: right;">
+                                    <p style="font-size: 1em;">Grupo:</p>
                                 </div>
                                 <div class="col-md-2">
-                                    <input class="form-control" id="txtGrupo"   runat="server" type="number" value="" />
+                                    <input class="form-control" id="txtGrupo" runat="server" type="number" value="" />
                                 </div>
                                 <div class="col-md-2" style="text-align: right;">
-                                    <p style="font-size:1em;">Capacidad Máxima:</p>
+                                    <p style="font-size: 1em;">Capacidad Máxima:</p>
                                 </div>
                                 <div class="col-md-3">
-                                   <input class="form-control" id="txtCapMax"   runat="server" type="number" value="" />
+                                    <input class="form-control" id="txtCapMax" runat="server" type="number" value="" />
                                 </div>
                                 <div class="col-md-1" style="text-align: right;">
-                                    <p style="font-size:1em;">disponible:</p>                                    
+                                    <p style="font-size: 1em;">disponible:</p>
                                 </div>
                                 <div class="col-md-3">
-                                    <input class="form-control" id="txtCapDis"  runat="server" type="number" value="" />
+                                    <input class="form-control" id="txtCapDis" runat="server" type="number" value="" />
                                 </div>
                             </div>
 
-                             <div class="row" style="margin: 10px;">
-                                 <div class="col-md-1" style="text-align: right;">
-                                    <p style="font-size:1em; ">Sede:</p>
+                            <div class="row" style="margin: 10px;">
+                                <div class="col-md-1" style="text-align: right;">
+                                    <p style="font-size: 1em;">Sede:</p>
                                 </div>
                                 <div class="col-md-2">
                                     <asp:DropDownList ID="drpSede" runat="server" CssClass="form-control"></asp:DropDownList>
                                 </div>
                                 <div class="col-md-2" style="text-align: right;">
-                                    <p style="font-size:1em;">Horario y Aula:</p>
+                                    <p style="font-size: 1em;">Horario y Aula:</p>
                                 </div>
                                 <div class="col-md-3">
-                                    <asp:TextBox ID="txthoraaula" CssClass="form-control"   TextMode="MultiLine" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txthoraaula" CssClass="form-control" TextMode="MultiLine" runat="server"></asp:TextBox>
                                 </div>
                                 <div class="col-md-1" style="text-align: right;">
-                                    <p style="font-size:1em;">profesor:</p>                                    
+                                    <p style="font-size: 1em;">profesor:</p>
                                 </div>
                                 <div class="col-md-3">
-                                    <asp:DropDownList ID="drpProfesores" CssClass="form-control"  runat="server"></asp:DropDownList>
+                                    <asp:DropDownList ID="drpProfesores" CssClass="form-control" runat="server"></asp:DropDownList>
                                 </div>
                             </div>
-                             <div class="row" style="margin: 10px;">
-                                 <div class="col-md-5">
-
-                                 </div>
-                                 <div class="col-md-2">
-                                     <asp:Button ID="btnAgregar" runat="server" CssClass="btn btn-success" Text="Guardar" OnClick="btnAgregar_Click" />
-                                 </div>
-                                 <div class="col-md-5">
-
-                                 </div>
-                             </div>
-                        </div>                        
+                            <div class="row" style="margin: 10px;">
+                                <div class="col-md-5">
+                                </div>
+                                <div class="col-md-2">
+                                    <asp:Button ID="btnAgregar" runat="server" CssClass="btn btn-success" Text="Guardar" OnClick="btnAgregar_Click" />
+                                </div>
+                                <div class="col-md-5">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

@@ -18,7 +18,7 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
     public partial class BoletaInclusion : System.Web.UI.Page
     {
         List<ItemGrupo> _listagrupos;
-        int idgruponuevo = 28; //esto esta ligado en la base de datos -.-
+        int idgruponuevo = 0; //esto esta ligado en la base de datos -.-
         protected void Page_Load(object sender, EventArgs e)
         {
             PeriodoDatos _aux = new PeriodoDatos();

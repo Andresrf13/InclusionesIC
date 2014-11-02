@@ -51,5 +51,15 @@ namespace Inclusiones_IC_Web.ModuloComite
         {
             Response.Redirect("~/ModuloComite/AsignarGrupoNuevo.aspx");
         }
+
+        protected void lbkCargarArchivo_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/ModuloComite/CargarNotas.aspx");
+        }
+
+        protected void lbkGraficos_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/ModuloComite/Graficos.aspx");
+        }
     }
 }

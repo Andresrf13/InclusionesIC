@@ -63,7 +63,7 @@
                       <asp:LinkButton ID="lbtnReportes" OnClick="lbtnReportes_Click" CssClass="btn btn-link" runat="server" >
                           <div class="row">
                               <div>
-                                  <img src="../Imagenes/reportes.jpg" class="img-responsive" style="display: inline; max-width:150px; max-height: 100px; text-align:center;" />
+                                  <img src="../Imagenes/informe.png" class="img-responsive" style="display: inline; max-width:150px; max-height: 100px; text-align:center;" />
                                   <p class="text-primary"  style="display: inline;">Reportes</p>
                               </div>                              
                           </div>                                                    
@@ -84,6 +84,30 @@
                 </div>
             </div>
             <div class="col-md-1"></div>
-        </div>           
+        </div>    
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-4" style="text-align: center">
+                <asp:LinkButton ID="lbkCargarArchivo" CssClass="btn btn-link" runat="server"  onclick="lbkCargarArchivo_Click" >
+                          <div class="row">
+                              <div >
+                                  <img src="../Imagenes/subir_notas.jpg" class="img-responsive" style="display: inline; max-width:150px; max-height: 100px; text-align:center;" />
+                                  <p class="text-primary" style="display: inline;">Cargar Notas</p>
+                              </div>                              
+                          </div>                                                    
+                      </asp:LinkButton>
+            </div>
+            <div class="col-md-4" style="text-align: center">
+                <asp:LinkButton ID="lbkGraficos" CssClass="btn btn-link" runat="server"  onclick="lbkGraficos_Click" >
+                          <div class="row">
+                              <div >
+                                  <img src="../Imagenes/reportes.jpg" class="img-responsive" style="display: inline; max-width:150px; max-height: 100px; text-align:center;" />
+                                  <p class="text-primary" style="display: inline;">Gráficos</p>
+                              </div>                              
+                          </div>                                                    
+                      </asp:LinkButton>
+            </div>
+            <div class="col-md-2"></div>
+        </div>       
     </div>
 </asp:Content>
