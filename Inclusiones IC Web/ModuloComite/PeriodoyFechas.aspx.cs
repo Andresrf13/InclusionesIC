@@ -67,9 +67,16 @@ namespace Inclusiones_IC_Web.ModuloComite
 
                 chkActivo.Checked = _selec.activo;
                 calConsultaDesde.SelectedDate = _selec.FechaIniConsulta;
+                calConsultaDesde.VisibleDate = _selec.FechaIniConsulta;
+
                 calConsultaHasta.SelectedDate = _selec.FechaFinConsulta;
+                calConsultaHasta.VisibleDate = _selec.FechaFinConsulta;
+
                 calRecepcionDesde.SelectedDate = _selec.fechaIniInclusion;
+                calRecepcionDesde.VisibleDate = _selec.fechaIniInclusion;
+
                 calRecepcionHasta.SelectedDate = _selec.fechaFinInclusion;
+                calRecepcionHasta.VisibleDate = _selec.fechaFinInclusion;
             }
             catch (Exception e)
             {

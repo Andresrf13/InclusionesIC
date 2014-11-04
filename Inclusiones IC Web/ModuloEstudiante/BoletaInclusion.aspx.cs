@@ -75,7 +75,7 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
 
         private void cargarCursos()
         {
-            if (drpCarrera.Items.Count > 0)
+            if (drpCarrera.Items.Count > 0 && drpPlan.Items.Count > 0)
             {
                 drpCursos.Items.Clear();
                 Cursos _aux = new Cursos();
@@ -471,6 +471,8 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
                                                + "- RN: " + LabelVisualizarRN.Text + "\r\n"
                                                + "- Cumple con requisitos: " + LabelVisualizarCumpleRequisitos.Text + "\r\n"
                                                + "- Comentario: " + LabelVisualizarComentario.Text, paraFont);
+                var firma = new Paragraph("Firma de estudiante:_____________________________________ ");
+
                 newPDF.Add(titulo);
                 newPDF.Add(subtitulo);
                 newPDF.Add(subtitulo2); 
@@ -478,6 +480,7 @@ namespace Inclusiones_IC_Web.ModuloEstudiante
                 newPDF.Add(parrafo);
                 newPDF.Add(subtituloCurso);
                 newPDF.Add(parrafoCurso);
+                newPDF.Add(firma);
                 newPDF.Close();
             }
             catch (Exception e)

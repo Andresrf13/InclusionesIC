@@ -90,7 +90,7 @@ namespace Inclusiones_IC_Web.AccesoDatos
                 Conectar();
                 conexion.Open();
                 
-                SqlCommand cmd = new SqlCommand("SP_listaGrupos", conexion);
+                SqlCommand cmd = new SqlCommand("SP_listaOferta", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 DataSet _datos = new DataSet();

@@ -25,14 +25,14 @@ namespace Inclusiones_IC_Web.AccesoDatos
         }
 
 
-        public bool InsertarNota()
+        public int InsertarNota()
         {
-            bool valor = false;
+            int valor = 2;
             try
             {
                 Conectar();
                 conexion.Open();
-                SqlCommand cmd = new SqlCommand("SP_InsertarNota", conexion);
+                SqlCommand cmd = new SqlCommand("SP_InsertarNotas", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@periodo", this.periodo);
                 cmd.Parameters.AddWithValue("@numgrupo", this.numgrupo);
@@ -40,12 +40,15 @@ namespace Inclusiones_IC_Web.AccesoDatos
                 cmd.Parameters.AddWithValue("@carnet", this.carnet);
                 cmd.Parameters.AddWithValue("@nota", this.nota);
                 cmd.Parameters.AddWithValue("@estado", this.estado);
-                cmd.ExecuteNonQuery();
-                valor = true;
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    valor = int.Parse(reader[0].ToString());
+                }
             }
             catch (Exception e)
             {
-                valor = false;
+                valor = 2;
             }
             finally
             {

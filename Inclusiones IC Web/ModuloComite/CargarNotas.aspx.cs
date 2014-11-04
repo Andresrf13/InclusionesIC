@@ -91,7 +91,7 @@ namespace Inclusiones_IC_Web.ModuloComite
                     }
                     else
                     {
-                        this.AgregarFila(fila); //SE ENCARGA DE LEER LAS FILAS 
+                        if (!this.AgregarFila(fila)); //SE ENCARGA DE LEER LAS FILAS                         
                     }
                 } while (true);
 
@@ -107,8 +107,9 @@ namespace Inclusiones_IC_Web.ModuloComite
 
         }
 
-        private void AgregarFila(string fila)
+        private bool AgregarFila(string fila)
         {
+            bool resul = false;
             try
             {
                 CargarNotasDatos _nuevo = new CargarNotasDatos();
@@ -123,23 +124,28 @@ namespace Inclusiones_IC_Web.ModuloComite
                 _nuevo.nota = float.Parse(valores[7].ToString());
                 _nuevo.estado = valores[8];
 
-                if (!_nuevo.InsertarNota()) return;
-                DataRow row = _dtNotas.NewRow();
-                row["Periodo"] = periodo;               
-                row["Sede"] = valores[3];
-                row["Codigo Curso"] = valores[4];
-                row["Grupo"] = valores[5];
-                row["Carné"] = valores[6];
-                row["Nota Obtenida"] = valores[7];
-                row["Estado"] = valores[8];
-                _dtNotas.Rows.Add(row);
+                if (_nuevo.InsertarNota() == 1)
+                {
+                    DataRow row = _dtNotas.NewRow();
+                    row["Periodo"] = periodo;
+                    row["Sede"] = valores[3];
+                    row["Codigo Curso"] = valores[4];
+                    row["Grupo"] = valores[5];
+                    row["Carné"] = valores[6];
+                    row["Nota Obtenida"] = valores[7];
+                    row["Estado"] = valores[8];
+                    _dtNotas.Rows.Add(row);
+                    resul = true;
+                }               
             }
 // ReSharper disable once EmptyGeneralCatchClause
             catch
             {
-                
+                resul = false;
+                Response.Write("Error en el formato de archivo");
             }
-           
+            return resul;
+
         }
 
         private void CrearTabla(string fila)
