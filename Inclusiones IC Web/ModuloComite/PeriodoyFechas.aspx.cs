@@ -97,9 +97,16 @@ namespace Inclusiones_IC_Web.ModuloComite
                 drpPeriodo.Enabled = false;
                 chkActivo.Enabled = false;
                 calConsultaDesde.SelectedDate = DateTime.Now;
+                calConsultaDesde.VisibleDate = DateTime.Now;
+
                 calConsultaHasta.SelectedDate = DateTime.Now;
+                calConsultaHasta.VisibleDate = DateTime.Now;
+
                 calRecepcionDesde.SelectedDate = DateTime.Now;
+                calRecepcionDesde.VisibleDate = DateTime.Now;
+
                 calRecepcionHasta.SelectedDate = DateTime.Now;
+                calRecepcionHasta.VisibleDate = DateTime.Now;
             }
             else
             {

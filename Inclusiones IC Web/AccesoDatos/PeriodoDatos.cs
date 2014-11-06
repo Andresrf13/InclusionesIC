@@ -169,6 +169,31 @@ namespace Inclusiones_IC_Web.AccesoDatos
             return peri;
         }
 
+        internal DataTable PeriodoActualFechaInclusion()
+        {
+            DataTable dtProfe = null;
+            try
+            {
+                Conectar();
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_PeriodoFecha", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataSet _datos = new DataSet();
+                adapter.Fill(_datos, "Periodo");
+                dtProfe = _datos.Tables["Periodo"];
+            }
+            catch (Exception e)
+            {
+                ;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+            return dtProfe;
+        }
+
         internal bool Actualizar()
         {
             bool valor = false;

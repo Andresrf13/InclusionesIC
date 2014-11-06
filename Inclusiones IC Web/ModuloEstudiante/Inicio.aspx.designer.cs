@@ -13,6 +13,15 @@ namespace InclusionesIC_Proyecto.ModuloEstudiante {
     public partial class Inicio {
         
         /// <summary>
+        /// Control TiempoPeriodo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl TiempoPeriodo;
+        
+        /// <summary>
         /// Control ibtnSolicitar.
         /// </summary>
         /// <remarks>
@@ -20,6 +29,15 @@ namespace InclusionesIC_Proyecto.ModuloEstudiante {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton ibtnSolicitar;
+        
+        /// <summary>
+        /// Control TiempoBusqueda.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl TiempoBusqueda;
         
         /// <summary>
         /// Control ibtnBuscar.
