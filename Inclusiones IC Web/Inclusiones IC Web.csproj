@@ -123,6 +123,7 @@
     <Compile Include="AccesoDatos\CargarNotasDatos.cs" />
     <Compile Include="AccesoDatos\CarreraDatos.cs" />
     <Compile Include="AccesoDatos\EstadoInclusionesDatos.cs" />
+    <Compile Include="AccesoDatos\GraficosDatos.cs" />
     <Compile Include="AccesoDatos\GrupoNuevoDatos.cs" />
     <Compile Include="AccesoDatos\GruposDatos.cs" />
     <Compile Include="AccesoDatos\Cursos.cs" />

@@ -25,11 +25,22 @@
                                     <div class="col-sm-4"></div>
                                     <div class=" col-sm-4 text-center">
                                         <h5>Seleccione un periodo:</h5>
-                                        <asp:DropDownList ID="drpPeriodoGrafico1" CssClass="form-control" runat="server"></asp:DropDownList>
+                                        <asp:DropDownList ID="drpPeriodoGrafico1" OnSelectedIndexChanged="drpPeriodoGrafico1_OnSelectedIndexChanged" AutoPostBack="True" CssClass="form-control" runat="server"></asp:DropDownList>
                                     </div>
                                     <div class="col-sm-4"></div>
                                 </div>
-                                <div class="row"></div>
+                                <div class="row">
+                                    <div class="col-sm-12 text-center">
+                                        <asp:Chart ID="Grafico1" runat="server" Width="800" >
+                                            <Series>
+                                                <asp:Series Name="Series1"></asp:Series>
+                                            </Series>
+                                            <ChartAreas>
+                                                <asp:ChartArea  Name="ChartArea1"></asp:ChartArea>
+                                            </ChartAreas>
+                                        </asp:Chart>
+                                    </div>
+                                </div>
                             </asp:View>
                             <asp:View ID="vGrafico2" runat="server">
                                 <h2 class="text-center">Inclusiones aprobadas vs Rendimiento</h2>
@@ -37,39 +48,78 @@
                                     <div class="col-sm-3"></div>
                                     <div class="col-sm-3 text-center">
                                         <h5>Seleccione un periodo:</h5>
-                                        <asp:DropDownList ID="drpPeriodoGrafico2" CssClass="form-control" runat="server"></asp:DropDownList>
+                                        <asp:DropDownList ID="drpPeriodoGrafico2" AutoPostBack="True" OnSelectedIndexChanged="drpPeriodoGrafico2_OnSelectedIndexChanged" CssClass="form-control" runat="server"></asp:DropDownList>
                                     </div>
                                     <div class="col-sm-3 text-center">
                                         <h5>Seleccione un periodo:</h5>
-                                        <asp:DropDownList ID="drpCursoGrafico2" CssClass="form-control" runat="server"></asp:DropDownList>
+                                        <asp:DropDownList ID="drpCursoGrafico2" AutoPostBack="True" OnSelectedIndexChanged="drpPeriodoGrafico2_OnSelectedIndexChanged"  CssClass="form-control" runat="server"></asp:DropDownList>
                                     </div>
                                 <div class="col-sm-3"></div>
                                 </div>                                
+                                <div class="row">
+                                    <div class="col-sm-12 text-center">
+                                        <asp:Chart ID="Grafico2" runat="server" Width="800" >
+                                            <Series>
+                                                <asp:Series Name="Series1"></asp:Series>
+                                            </Series>
+                                            <ChartAreas>
+                                                <asp:ChartArea  Name="ChartArea1"></asp:ChartArea>
+                                            </ChartAreas>
+                                        </asp:Chart>
+                                    </div>
+                                </div>
                             </asp:View>
                             <asp:View ID="vGrafico3" runat="server">
                                 <h2 class="text-center">Inclusiones por estudiante por periodo</h2>
                                 <div class="row">
-                                    <div class="col-sm-4"></div>
-                                    <div class=" col-sm-4 text-center">
-                                        <h5>Ingrese un carné:</h5>
-                                        <asp:TextBox ID="txtCarnetGrafico3" CssClass="form-control" runat="server"></asp:TextBox>
+                                    
+                                    <div class="col-sm-3"></div>
+                                    <div class="col-sm-3">
+                                        <h5>Seleccione un periodo:</h5>
+                                        <asp:DropDownList ID="drpPeriodoGrafico3" CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="drpPeriodoGrafico3_OnSelectedIndexChanged" runat="server"></asp:DropDownList>
                                     </div>
-                                    <div class="col-sm-4"></div>
+                                    <div class=" col-sm-3 text-center">
+                                        <h5>Ingrese un carné:</h5>
+                                        <asp:TextBox ID="txtCarnetGrafico3" AutoPostBack="True" OnTextChanged="txtCarnetGrafico3_OnTextChanged" CssClass="form-control" runat="server"></asp:TextBox>
+                                    </div>
+                                    <div class="col-sm-3"></div>
+                                </div>
+                                <div class="row" style="margin: 10px;">
+                                    <div class="col-sm-2"></div>
+                                    <div class="col-sm-8">
+                                        <asp:GridView ID="Grid3"  Width="100%" CssClass="table table-responsive" runat="server" AutoGenerateColumns="False">
+                                            <Columns>
+                                                <asp:BoundField DataField="Codigo" HeaderText="Codigo" />
+                                                <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+                                                <asp:BoundField DataField="Numero" HeaderText="Numero" />
+                                                <asp:BoundField DataField="Estado" HeaderText="Estado" />
+                                            </Columns>
+                                        </asp:GridView> 
+                                    </div>
+                                    <div class="col-sm-2"></div>
                                 </div>
                             </asp:View>
                             <asp:View ID="vGrafico4" runat="server">
                                 <h2 class="text-center">Comportamiento de inclusiones para un estudiante</h2>
                                 <div class="row">
-                                    <div class="col-sm-3"></div>
-                                    <div class="col-sm-3 text-center">
-                                        <h5>Seleccione un periodo:</h5>
-                                        <asp:DropDownList ID="drpPeriodoGrafico4" CssClass="form-control" runat="server"></asp:DropDownList>
-                                    </div>
-                                    <div class="col-sm-3 text-center">
+                                    <div class="col-sm-4"></div>                                    
+                                    <div class="col-sm-4 text-center">
                                         <h5>Ingrese un carné:</h5>
-                                         <asp:TextBox ID="txtcarnetGrafico4" CssClass="form-control" runat="server"></asp:TextBox>
+                                         <asp:TextBox ID="txtcarnetGrafico4" AutoPostBack="True" OnTextChanged="txtcarnetGrafico4_OnTextChanged" CssClass="form-control" runat="server"></asp:TextBox>
                                     </div>
-                                <div class="col-sm-3"></div>
+                                <div class="col-sm-4"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12 text-center">
+                                        <asp:Chart ID="Grafico4" runat="server" Width="800" >
+                                            <Series>
+                                                <asp:Series Name="Series1"></asp:Series>
+                                            </Series>
+                                            <ChartAreas>
+                                                <asp:ChartArea  Name="ChartArea1"></asp:ChartArea>
+                                            </ChartAreas>
+                                        </asp:Chart>
+                                    </div>
                                 </div>
                             </asp:View>
                         </asp:MultiView>

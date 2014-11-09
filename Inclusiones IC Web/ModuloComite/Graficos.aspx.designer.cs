@@ -85,6 +85,15 @@ namespace Inclusiones_IC_Web.ModuloComite {
         protected global::System.Web.UI.WebControls.DropDownList drpPeriodoGrafico1;
         
         /// <summary>
+        /// Control Grafico1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.DataVisualization.Charting.Chart Grafico1;
+        
+        /// <summary>
         /// Control vGrafico2.
         /// </summary>
         /// <remarks>
@@ -112,6 +121,15 @@ namespace Inclusiones_IC_Web.ModuloComite {
         protected global::System.Web.UI.WebControls.DropDownList drpCursoGrafico2;
         
         /// <summary>
+        /// Control Grafico2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.DataVisualization.Charting.Chart Grafico2;
+        
+        /// <summary>
         /// Control vGrafico3.
         /// </summary>
         /// <remarks>
@@ -119,6 +137,15 @@ namespace Inclusiones_IC_Web.ModuloComite {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.View vGrafico3;
+        
+        /// <summary>
+        /// Control drpPeriodoGrafico3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList drpPeriodoGrafico3;
         
         /// <summary>
         /// Control txtCarnetGrafico3.
@@ -130,6 +157,15 @@ namespace Inclusiones_IC_Web.ModuloComite {
         protected global::System.Web.UI.WebControls.TextBox txtCarnetGrafico3;
         
         /// <summary>
+        /// Control Grid3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView Grid3;
+        
+        /// <summary>
         /// Control vGrafico4.
         /// </summary>
         /// <remarks>
@@ -139,15 +175,6 @@ namespace Inclusiones_IC_Web.ModuloComite {
         protected global::System.Web.UI.WebControls.View vGrafico4;
         
         /// <summary>
-        /// Control drpPeriodoGrafico4.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drpPeriodoGrafico4;
-        
-        /// <summary>
         /// Control txtcarnetGrafico4.
         /// </summary>
         /// <remarks>
@@ -155,5 +182,14 @@ namespace Inclusiones_IC_Web.ModuloComite {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtcarnetGrafico4;
+        
+        /// <summary>
+        /// Control Grafico4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.DataVisualization.Charting.Chart Grafico4;
     }
 }
